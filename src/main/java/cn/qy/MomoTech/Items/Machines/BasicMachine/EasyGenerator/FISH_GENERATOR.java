@@ -12,11 +12,10 @@ public class FISH_GENERATOR extends AbstractEasyGeneratorGUI {
     public FISH_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=RandomizedItemStack.fromMaterial(Material.COD, Material.SALMON, Material.PUFFERFISH, Material.TROPICAL_FISH);
     @Override
     public ItemStack getOut() {
-        Material[] list = {Material.COD, Material.SALMON, Material.PUFFERFISH, Material.TROPICAL_FISH};
-        return new ItemStack(list[Maths.GetRandom(3)], 1);
+        return output;
     }
 
     @NotNull

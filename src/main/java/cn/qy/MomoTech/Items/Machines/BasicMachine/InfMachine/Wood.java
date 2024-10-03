@@ -81,36 +81,35 @@ public class Wood extends AbstractElectricGUI implements RecipeDisplayItem {
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         if (inv.getItemInSlot(0) == null) return false;
-        ItemStack it = inv.getItemInSlot(0).clone();
-        it.setAmount(1);
-        if (it.equals(new ItemStack(Material.OAK_SAPLING))) {
+        ItemStack it = inv.getItemInSlot(0);
+        if (((it.getType()==Material.OAK_SAPLING))) {
             pushIt(new Material[]{Material.OAK_LEAVES, Material.OAK_LOG, Material.OAK_SAPLING, Material.APPLE, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.DARK_OAK_SAPLING))) {
+        } else if (((it.getType()==Material.DARK_OAK_SAPLING))) {
             pushIt(new Material[]{Material.DARK_OAK_LEAVES, Material.DARK_OAK_LOG, Material.DARK_OAK_SAPLING, Material.APPLE, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.SPRUCE_SAPLING))) {
+        } else if (((it.getType()==Material.SPRUCE_SAPLING))) {
             pushIt(new Material[]{Material.SPRUCE_LEAVES, Material.SPRUCE_LOG, Material.SPRUCE_SAPLING, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.CHERRY_SAPLING))) {
+        } else if (((it.getType()==Material.CHERRY_SAPLING))) {
             pushIt(new Material[]{Material.CHERRY_LEAVES, Material.CHERRY_LOG, Material.CHERRY_SAPLING, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.ACACIA_SAPLING))) {
+        } else if (((it.getType()==Material.ACACIA_SAPLING))) {
             pushIt(new Material[]{Material.ACACIA_LEAVES, Material.ACACIA_LOG, Material.ACACIA_SAPLING, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.MANGROVE_PROPAGULE))) {
+        } else if (((it.getType()==Material.MANGROVE_PROPAGULE))) {
             pushIt(new Material[]{Material.MANGROVE_LEAVES, Material.MANGROVE_LOG, Material.MANGROVE_PROPAGULE, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.JUNGLE_SAPLING))) {
+        } else if (((it.getType()==Material.JUNGLE_SAPLING))) {
             pushIt(new Material[]{Material.JUNGLE_LEAVES, Material.JUNGLE_LOG, Material.JUNGLE_SAPLING, Material.COCOA_BEANS, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.BIRCH_SAPLING))) {
+        } else if (((it.getType()==Material.BIRCH_SAPLING))) {
             pushIt(new Material[]{Material.BIRCH_LEAVES, Material.BIRCH_LOG, Material.BIRCH_SAPLING, Material.APPLE, Material.STICK}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.WARPED_FUNGUS))) {
+        } else if (((it.getType()==Material.WARPED_FUNGUS))) {
             pushIt(new Material[]{Material.WARPED_STEM, Material.WARPED_WART_BLOCK, Material.WARPED_HYPHAE, Material.SHROOMLIGHT}, inv);
             return true;
-        } else if (it.equals(new ItemStack(Material.CRIMSON_FUNGUS))) {
+        } else if (((it.getType()==Material.CRIMSON_FUNGUS))) {
             pushIt(new Material[]{Material.CRIMSON_STEM, Material.NETHER_WART_BLOCK, Material.CRIMSON_HYPHAE, Material.SHROOMLIGHT}, inv);
             return true;
         }

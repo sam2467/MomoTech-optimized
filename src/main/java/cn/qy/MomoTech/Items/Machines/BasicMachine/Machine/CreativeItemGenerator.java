@@ -60,10 +60,11 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
         for (int i : getInputSlots()) if (inv.getItemInSlot(i) == null) return;
         if (Utils.checkOutput(inv, getOutputSlots())) return;
         ItemStack check;
+        boolean is0=false;
         if (inv.getItemInSlot(0).getAmount() > inv.getItemInSlot(1).getAmount())
-            check = MomotechItem.creative_item.clone();
+            is0= false;
         else if (inv.getItemInSlot(0).getAmount() < inv.getItemInSlot(1).getAmount())
-            check = MomotechItem.creative_item_I.clone();
+            is0 = true;
         else {
             for (int k : getInputSlots())
                 inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
@@ -71,8 +72,8 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
         }
         for (int i = 0; i <= 26; i += 9) {
             for (int j = i + 1; j <= i + 8; j++) {
-                if ((inv.getItemInSlot(j).getAmount() > inv.getItemInSlot(j - 1).getAmount() && SlimefunUtils.isItemSimilar(check, MomotechItem.creative_item, true, false))
-                        || (inv.getItemInSlot(j).getAmount() < inv.getItemInSlot(j - 1).getAmount() && SlimefunUtils.isItemSimilar(check, MomotechItem.creative_item_I, true, false))
+                if (( !is0&&inv.getItemInSlot(j).getAmount() > inv.getItemInSlot(j - 1).getAmount() )
+                        || (is0&&inv.getItemInSlot(j).getAmount() < inv.getItemInSlot(j - 1).getAmount())
                         || inv.getItemInSlot(j).getAmount() == inv.getItemInSlot(j - 1).getAmount()) {
                     for (int k : getInputSlots())
                         inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
@@ -82,7 +83,7 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
         }
         for (int k : getInputSlots())
             inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
-        inv.pushItem(check.clone(), getOutputSlots());
+        inv.pushItem(is0?MomotechItem.creative_item.clone():MomotechItem.creative_item_I.clone(), getOutputSlots());
     }
 
     @NotNull

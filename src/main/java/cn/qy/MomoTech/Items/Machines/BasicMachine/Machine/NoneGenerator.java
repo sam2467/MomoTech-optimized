@@ -60,13 +60,15 @@ public class NoneGenerator extends AbstractGUI implements RecipeDisplayItem {
             if (inv.getItemInSlot(i) == null)
                 return;
         }
-        for (int i : getInputSlots()) {
-            for (int j : getInputSlots()) {
-                if (i == j) continue;
-                ItemStack it = inv.getItemInSlot(i).clone(), it1 = inv.getItemInSlot(j).clone();
-                it.setAmount(1);
-                it1.setAmount(1);
-                if (it.isSimilar(it1) || inv.getItemInSlot(i).getAmount() == inv.getItemInSlot(j).getAmount()) {
+        int[] inputSlots=getInputSlots();
+
+        for (int i_=0;i_<inputSlots.length;i_++) {
+            for (int j_ =i_+1;j_<inputSlots.length;j_++) {
+                int i=inputSlots[i_];
+                int j=inputSlots[j_];
+                ItemStack it = inv.getItemInSlot(i), it1 = inv.getItemInSlot(j);
+
+                if (it.isSimilar(it1) || it.getAmount() ==it1.getAmount()) {
                     for (int k : getInputSlots()) {
                         inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
                     }

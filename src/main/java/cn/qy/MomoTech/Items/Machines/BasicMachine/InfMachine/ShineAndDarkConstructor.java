@@ -68,10 +68,9 @@ public class ShineAndDarkConstructor extends AbstractElectricGUI implements Reci
         if (Utils.checkOutput(inv, getOutputSlots())) return false;
         for (int i : getInputSlots()) {
             if (inv.getItemInSlot(i) == null) continue;
-            ItemStack it = inv.getItemInSlot(i).clone();
-            it.setAmount(1);
-            if (it.equals(new ItemStack(Material.NETHERITE_PICKAXE))) {
-                inv.toInventory().setItem(i, null);
+            ItemStack it = inv.getItemInSlot(i);
+            if (it.getType()==Material.NETHERITE_PICKAXE&&!it.hasItemMeta()) {
+                inv.replaceExistingItem(i, null,false);
                 int k = inv.getLocation().getBlockY();
                 if (Maths.GetRandom(100) == 0) {
                     if (k < 0) {

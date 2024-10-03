@@ -57,13 +57,13 @@ public class UncontrollableEmptyGenerator extends AbstractGUI implements RecipeD
     public int[] getOutputSlots() {
         return new int[]{1, 2, 3, 4, 5, 6, 7};
     }
-
+    protected final ItemStack OUTPUT=new CustomItemStack(MomotechItem.uncontrollable_empty, 48);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (Utils.checkOutput(inv, getOutputSlots())) return;
         for (int i : getOutputSlots()) {
             if (inv.getItemInSlot(i) == null) {
-                inv.toInventory().setItem(i, new SlimefunItemStack(MomotechItem.uncontrollable_empty, 48));
+                inv.replaceExistingItem(i,OUTPUT,false);
                 return;
             }
         }
@@ -74,7 +74,7 @@ public class UncontrollableEmptyGenerator extends AbstractGUI implements RecipeD
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(8);
         it.add(new CustomItemStack(Material.BOOK, "&f每 1tick 生成一次", "&7一次生成48个不可控空"));
-        it.add(new SlimefunItemStack(MomotechItem.uncontrollable_empty, 48));
+        it.add(OUTPUT);
         return it;
     }
 }

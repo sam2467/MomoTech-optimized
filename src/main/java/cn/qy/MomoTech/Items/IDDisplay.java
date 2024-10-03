@@ -13,18 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IDDisplay extends SlimefunItem implements RecipeDisplayItem {
-    List<SlimefunItem> list = Slimefun.getRegistry().getEnabledSlimefunItems();
-    List<ItemStack> ans = new ArrayList<>(list.size());
+    List<ItemStack> ans = new ArrayList<>();
     public IDDisplay(ItemGroup itemGroup, ItemStack item, String id, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, id, recipeType, recipe);
-        for (SlimefunItem slimefunItem : list) {
-            ans.add(new CustomItemStack(slimefunItem.getItem(), slimefunItem.getItemName(), "&f&lID: " + slimefunItem.getId()));
-        }
     }
 
     @NotNull
     @Override
     public List<ItemStack> getDisplayRecipes() {
+        if(ans.isEmpty()){
+            List<SlimefunItem> list=Slimefun.getRegistry().getEnabledSlimefunItems();
+            for (SlimefunItem slimefunItem : list) {
+                ans.add(new CustomItemStack(slimefunItem.getItem(), slimefunItem.getItemName(), "&f&lID: " + slimefunItem.getId()));
+            }
+        }
         return ans;
     }
 }

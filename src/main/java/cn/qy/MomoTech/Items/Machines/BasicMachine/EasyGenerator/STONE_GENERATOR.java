@@ -12,12 +12,12 @@ public class STONE_GENERATOR extends AbstractEasyGeneratorGUI {
     public STONE_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=RandomizedItemStack.fromMaterial(8,Material.STONE, Material.COBBLESTONE, Material.GRANITE, Material.DIORITE, Material.COBBLED_DEEPSLATE, Material.ANDESITE);
     @Override
     public ItemStack getOut() {
-        Material[] list = {Material.STONE, Material.COBBLESTONE, Material.GRANITE, Material.DIORITE, Material.COBBLED_DEEPSLATE, Material.ANDESITE};
-        return new ItemStack(list[Maths.GetRandom(5)], 8);
+        return output;
     }
+
 
     @NotNull
     @Override

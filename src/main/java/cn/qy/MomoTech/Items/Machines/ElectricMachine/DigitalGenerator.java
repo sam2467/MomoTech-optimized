@@ -2,6 +2,7 @@ package cn.qy.MomoTech.Items.Machines.ElectricMachine;
 
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.MomoTech;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
@@ -22,6 +23,7 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
 
 public class DigitalGenerator extends AbstractElectricGUI implements EnergyNetComponent, RecipeDisplayItem {
 
@@ -67,15 +69,22 @@ public class DigitalGenerator extends AbstractElectricGUI implements EnergyNetCo
 
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        inv.toInventory().setItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + this.getCharge(inv.getLocation()) + " J"));
+        int charge=this.getCharge(inv.getLocation());
+        if(inv.hasViewer()){
+            inv.replaceExistingItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + charge + " J"));
+        }
         for (int i : getInputSlots()) {
             if (inv.getItemInSlot(i) != null) {
                 if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), MomotechItem.digital(0), false, false)) {
-                    String str = Objects.requireNonNull(inv.getItemInSlot(i).getLore()).get(0);
-                    int j = (int) Double.parseDouble(str.substring(str.indexOf('f') + 1));
-                    if (this.getCharge(inv.getLocation()) + j <= 0) return false;
-                    this.setCharge(inv.getLocation(), this.getCharge(inv.getLocation()) + j);
-                    inv.consumeItem(i, 1);
+                    try{
+                        String str = Objects.requireNonNull(inv.getItemInSlot(i).getLore()).get(0);
+                        int j = (int) Double.parseDouble(str.substring(str.indexOf('f') + 1));
+                        if (charge + j <= 0) return false;
+                        this.setCharge(inv.getLocation(), charge + j);
+                        inv.consumeItem(i, 1);
+                    }catch(Throwable e){
+                        MomoTech.getInstance().getLogger().log(Level.SEVERE,e.getMessage());
+                    }
                     return false;
                 }
             }

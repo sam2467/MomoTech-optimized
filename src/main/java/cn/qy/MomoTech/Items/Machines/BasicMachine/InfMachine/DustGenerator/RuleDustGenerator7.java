@@ -11,9 +11,10 @@ public class RuleDustGenerator7 extends RuleDustGenerator {
     public RuleDustGenerator7(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=new SlimefunItemStack(SlimefunItems.TIN_DUST ,64);
     @Override
     protected ItemStack getItems() {
-        return new SlimefunItemStack(SlimefunItems.TIN_DUST, 64);
+        return output;
     }
+
 }

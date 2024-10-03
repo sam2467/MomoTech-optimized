@@ -12,12 +12,12 @@ public class SEA_ITEM_GENERATOR extends AbstractEasyGeneratorGUI {
     public SEA_ITEM_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=RandomizedItemStack.fromMaterial(8,Material.SEA_LANTERN, Material.DARK_PRISMARINE, Material.PRISMARINE, Material.PRISMARINE_CRYSTALS, Material.PRISMARINE_SHARD);
     @Override
     public ItemStack getOut() {
-        Material[] it = {Material.SEA_LANTERN, Material.DARK_PRISMARINE, Material.PRISMARINE, Material.PRISMARINE_CRYSTALS, Material.PRISMARINE_SHARD};
-        return new ItemStack(it[Maths.GetRandom(4)], 8);
+        return output;
     }
+
 
     @NotNull
     @Override

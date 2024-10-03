@@ -1,5 +1,6 @@
 package cn.qy.MomoTech.GUI;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -171,7 +172,7 @@ public abstract class AbstractElectricGUI extends SlimefunItem implements Invent
 
     public void preRegister() {
         this.addItemHandler(new BlockTicker() {
-            public void tick(Block b, SlimefunItem sf, Config data) {
+            public void tick(Block b, SlimefunItem sf, SlimefunBlockData data) {
                 AbstractElectricGUI.this.tick(b);
             }
 

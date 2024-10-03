@@ -96,105 +96,104 @@ public class Plant extends AbstractElectricGUI implements RecipeDisplayItem {
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         if (inv.getItemInSlot(0) == null) return false;
-        ItemStack it = inv.getItemInSlot(0).clone();
-        it.setAmount(1);
-        if (it.equals(new ItemStack(Material.POTATO))) {
+        ItemStack it = inv.getItemInSlot(0);
+        if (it.getType()==Material.POTATO) {
             pushIt(new Material[]{Material.POTATO, Material.POISONOUS_POTATO}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.CARROT))) {
+        else if (((it.getType()==Material.CARROT))) {
             pushIt(new Material[]{Material.CARROT}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.PUMPKIN_SEEDS))) {
+        else if (((it.getType()==Material.PUMPKIN_SEEDS))) {
             pushIt(new Material[]{Material.PUMPKIN, Material.PUMPKIN_SEEDS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.MELON_SEEDS))) {
+        else if (((it.getType()==Material.MELON_SEEDS))) {
             pushIt(new Material[]{Material.MELON, Material.MELON_SEEDS, Material.MELON_SLICE}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.BEETROOT_SEEDS))) {
+        else if (((it.getType()==Material.BEETROOT_SEEDS))) {
             pushIt(new Material[]{Material.BEETROOT, Material.BEETROOT_SEEDS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.WHEAT_SEEDS))) {
+        else if (((it.getType()==Material.WHEAT_SEEDS))) {
             pushIt(new Material[]{Material.WHEAT, Material.WHEAT_SEEDS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.BROWN_MUSHROOM))) {
+        else if (((it.getType()==Material.BROWN_MUSHROOM))) {
             pushIt(new Material[]{Material.BROWN_MUSHROOM, Material.BROWN_MUSHROOM_BLOCK, Material.MUSHROOM_STEM}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.RED_MUSHROOM))) {
+        else if (((it.getType()==Material.RED_MUSHROOM))) {
             pushIt(new Material[]{Material.RED_MUSHROOM_BLOCK, Material.RED_MUSHROOM, Material.MUSHROOM_STEM}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.BAMBOO))) {
+        else if (((it.getType()==Material.BAMBOO))) {
             pushIt(new Material[]{Material.BAMBOO}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.DEAD_BUSH))) {
+        else if (((it.getType()==Material.DEAD_BUSH))) {
             pushIt(new Material[]{Material.DEAD_BUSH, Material.STICK}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.COCOA_BEANS))) {
+        else if (((it.getType()==Material.COCOA_BEANS))) {
             pushIt(new Material[]{Material.COCOA_BEANS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.SUGAR_CANE))) {
+        else if (((it.getType()==Material.SUGAR_CANE))) {
             pushIt(new Material[]{Material.SUGAR_CANE}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.CACTUS))) {
+        else if (((it.getType()==Material.CACTUS))) {
             pushIt(new Material[]{Material.CACTUS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.NETHER_WART))) {
+        else if (((it.getType()==Material.NETHER_WART))) {
             pushIt(new Material[]{Material.NETHER_WART}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.WITHER_ROSE))) {
+        else if (((it.getType()==Material.WITHER_ROSE))) {
             pushIt(new Material[]{Material.WITHER_ROSE}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.TORCHFLOWER_SEEDS))) {
+        else if (((it.getType()==Material.TORCHFLOWER_SEEDS))) {
             pushIt(new Material[]{Material.TORCHFLOWER, Material.TORCHFLOWER_SEEDS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.LILY_PAD))) {
+        else if (((it.getType()==Material.LILY_PAD))) {
             pushIt(new Material[]{Material.LILY_PAD}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.VINE))) {
+        else if (((it.getType()==Material.VINE))) {
             pushIt(new Material[]{Material.VINE}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.GLOW_LICHEN))) {
+        else if (((it.getType()==Material.GLOW_LICHEN))) {
             pushIt(new Material[]{Material.GLOW_LICHEN}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.GRASS))) {
+        else if (((it.getType()==Material.GRASS))) {
             pushIt(new Material[]{Material.GRASS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.SWEET_BERRIES))) {
+        else if (((it.getType()==Material.SWEET_BERRIES))) {
             pushIt(new Material[]{Material.SWEET_BERRIES}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.GLOW_BERRIES))) {
+        else if (((it.getType()==Material.GLOW_BERRIES))) {
             pushIt(new Material[]{Material.GLOW_BERRIES}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.SEAGRASS))) {
+        else if (((it.getType()==Material.SEAGRASS))) {
             pushIt(new Material[]{Material.SEAGRASS}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.KELP))) {
+        else if (((it.getType()==Material.KELP))) {
             pushIt(new Material[]{Material.KELP}, inv);
             return true;
         }
-        if (it.equals(new ItemStack(Material.SEA_PICKLE))) {
+        else if (((it.getType()==Material.SEA_PICKLE))) {
             pushIt(new Material[]{Material.SEA_PICKLE}, inv);
             return true;
         }

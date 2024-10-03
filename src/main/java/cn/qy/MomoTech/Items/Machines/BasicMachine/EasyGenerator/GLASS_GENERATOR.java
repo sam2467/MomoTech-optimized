@@ -11,11 +11,12 @@ public class GLASS_GENERATOR extends AbstractEasyGeneratorGUI {
     public GLASS_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=new ItemStack(Material.GLASS, 8);
     @Override
     public ItemStack getOut() {
-        return new ItemStack(Material.GLASS, 8);
+        return output;
     }
+
 
     @NotNull
     @Override

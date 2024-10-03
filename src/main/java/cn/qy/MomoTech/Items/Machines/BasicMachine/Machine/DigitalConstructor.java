@@ -1,5 +1,6 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.Machine;
 
+import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
@@ -63,17 +64,21 @@ public class DigitalConstructor extends AbstractElectricGUI implements RecipeDis
     public int[] getOutputSlots() {
         return new int[]{36, 37, 38, 39, 40, 41, 42, 43, 44};
     }
-
+    ItemStack digitals=new  AbstractEasyGeneratorGUI.RandomizedItemStack(new ArrayList<ItemStack>(){{
+        for(int i=0;i<=10;++i){
+            add(MomotechItem.digital(i));
+        }
+    }}.stream().toArray(ItemStack[]::new));
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        ItemStack it = MomotechItem.digital(Maths.GetRandom(10));
+        //ItemStack it = MomotechItem.digital(Maths.GetRandom(10));
         if (Utils.checkOutput(inv, getOutputSlots())) return false;
         for (int i : this.getInputSlots())
             if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), Items.MOMOTECH_EMPTY_SHELL, true, false)) {
                 for (int j : getOutputSlots()) {
                     if (inv.getItemInSlot(j) == null) {
                         inv.consumeItem(i, 1);
-                        inv.toInventory().setItem(j, it.clone());
+                        inv.replaceExistingItem(j, digitals.clone());
                         return true;
                     }
                 }

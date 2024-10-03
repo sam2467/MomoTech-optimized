@@ -11,11 +11,12 @@ public class ICE_GENERATOR extends AbstractEasyGeneratorGUI {
     public ICE_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=new ItemStack(Material.ICE, 1);
     @Override
     public ItemStack getOut() {
-        return new ItemStack(Material.ICE, 1);
+        return output;
     }
+
 
     @NotNull
     @Override

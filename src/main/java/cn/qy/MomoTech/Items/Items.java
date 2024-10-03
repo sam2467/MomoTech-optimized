@@ -241,7 +241,7 @@ public class Items {
     public static final ItemStack MOMOTECH_RANDOM_QUANTUM_GENERATOR = new CustomItemStack(Material.GRAY_WOOL, c("§#e4e2cd随§#ddead0机§#d7f3d3量§#d4f7d8子§#d5f8de发§#d6f9e5生§#d6fbeb器"));
     public static final ItemStack MOMOTECH_ENERGY_QUANTUM_GENERATOR = new CustomItemStack(Material.WHITE_WOOL, c("§#d7fcf2量§#d7fef8子§#d8fffe充§#ddffff能§#e3ffff器"), "§8⇨ §e⚡ &7500,000 J/t");
     public static final ItemStack MOMOTECH_FINAL_INGOT_GENERATOR = new CustomItemStack(Material.GRAY_CONCRETE, c("§#e9ffff终§#efffff焉§#f5ffff铸§#fbffff锭§#fffbfd机"), "&7效率:INFINITY");
-    public static final ItemStack MOMOTECH_FINAL_GENERATOR = new CustomItemStack(Material.EMERALD_BLOCK, c("§#ffa7d8终§#ff97d0焉§#ff92bb发§#ff969c电§#ff9a7d机"), "§8⇨ §e⚡ &71,000,000,000 J/t");
+    public static final ItemStack MOMOTECH_FINAL_GENERATOR = new CustomItemStack(Material.EMERALD_BLOCK, c("§#ffa7d8终§#ff97d0焉§#ff92bb发§#ff969c电§#ff9a7d机"), "§8⇨ §e⚡ &7800,000,000 J/t");
     public static final ItemStack MOMOTECH_FINAL_CAPITAL = new CustomItemStack(Material.YELLOW_STAINED_GLASS, c("§#ffeaf6终§#ffd9ee焉§#ffc9e7电§#ffb8df容"), "&7不建议你在一个能源网络中同时使用两个", "&7可储存 §8⇨ §e⚡ &72,000,000,000 J");
     public static final ItemStack MOMOTECH_FINAL_ELECTRIC_EATER = new CustomItemStack(Material.BLUE_STAINED_GLASS, c("§#ff9e5e宇§#ffa23f宙§#ffa621吃§#ffaa02电§#f6b40a机"), "&7利用宇宙能量吃电...", "§8⇨ §e⚡ &72,000,000,000 J/t");
     public static final ItemStack MOMOTECH_ITEM_FIXER = new CustomItemStack(Material.ORANGE_CONCRETE_POWDER, c("§#ebbf15物§#e1ca1f品§#d7d52a重§#cddf35置§#c3ea3f器"), "&7重置粘液物品");
@@ -264,6 +264,7 @@ public class Items {
     public static final ItemStack MOMOTECH_SAND_CHANGER = new CustomItemStack(Material.RED_SANDSTONE, c("§#8a79ba光§#62539b速§#8a8bba打§#b3c4da磨§#dbfcf9器"), "&7效率:INFINITY");
     public static final ItemStack MOMOTECH_FINAL_ENERGY_GENERATOR = new CustomItemStack(Material.REDSTONE_LAMP, c("§#55ff55宇§#55ff6e宙§#55ff87超§#55ffa1级§#55ffba无§#55ffd3敌§#55ffec神§#5bfcf6秘§#74efd0史§#8ee3aa诗§#a7d684永§#c0c95e恒§#d9bd39无§#f2b013限§#ffa90c充§#ffa824能§#ffa73c循§#ffa654环§#ffa56c过§#ffa384载§#ffa29c能§#f7ac9f量§#ecb99b生§#e0c797成§#d5d494单§#cae190元§#bfef8cζ§#b4fc88型"), c("§#ffaa00§o无§#fca634§o穷§#f8a169§o无§#f59d9d§o尽§#f7bdac§o的§#fadcbb§o宇§#fcfcca§o宙§#d9ec92§o能§#b6db5b§o量§#93cb23§o…"), "§8⇨ §e⚡ &7999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999^0 J/t");
     public static final ItemStack MOMOTECH_SPECIAL_THINGS_CONSTRUCTOR = new CustomItemStack(Material.GLASS, "&f特制压缩机", "§8⇨ §e⚡ &7200 J/t");
+    public static final ItemStack MOMOTECH_MATL114=new CustomItemStack(SlimefunUtils.getCustomHead("58d9d8a7927fb859a313fb0068f1d368c9dee7d0adacbbd35ffa4d998ff88deb"),c("§#eb33ebM§#dd2bdda§#cf22cft§#c11ac1l§#b311b31§#a509a51§#9700974"),"&7该版本的MomoTech为优化和修改后的版本","&7修改内容并不会影响玩家正常游玩","&7若出现机器问题请找Matl114 Q:2169419217");
     public static final ItemGroup MOMOTECH_ITEM;
     public static final ItemGroup MOMOTECH_FINAL;
     public static final ItemGroup MOMOTECH;

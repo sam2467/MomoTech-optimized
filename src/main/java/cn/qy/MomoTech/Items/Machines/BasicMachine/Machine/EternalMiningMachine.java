@@ -62,7 +62,7 @@ public class EternalMiningMachine extends AbstractProcessMachine implements Reci
     public int[] getOutputSlots() {
         return new int[]{16};
     }
-
+    public SlimefunItemStack item_forever=new SlimefunItemStack("MOMOTECH_FOREVER", Items.MOMOTECH_FOREVER);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(10), MomotechItem.empty_shell, false, false)) {
@@ -72,7 +72,7 @@ public class EternalMiningMachine extends AbstractProcessMachine implements Reci
             }
             if (checkProcessEnd(inv)) {
                 setMaxProcess(getMaxProcess(inv) + (int) (getMaxProcess(inv) / 10.00), inv);
-                inv.pushItem(new SlimefunItemStack("MOMOTECH_FOREVER", Items.MOMOTECH_FOREVER), getOutputSlots());
+                inv.pushItem( item_forever.clone(), getOutputSlots());
             }
         }
     }

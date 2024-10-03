@@ -11,10 +11,9 @@ public class DIAMOND_PICKAXE_GENERATOR extends AbstractEasyGeneratorGUI {
     public DIAMOND_PICKAXE_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
-    @Override
+    ItemStack output=new ItemStack(Material.DIAMOND_PICKAXE, 8);
     public ItemStack getOut() {
-        return new ItemStack(Material.DIAMOND_PICKAXE, 8);
+        return output;
     }
 
     @NotNull

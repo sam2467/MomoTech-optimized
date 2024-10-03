@@ -12,11 +12,10 @@ public class FROG_LIGHT_GENERATOR extends AbstractEasyGeneratorGUI {
     public FROG_LIGHT_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=RandomizedItemStack.fromMaterial(4,Material.OCHRE_FROGLIGHT, Material.PEARLESCENT_FROGLIGHT, Material.VERDANT_FROGLIGHT);
     @Override
     public ItemStack getOut() {
-        Material[] list = {Material.OCHRE_FROGLIGHT, Material.PEARLESCENT_FROGLIGHT, Material.VERDANT_FROGLIGHT};
-        return new ItemStack(list[Maths.GetRandom(2)], 4);
+        return output;
     }
 
     @NotNull

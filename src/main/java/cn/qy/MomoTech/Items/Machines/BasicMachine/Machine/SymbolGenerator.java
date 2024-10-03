@@ -86,7 +86,7 @@ public class SymbolGenerator extends AbstractElectricGUI implements RecipeDispla
                     if (inv.getItemInSlot(j) == null) {
                         inv.consumeItem(i, 1);
                         if (it != null) {
-                            inv.toInventory().setItem(j, it.clone());
+                            inv.replaceExistingItem(j, it);
                         }
                         return true;
                     }

@@ -96,7 +96,7 @@ public class MomotechItem {
     public static final SlimefunItemStack infinity = new SlimefunItemStack("MOMOTECH_INFINITY", Items.MOMOTECH_INFINITY);
     public static final SlimefunItemStack mineral__ = new SlimefunItemStack("MOMOTECH_MINERAL_", Items.MOMOTECH_MINERAL_);
     public static final SlimefunItemStack metal__ = new SlimefunItemStack("MOMOTECH_METAL_", Items.MOMOTECH_METAL_);
-
+    public static final SlimefunItemStack MATL114=new SlimefunItemStack("MOMOTECH_MATL114", Items.MOMOTECH_MATL114);
     static {
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 3; ++j) {

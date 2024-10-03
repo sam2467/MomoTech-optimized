@@ -1,5 +1,6 @@
 package cn.qy.MomoTech.GUI;
 
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -29,7 +30,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+//TODO fix this piece of shit
 public abstract class AbstractProcessMachine extends SlimefunItem implements InventoryBlock, MachineProcessHolder<CraftingOperation> {
 
     private final MachineProcessor<CraftingOperation> processor = new MachineProcessor<>(this);
@@ -156,10 +157,11 @@ public abstract class AbstractProcessMachine extends SlimefunItem implements Inv
     }
 
     public void addProcess(BlockMenu blockMenu, int k) {
+
         ItemStack it = blockMenu.getItemInSlot(getProcessBarSlots());
         String str = Objects.requireNonNull(it.getLore()).get(0);
         int now = Integer.parseInt(str.substring(str.indexOf('f') + 1, str.indexOf('/'))) + k;
-        blockMenu.toInventory().setItem(getProcessBarSlots(), new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f" + now + "/" + getMaxProcess(blockMenu)));
+        blockMenu.replaceExistingItem(getProcessBarSlots(), new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f" + now + "/" + getMaxProcess(blockMenu)));
     }
 
     public boolean checkProcessEnd(BlockMenu blockMenu) {
@@ -189,7 +191,7 @@ public abstract class AbstractProcessMachine extends SlimefunItem implements Inv
 
     public void preRegister() {
         this.addItemHandler(new BlockTicker() {
-            public void tick(Block b, SlimefunItem sf, Config data) {
+            public void tick(Block b, SlimefunItem sf, SlimefunBlockData data) {
                 cn.qy.MomoTech.GUI.AbstractProcessMachine.this.tick(b);
             }
 

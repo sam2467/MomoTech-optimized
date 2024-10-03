@@ -67,9 +67,9 @@ public class UGenerator extends AbstractElectricGUI implements RecipeDisplayItem
         if (Utils.checkOutput(inv, getOutputSlots())) return false;
         for (int i : getInputSlots()) {
             if (inv.getItemInSlot(i) != null) {
-                ItemStack it = inv.getItemInSlot(i).clone();
-                it.setAmount(1);
-                if (Objects.equals(it, new ItemStack(Material.COBBLESTONE))) {
+                ItemStack it = inv.getItemInSlot(i);
+
+                if (it.getType()==Material.COBBLESTONE&&!it.hasItemMeta()) {
                     inv.consumeItem(i, 1);
                     inv.pushItem(new SlimefunItemStack(SlimefunItems.URANIUM, 64), getOutputSlots());
                     return true;

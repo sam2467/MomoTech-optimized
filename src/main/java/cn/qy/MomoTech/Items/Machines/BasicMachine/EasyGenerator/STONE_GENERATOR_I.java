@@ -11,10 +11,10 @@ public class STONE_GENERATOR_I extends AbstractEasyGeneratorGUI {
     public STONE_GENERATOR_I(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output= new ItemStack(Material.COBBLESTONE, 8);
     @Override
     public ItemStack getOut() {
-        return new ItemStack(Material.COBBLESTONE, 8);
+        return output;
     }
 
     @NotNull

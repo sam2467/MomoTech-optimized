@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class FastGeo extends AbstractElectricGUI implements RecipeDisplayItem {
@@ -64,26 +65,30 @@ public class FastGeo extends AbstractElectricGUI implements RecipeDisplayItem {
     public int[] getOutputSlots() {
         return new int[]{18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
     }
-
+    List<ItemStack> GEOResources=new ArrayList<>();
+    public List<ItemStack> getGeoResources() {
+        if(GEOResources==null||GEOResources.isEmpty()){
+            for (GEOResource resource : Slimefun.getRegistry().getGEOResources().values()) {
+                if (resource.isObtainableFromGEOMiner()) {
+                    GEOResources.add(resource.getItem());
+                }
+            }
+        }
+        return GEOResources;
+    }
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         if (Utils.checkOutput(inv, getOutputSlots())) return false;
         for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) != null) {
-                ItemStack it = inv.getItemInSlot(i).clone();
-                if (it.equals(new ItemStack(Material.NETHERITE_PICKAXE, it.getAmount()))) {
-                    ArrayList<ItemStack> item = new ArrayList<>();
-                    for (GEOResource resource : Slimefun.getRegistry().getGEOResources().values()) {
-                        if (resource.isObtainableFromGEOMiner()) {
-                            item.add(resource.getItem().clone());
-                        }
-                    }
-
+            ItemStack it = inv.getItemInSlot(i);
+            if (it != null) {
+                if (it.getType()==Material.NETHERITE_PICKAXE&&!it.hasItemMeta()) {
+                    List<ItemStack> item = getGeoResources();
                     ItemStack output = item.get(Maths.GetRandom(item.size() - 1));
                     for (int j : getOutputSlots()) {
                         if (inv.getItemInSlot(j) == null) {
                             inv.pushItem(output.clone(), getOutputSlots());
-                            inv.consumeItem(4, 1);
+                            inv.consumeItem(i, 1);
                             return true;
                         }
                     }

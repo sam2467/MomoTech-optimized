@@ -56,7 +56,11 @@ public class CobbleStoneStore extends AbstractGUI implements RecipeDisplayItem {
 
     @Override
     public int[] EMPTY() {
-        return new int[]{8, 17, 26, 35, 44, 53};
+        return new int[]{};
+    }
+
+    public int getMenuSize(){
+        return 54;
     }
 
     @NotNull
@@ -83,7 +87,7 @@ public class CobbleStoneStore extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "&f类似于箱子的存在, 提供48格的存储空间"));
+        it.add(new CustomItemStack(Material.BOOK, "&f类似于箱子的存在, 提供54格的存储空间"));
         return it;
     }
 }

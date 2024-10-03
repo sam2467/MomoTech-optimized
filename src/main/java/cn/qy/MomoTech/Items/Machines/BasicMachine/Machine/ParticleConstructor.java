@@ -83,10 +83,14 @@ public class ParticleConstructor extends AbstractProcessMachine implements Energ
         }
         return true;
     }
-
+    public ItemStack item_proton=new SlimefunItemStack("MOMOTECH_PROTON",Items.MOMOTECH_PROTON);
+    public ItemStack item_zygote=new SlimefunItemStack("MOMOTECH_ZYGOTE",Items.MOMOTECH_ZYGOTE);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        inv.toInventory().setItem(3, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + this.getCharge(inv.getLocation()) + " J"));
+        int charge=this.getCharge(inv.getLocation());
+        if(inv.hasViewer()){
+            inv.replaceExistingItem(3, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + charge + " J"));
+        }
         if (checkProcessStart(inv)) {
             addProcess(inv);
         }
@@ -94,10 +98,10 @@ public class ParticleConstructor extends AbstractProcessMachine implements Energ
             setMaxProcess(Maths.GetRandom(49) + 1, inv);
             if (this.getCharge(inv.getLocation()) < 2) return;
             if (this.isPrime(this.getCharge(inv.getLocation())))
-                inv.pushItem(new SlimefunItemStack("MOMOTECH_PROTON", Items.MOMOTECH_PROTON), getOutputSlots());
-            else inv.pushItem(new SlimefunItemStack("MOMOTECH_ZYGOTE", Items.MOMOTECH_ZYGOTE), getOutputSlots());
-            if (this.getCharge(inv.getLocation()) > 1)
-                this.setCharge(inv.getLocation(), this.getCharge(inv.getLocation()) - Maths.GetRandom(this.getCharge(inv.getLocation())));
+                inv.pushItem(item_proton.clone(), getOutputSlots());
+            else inv.pushItem(item_zygote.clone(), getOutputSlots());
+            if (charge > 1)
+                this.setCharge(inv.getLocation(), charge - Maths.GetRandom(charge));
         }
     }
 

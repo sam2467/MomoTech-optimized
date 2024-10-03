@@ -11,11 +11,12 @@ public class LINE_GENERATOR extends AbstractEasyGeneratorGUI {
     public LINE_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=new ItemStack(Material.STRING, 3);
     @Override
     public ItemStack getOut() {
-        return new ItemStack(Material.STRING, 3);
+        return output;
     }
+
 
     @NotNull
     @Override

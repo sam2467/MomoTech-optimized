@@ -29,12 +29,12 @@ public class FinalGenerator extends AGenerator {
 
     @Override
     public int getEnergyProduction() {
-        return 1000000000;
+        return 800_000_000;
     }
 
     @Override
     public int getCapacity() {
-        return 1000000000;
+        return 1_600_000_000;
     }
 
     @Override

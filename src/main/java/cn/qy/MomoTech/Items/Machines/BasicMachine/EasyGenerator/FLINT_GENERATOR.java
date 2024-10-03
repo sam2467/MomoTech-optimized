@@ -11,10 +11,10 @@ public class FLINT_GENERATOR extends AbstractEasyGeneratorGUI {
     public FLINT_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=new ItemStack(Material.FLINT, 4);
     @Override
     public ItemStack getOut() {
-        return new ItemStack(Material.FLINT, 4);
+        return output;
     }
 
     @NotNull

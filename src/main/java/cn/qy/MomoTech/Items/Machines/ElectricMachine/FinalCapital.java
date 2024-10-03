@@ -59,7 +59,9 @@ public class FinalCapital extends AbstractElectricGUI implements EnergyNetCompon
 
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        inv.toInventory().setItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + this.getCharge(inv.getLocation()) + " J"));
+        if(inv.hasViewer()) {
+            inv.toInventory().setItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + this.getCharge(inv.getLocation()) + " J"));
+        }
         return false;
     }
 

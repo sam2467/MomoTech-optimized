@@ -54,11 +54,10 @@ public class OreCollector extends AbstractGUI implements RecipeDisplayItem {
     public int[] getOutputSlots() {
         return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
     }
-
+    Random r = new Random();
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (Utils.checkOutput(inv, getOutputSlots())) return;
-        Random r = new Random();
         int j = Math.abs(r.nextInt() % 9);
         inv.pushItem(new SlimefunItemStack(MomotechItem.mineral[j][2], 4), getOutputSlots());
     }

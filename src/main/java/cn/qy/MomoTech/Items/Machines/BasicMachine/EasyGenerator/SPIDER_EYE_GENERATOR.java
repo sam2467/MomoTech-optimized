@@ -12,10 +12,10 @@ public class SPIDER_EYE_GENERATOR extends AbstractEasyGeneratorGUI {
     public SPIDER_EYE_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=new ItemStack(Material.SPIDER_EYE, 2);
     @Override
     public ItemStack getOut() {
-        return new ItemStack(Material.SPIDER_EYE, 2);
+        return output;
     }
 
     @NotNull

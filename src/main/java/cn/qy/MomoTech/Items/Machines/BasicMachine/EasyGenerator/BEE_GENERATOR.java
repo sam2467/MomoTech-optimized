@@ -12,11 +12,11 @@ public class BEE_GENERATOR extends AbstractEasyGeneratorGUI {
     public BEE_GENERATOR(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, id, it, recipeType, recipe);
     }
-
+    ItemStack output=RandomizedItemStack.fromMaterial(Material.BEE_SPAWN_EGG, Material.BEEHIVE,
+            Material.HONEYCOMB, Material.HONEY_BOTTLE, Material.HONEYCOMB_BLOCK, Material.HONEY_BLOCK);
     @Override
     public ItemStack getOut() {
-        Material[] list = {Material.BEE_SPAWN_EGG, Material.BEEHIVE, Material.HONEYCOMB, Material.HONEY_BOTTLE, Material.HONEYCOMB_BLOCK, Material.HONEY_BLOCK};
-        return new ItemStack(list[Maths.GetRandom(5)], 1);
+         return output;
     }
 
     @NotNull

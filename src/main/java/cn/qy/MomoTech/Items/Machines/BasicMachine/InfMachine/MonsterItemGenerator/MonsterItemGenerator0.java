@@ -1,5 +1,6 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.MonsterItemGenerator;
 
+import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.GUI.MonsterItemGenerator;
 import cn.qy.MomoTech.utils.Maths;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -26,7 +27,6 @@ public class MonsterItemGenerator0 extends MonsterItemGenerator implements Recip
     public @NotNull String getMachineIdentifier() {
         return "MOMOTECH_MONSTER_GENERATOR0";
     }
-
     @Override
     public Material getItems() {
         return this.it[Maths.GetRandom(11)];

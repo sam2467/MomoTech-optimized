@@ -19,6 +19,7 @@ import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
@@ -542,16 +543,14 @@ public class ItemRegisterTask {
                 }
             }
         }
-        Items.STONE_SWORD.getItemMeta().setUnbreakable(true);
+        addUnbreakable(Items.STONE_SWORD);
         Items.STONE_SWORD.addEnchantment(Enchantment.FIRE_ASPECT, 2);
-        Items.STONE_SWORD.getItemMeta().setUnbreakable(true);
-        Items.PROTECT_ITEM.getItemMeta().setUnbreakable(true);
         Items.MOMOTECH_PICKAXE.addEnchantment(Enchantment.DIG_SPEED, 5);
         Items.MOMOTECH_PICKAXE.addEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 3);
         Items.MOMOTECH_SILK_TOUCH_PICKAXE.addEnchantment(Enchantment.DIG_SPEED, 5);
         Items.MOMOTECH_SILK_TOUCH_PICKAXE.addEnchantment(Enchantment.SILK_TOUCH, 1);
-        Items.PROTECT_ITEM.getItemMeta().setUnbreakable(true);
-        Items.MOMOTECH_RULE_BOOTS.getItemMeta().setUnbreakable(true);
+        addUnbreakable(Items.PROTECT_ITEM);
+        addUnbreakable(Items.MOMOTECH_RULE_BOOTS);
         Items.MOMOTECH_RULE_BOOTS.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 10);
         Items.MOMOTECH_RULE_BOOTS.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10);
         Items.MOMOTECH_RULE_BOOTS.addUnsafeEnchantment(Enchantment.PROTECTION_PROJECTILE, 10);
@@ -559,11 +558,10 @@ public class ItemRegisterTask {
         Items.MOMOTECH_RULE_BOOTS.addUnsafeEnchantment(Enchantment.SOUL_SPEED, 3);
         Items.MOMOTECH_RULE_BOOTS.addUnsafeEnchantment(Enchantment.DEPTH_STRIDER, 5);
         Items.MOMOTECH_RULE_BOOTS.addUnsafeEnchantment(Enchantment.DURABILITY, 255);
-        Items.MOMOTECH_RULE_BOOTS.getItemMeta().setUnbreakable(true);
-        Items.MOMOTECH_RULE_PICKAXE.getItemMeta().setUnbreakable(true);
+        addUnbreakable(Items.MOMOTECH_RULE_PICKAXE);
         Items.MOMOTECH_RULE_PICKAXE.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 35);
         Items.MOMOTECH_RULE_PICKAXE.addUnsafeEnchantment(Enchantment.DIG_SPEED, 10);
-        Items.MOMOTECH_RULE_PICKAXE.getItemMeta().setUnbreakable(true);
+
         new IDDisplay(Items.MOMOTECH_FINAL, Items.MOMOTECH_ID_DISPLAY, "MOMOTECH_ID_DISPLAY", RecipeType.NULL, new ItemStack[]{null, null, null, null, null, null, null, null, null}).register(MomoTech.getInstance());
         new ProtectArmor(new SlimefunItemStack("MOMOTECH_ARMOR", Items.MOMOTECH_RULE_BOOTS), new PotionEffect[]{new PotionEffect(PotionEffectType.FAST_DIGGING, 600, 1, false, false, false), new PotionEffect(PotionEffectType.REGENERATION, 600, 0, false, false, false), new PotionEffect(PotionEffectType.SATURATION, 600, 0, false, false, false), new PotionEffect(PotionEffectType.SPEED, 600, 0, false, false, false), new PotionEffect(PotionEffectType.WATER_BREATHING, 600, 0, false, false, false), new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 600, 0, false, false, false), new PotionEffect(PotionEffectType.JUMP, 600, 0, false, false, false)}, boots).register(MomoTech.getInstance());
         SfUtils.RegisterItem("MOMOTECH_PROTON", Items.MOMOTECH_PROTON, Items.MOMOTECH_ITEM, RecipeType.NULL, PROTON);
@@ -705,11 +703,11 @@ public class ItemRegisterTask {
         SfUtils.RegisterItem("MOMOTECH_COMMAND_BLOCK_GETTER", Items.COMMAND_BLOCK_GETTER, Items.MOMOTECH_ITEM, RecipeType.ANCIENT_ALTAR, commandBlockGetter, (ItemUseHandler) PlayerRightClickEvent::cancel);
         SfUtils.RegisterItem("MOMOTECH_PROTECT_ITEM", Items.PROTECT_ITEM, Items.MOMOTECH_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE, protectItem);
         SfUtils.RegisterItem("MOMOTECH_DAMAGE_ITEM", Items.DAMAGE_ITEM, Items.MOMOTECH_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE, damageItem);
-        SfUtils.RegisterItem("MOMOTECH_LETTER", Items.MOMOTECH_LETTER, Items.MOMOTECH_ITEM, RecipeType.NULL, letter);
-        SfUtils.RegisterItem("MOMOTECH_ID_CARD", Items.MOMOTECH_ID_CARD, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, IDCard);
+        SfUtils.RegisterDistinctiveItem("MOMOTECH_LETTER", Items.MOMOTECH_LETTER, Items.MOMOTECH_ITEM, RecipeType.NULL, letter);
+        SfUtils.RegisterDistinctiveItem("MOMOTECH_ID_CARD", Items.MOMOTECH_ID_CARD, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, IDCard);
         SfUtils.RegisterItem("MOMOTECH_FINAL_STAR", Items.MOMOTECH_FINAL_STAR, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, finalStar);
         SfUtils.RegisterItem("MOMOTECH_FINAL_ITEM", Items.MOMOTECH_FINAL_ITEM, Items.MOMOTECH_ITEM, RecipeType.NULL, finalItem);
-        SfUtils.RegisterItem("MOMOTECH_DIGITAL", Items.MOMOTECH_DIGITAL, Items.MOMOTECH_ITEM, RecipeType.NULL, digital__, (ItemUseHandler) PlayerRightClickEvent::cancel);
+        SfUtils.RegisterDistinctiveItem("MOMOTECH_DIGITAL", Items.MOMOTECH_DIGITAL, Items.MOMOTECH_ITEM, RecipeType.NULL, digital__, (ItemUseHandler) PlayerRightClickEvent::cancel);
         SfUtils.RegisterItem("MOMOTECH_SYMBOL_ADDITION", Items.MOMOTECH_SYMBOL_ADDITION, Items.MOMOTECH_ITEM, RecipeType.NULL, symbol, (ItemUseHandler) PlayerRightClickEvent::cancel);
         SfUtils.RegisterItem("MOMOTECH_SYMBOL_SUBTRACTION", Items.MOMOTECH_SYMBOL_SUBTRACTION, Items.MOMOTECH_ITEM, RecipeType.NULL, symbol, (ItemUseHandler) PlayerRightClickEvent::cancel);
         SfUtils.RegisterItem("MOMOTECH_SYMBOL_MULTIPLICATION", Items.MOMOTECH_SYMBOL_MULTIPLICATION, Items.MOMOTECH_ITEM, RecipeType.NULL, symbol, (ItemUseHandler) PlayerRightClickEvent::cancel);
@@ -775,7 +773,7 @@ public class ItemRegisterTask {
         SfUtils.RegisterItem("MOMOTECH_METAL_", Items.MOMOTECH_METAL_, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, metal__);
         SfUtils.RegisterItem("MOMOTECH_ELECTRICITY_MAGNET", Items.MOMOTECH_ELECTRICITY_MAGNET, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, electricityMagnet);
         SfUtils.RegisterItem("MOMOTECH_IRON_STAR", Items.MOMOTECH_IRON_STAR, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, ironStar);
-
+        SfUtils.RegisterItem("MOMOTECH_MATL114", MATL114,Items.MOMOTECH__,RecipeType.NULL, new ItemStack[0]);
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 3; j++) {
                 SfUtils.RegisterItem("MOMOTECH_MINERAL_" + Utils.mineral__[i] + "_" + Utils.id[j], Items.Mineral[i][j], Items.MOMOTECH_MINERAL, RecipeType.ENHANCED_CRAFTING_TABLE, mineral_[i][j], (ItemUseHandler) PlayerRightClickEvent::cancel);
@@ -784,8 +782,14 @@ public class ItemRegisterTask {
         ItemStack stone_ = new ItemStack(Material.COBBLESTONE);
         SfUtils.RegisterItem("MOMOTECH_COBBLESTONE0", Items.Cobblestone[0], Items.MOMOTECH_MINERAL, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{stone_, stone_, stone_, stone_, empty_shell, stone_, stone_, stone_, stone_});
         for (int i = 1; i < 50; ++i) {
-            SfUtils.RegisterItem("MOMOTECH_COBBLESTONE" + i, Items.Cobblestone[i], Items.MOMOTECH_MINERAL, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1]});
+            SfUtils.RegisterItem("MOMOTECH_COBBLESTONE" + i, Items.Cobblestone[i], Items.MOMOTECH_MINERAL, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1], cobblestone_[i - 1],null});
         }
         logger.info("Items register successfully.");
+    }
+    public static ItemStack addUnbreakable(ItemStack stack){
+        ItemMeta meta=stack.getItemMeta();
+        meta.setUnbreakable(true);
+        stack.setItemMeta(meta);
+        return stack;
     }
 }

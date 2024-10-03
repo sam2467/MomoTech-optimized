@@ -33,11 +33,11 @@ public class CreativeGenerator extends AGenerator {
 
     @Override
     public int getCapacity() {
-        return 99999999;
+        return 666_666_666;
     }
 
     @Override
     protected void registerDefaultFuelTypes() {
-        this.registerFuel(new MachineFuel(999999, new ItemStack(Material.EMERALD)));
+        this.registerFuel(new MachineFuel(99999999, new ItemStack(Material.EMERALD)));
     }
 }
