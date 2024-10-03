@@ -75,13 +75,13 @@ public class LetterConstructor extends AbstractGUI implements RecipeDisplayItem 
         String list = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789_";//62个
         char ans = list.charAt(Maths.GetRandom(61));
         ItemStack it = new CustomItemStack(Material.SUGAR, "&6符号", "&f" + ans, "&7凭空制造物质的基础");
-        ItemStack sfit = new SlimefunItemStack("MOMOTECH_LETTER", it).clone();
+        ItemStack sfit = new SlimefunItemStack("MOMOTECH_LETTER", it);
         for (int j : getOutputSlots()) {
             if (inv.getItemInSlot(j) == null) {
                 inv.consumeItem(10, 1);
                 inv.consumeItem(13, 1);
                 inv.consumeItem(16, 1);
-                inv.toInventory().setItem(j, sfit.clone());
+                inv.replaceExistingItem(j, sfit);
                 return;
             }
         }

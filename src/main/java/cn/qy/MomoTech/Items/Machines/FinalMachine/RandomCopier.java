@@ -81,7 +81,7 @@ public class RandomCopier extends AbstractGUI implements RecipeDisplayItem {
     public int[] getOutputSlots() {
         return new int[]{52};
     }
-
+    Random r = new Random();
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (Utils.checkOutput(inv, getOutputSlots())) return;
@@ -103,7 +103,6 @@ public class RandomCopier extends AbstractGUI implements RecipeDisplayItem {
         }
         if (!SlimefunUtils.isItemSimilar(inv.getItemInSlot(46), MomotechItem.creative_item_II, true, false))
             return;
-        Random r = new Random();
         int j = Math.abs(r.nextInt() % 36);
         inv.consumeItem(46, 1);
         if (Maths.GetRandom(9) != 0) return;

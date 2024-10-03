@@ -26,7 +26,7 @@ import java.util.Optional;
 
 public final class Listeners implements Listener {
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
     public void blockBreakEvent(BlockBreakEvent e) {
         Player p = e.getPlayer();
         if (p.getGameMode() == GameMode.CREATIVE||p.isOp()) return ;
@@ -39,11 +39,11 @@ public final class Listeners implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
     public void entityDamageByEntityEvent(EntityDamageByEntityEvent e) {
         if (e.getEntity() instanceof Player){
             ItemStack helmet=((Player) e.getEntity()).getInventory().getHelmet();
-            if(!helmet.getType().isAir()){
+            if(helmet!=null&&!helmet.getType().isAir()){
                 if(helmet.getType()==Material.TURTLE_HELMET){
                     Optional<String> sfid= Slimefun.getItemDataService().getItemData(helmet);
                     if (sfid.isPresent()&&"MOMOTECH_PROTECT_ITEM".equals(sfid.get())) {

@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -61,8 +62,14 @@ public class IDChanger extends AbstractGUI implements RecipeDisplayItem {
     protected void findNextRecipe(BlockMenu inv) {
         if (inv.getItemInSlot(1) == null) return;
         if (inv.getItemInSlot(7) != null) return;
-        if (!SlimefunUtils.isItemSimilar(inv.getItemInSlot(1), MomotechItem.ID_card, false, false)) return;
-        String lore = Utils.getLore(inv.getItemInSlot(1).getItemMeta()).get(0).substring(5);
+        if (!"MOMOTECH_ID_CARD".equals(Slimefun.getItemDataService().getItemData(inv.getItemInSlot(1)).orElseGet(()->"")) ) return;
+        String lore;
+        try{
+            lore= Utils.getLore(inv.getItemInSlot(1).getItemMeta()).get(0).substring(5);
+        }catch(Exception e){
+            lore="";
+            e.printStackTrace();
+        }
         if (lore.equals("")) {
             inv.pushItem(new CustomItemStack(Material.PAPER, "&7不好意思你的输入不合法"), 1);
             return;

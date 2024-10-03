@@ -5,9 +5,11 @@ import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -63,10 +65,17 @@ public class IDPutter extends AbstractGUI implements RecipeDisplayItem {
                 return;
         }
         if (inv.getItemInSlot(1).getAmount() != 1) return;
-        if (!SlimefunUtils.isItemSimilar(inv.getItemInSlot(1), MomotechItem.ID_card, false, false) || !SlimefunUtils.isItemSimilar(inv.getItemInSlot(7), MomotechItem.letter, false, false))
+
+        if (!"MOMOTECH_ID_CARD".equals(Slimefun.getItemDataService().getItemData(inv.getItemInSlot(1)).orElseGet(()->""))|| !"MOMOTECH_LETTER".equals(Slimefun.getItemDataService().getItemData( inv.getItemInSlot(7)).orElseGet(()->"")))
             return;
-        String lore = Utils.getLore(inv.getItemInSlot(1).getItemMeta()).get(0);
-        lore = lore + (Utils.getLore(inv.getItemInSlot(7).getItemMeta()).get(0).charAt(2));
+        String lore;
+        try{
+            lore = Utils.getLore(inv.getItemInSlot(1).getItemMeta()).get(0);
+            lore = lore + (Utils.getLore(inv.getItemInSlot(7).getItemMeta()).get(0).charAt(2));
+        }catch (Exception e){
+            lore="null";
+            e.printStackTrace();
+        }
         SlimefunItemStack it = new SlimefunItemStack("MOMOTECH_ID_CARD", new CustomItemStack(Material.PAPER, "&eID卡", lore, "&7在&cID集成器&7添加符号集成Slimefun ID", "&7合法ID可以在 &f制造台 &7中直接制作对应ID的粘液物品"));
         inv.consumeItem(7, 1);
         inv.toInventory().setItem(1, it.clone());
