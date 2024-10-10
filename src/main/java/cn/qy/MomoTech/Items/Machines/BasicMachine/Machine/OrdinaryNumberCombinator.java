@@ -10,6 +10,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -109,8 +110,8 @@ public class OrdinaryNumberCombinator extends AbstractGUI implements RecipeDispl
         ItemStack it1 = inv.getItemInSlot(getInputSlots()[0]).clone(),
                 it2 = inv.getItemInSlot(getInputSlots()[1]).clone(),
                 it3 = inv.getItemInSlot(getInputSlots()[2]).clone();
-        if (SlimefunUtils.isItemSimilar(it1, Items.MOMOTECH_DIGITAL, false, false))
-            if (SlimefunUtils.isItemSimilar(it3, Items.MOMOTECH_DIGITAL, false, false))
+        if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it1).orElseGet(()->"")))
+            if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it3).orElseGet(()->"")))
                 if (check(it2)) {
                     for (int i : getInputSlots()) inv.consumeItem(i, 1);
                     ItemMeta meta1 = it1.getItemMeta(), meta2 = it3.getItemMeta();

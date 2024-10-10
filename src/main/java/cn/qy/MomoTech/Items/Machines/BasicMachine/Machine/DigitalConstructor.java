@@ -4,6 +4,7 @@ import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.Items.RandomizedItemStack;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -64,7 +65,7 @@ public class DigitalConstructor extends AbstractElectricGUI implements RecipeDis
     public int[] getOutputSlots() {
         return new int[]{36, 37, 38, 39, 40, 41, 42, 43, 44};
     }
-    ItemStack digitals=new  AbstractEasyGeneratorGUI.RandomizedItemStack(new ArrayList<ItemStack>(){{
+    ItemStack digitals=new RandomizedItemStack(new ArrayList<ItemStack>(){{
         for(int i=0;i<=10;++i){
             add(MomotechItem.digital(i));
         }

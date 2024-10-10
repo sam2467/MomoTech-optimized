@@ -1,5 +1,6 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
+import cn.qy.MomoTech.Items.RandomizedItemStack;
 import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.utils.Maths;
@@ -22,7 +23,7 @@ public class RuleMineralBlockGenerator extends AbstractElectricGUI implements Re
             Material.QUARTZ_BLOCK, Material.GOLD_BLOCK, Material.COPPER_BLOCK, Material.IRON_BLOCK,
             Material.NETHERITE_BLOCK, Material.COAL_BLOCK, Material.COBBLESTONE
     };
-    ItemStack output= AbstractEasyGeneratorGUI.RandomizedItemStack.fromMaterial(16,m);
+    ItemStack output= RandomizedItemStack.fromMaterial(16,m);
 
     public RuleMineralBlockGenerator(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);

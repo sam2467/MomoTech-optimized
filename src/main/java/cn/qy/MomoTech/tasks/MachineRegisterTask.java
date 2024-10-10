@@ -1,7 +1,7 @@
 package cn.qy.MomoTech.tasks;
 
+import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.Items.Items;
-import cn.qy.MomoTech.Items.Machines.BasicMachine.EasyGenerator.*;
 import cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.*;
 import cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.DustGenerator.*;
 import cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.MonsterItemGenerator.*;
@@ -14,10 +14,12 @@ import cn.qy.MomoTech.Items.Machines.FinalMachine.IDChanger;
 import cn.qy.MomoTech.Items.Machines.FinalMachine.RandomCopier;
 import cn.qy.MomoTech.Items.Machines.FinalMachine.UncontrollableEmptyGenerator;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.Items.RandomizedItemStack;
 import cn.qy.MomoTech.MomoTech;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -569,11 +571,11 @@ public class MachineRegisterTask {
         new RuleReconstruct(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_RECONSTRUCT", Items.MOMOTECH_RULE_RECONSTRUCT, RecipeType.ENHANCED_CRAFTING_TABLE, ruleReconstruct).register(MomoTech.getInstance());
         new EntropyReconstruct(Items.MOMOTECH_INF, "MOMOTECH_ENTROPY_RECONSTRUCT", Items.MOMOTECH_ENTROPY_RECONSTRUCT, RecipeType.ENHANCED_CRAFTING_TABLE, entropyReconstruct).register(MomoTech.getInstance());
         new RuleShineAndDarkConstructor(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_SHINE_AND_DARK_CONSTRUCTOR", Items.MOMOTECH_RULE_SHINE_AND_DARK_CONSTRUCTOR, RecipeType.ENHANCED_CRAFTING_TABLE, ruleShineAndDarkConstructor).register(MomoTech.getInstance());
-        new FLINT_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_FLINT_GENERATOR", Items.FLINT_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, flintGenerator).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_FLINT_GENERATOR", Items.FLINT_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, flintGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.FLINT, 4)).register(MomoTech.getInstance());
         new OrdinaryGenerator(Items.MOMOTECH_ELECTRICITY, "MOMOTECH_ORDINARY_GENERATOR", Items.MOMOTECH_ORDINARY_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, ordinaryGenerator).register(MomoTech.getInstance());
         new ShineAndDarkGenerator(Items.MOMOTECH_ELECTRICITY, "MOMOTECH_SHINE_AND_DARK_GENERATOR", Items.MOMOTECH_SHINE_AND_DARK_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, shineAndDarkGenerator).register(MomoTech.getInstance());
-        new CHEST_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_CHEST_GENERATOR", Items.CHEST_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, chestGenerator).register(MomoTech.getInstance());
-        new DIAMOND_PICKAXE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_DIAMOND_PICKAXE_GENERATOR", Items.DIAMOND_PICKAXE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, diamondPickaxeGenerator).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_CHEST_GENERATOR", Items.CHEST_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, chestGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.CHEST)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_DIAMOND_PICKAXE_GENERATOR", Items.DIAMOND_PICKAXE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, diamondPickaxeGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.DIAMOND_PICKAXE, 8)).register(MomoTech.getInstance());
         new ShineAndDarkConstructor(Items.MOMOTECH_INF, "MOMOTECH_SHINE_AND_DARK_CONSTRUCTOR", Items.MOMOTECH_SHINE_AND_DARK_CONSTRUCTOR, RecipeType.ENHANCED_CRAFTING_TABLE, shineAndDarkConstructor).register(MomoTech.getInstance());
         new Transporter(Items.MOMOTECH_MACHINE, "MOMOTECH_TRANSPORTER", Items.MOMOTECH_TRANSPORTER, RecipeType.ENHANCED_CRAFTING_TABLE, transporter).register(MomoTech.getInstance());
         new OpenBoxItem(Items.MOMOTECH_MACHINE, "MOMOTECH_OPEN_BOX_ITEM", Items.MOMOTECH_OPEN_BOX_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, openBoxItem).register(MomoTech.getInstance());
@@ -585,8 +587,8 @@ public class MachineRegisterTask {
         new MagnetGenerator(Items.MOMOTECH_INF, "MOMOTECH_MAGNET_GENERATOR", Items.MOMOTECH_MAGNET_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, magnetGenerator).register(MomoTech.getInstance());
         new Fixer(Items.MOMOTECH_INF, "MOMOTECH_FIXER", Items.MOMOTECH_FIXER, RecipeType.ANCIENT_ALTAR, fixer).register(MomoTech.getInstance());
         new PumpkinCarver(Items.MOMOTECH_INF, "MOMOTECH_PUMPKIN_CARVER", Items.MOMOTECH_PUMPKIN_CARVER, RecipeType.ENHANCED_CRAFTING_TABLE, pumpkinCarver).register(MomoTech.getInstance());
-        new STONE_GENERATOR_II(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONE_GENERATOR_II", Items.COBBLE_STONE_GENERATOR_II, RecipeType.ENHANCED_CRAFTING_TABLE, stoneGeneratorII).register(MomoTech.getInstance());
-        new FINAL_COBBLESTONE_GENERATOR(Items.MOMOTECH_FINAL, "MOMOTECH_FINAL_C_", Items.FINAL_C_, RecipeType.ENHANCED_CRAFTING_TABLE, finalC).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONE_GENERATOR_II", Items.COBBLE_STONE_GENERATOR_II, RecipeType.ENHANCED_CRAFTING_TABLE, stoneGeneratorII,"ABSTRACT_GENERATOR",new ItemStack(Material.COBBLESTONE, 64)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_FINAL, "MOMOTECH_FINAL_C_", Items.FINAL_C_, RecipeType.ENHANCED_CRAFTING_TABLE, finalC,"ABSTRACT_GENERATOR",new CustomItemStack(MomotechItem.cobblestone_[49],8)).register(MomoTech.getInstance());
         new RandomQuantumGenerator(Items.MOMOTECH_MACHINE, "MOMOTECH_RANDOM_QUANTUM_GENERATOR", Items.MOMOTECH_RANDOM_QUANTUM_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, randomQuantumGenerator).register(MomoTech.getInstance());
         new EnergyQuantumGenerator(Items.MOMOTECH_MACHINE, "MOMOTECH_ENERGY_QUANTUM_GENERATOR", Items.MOMOTECH_ENERGY_QUANTUM_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, energyQuantumGenerator).register(MomoTech.getInstance());
         new CobblestoneGeneratorFinal(Items.MOMOTECH_MACHINE, "MOMOTECH_COBBLESTONE_GENERATOR_FINAL", Items.MOMOTECH_COBBLESTONE_GENERATOR_FINAL, RecipeType.ENHANCED_CRAFTING_TABLE, table).register(MomoTech.getInstance());
@@ -594,23 +596,39 @@ public class MachineRegisterTask {
         new IDPutter(Items.MOMOTECH_MACHINE, "MOMOTECH_ID_PUTTER", Items.MOMOTECH_ID_PUTTER, RecipeType.ENHANCED_CRAFTING_TABLE, IDPutter).register(MomoTech.getInstance());
         new IDChanger(Items.MOMOTECH_FINAL, "MOMOTECH_ID_CHANGER", Items.MOMOTECH_ID_CHANGER, RecipeType.ENHANCED_CRAFTING_TABLE, IDChanger).register(MomoTech.getInstance());
         new LetterConstructor(Items.MOMOTECH_MACHINE, "MOMOTECH_LETTER_CONSTRUCTOR", Items.MOMOTECH_LETTER_CONSTRUCTOR, RecipeType.ENHANCED_CRAFTING_TABLE, letterConstructor).register(MomoTech.getInstance());
-        new COMMAND_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_COMMAND_BLOCK_GENERATOR", Items.COMMAND_BLOCK_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, commandBlockGenerator).register(MomoTech.getInstance());
-        new C_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_C_GENERATOR", Items.C_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, CGenerator).register(MomoTech.getInstance());
-        new BEE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_BEE_GENERATOR", Items.BEE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, beeGenerator).register(MomoTech.getInstance());
-        new SPIDER_EYE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SPIDER_EYE_GENERATOR", Items.SPIDER_EYE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, spiderEyeGenerator).register(MomoTech.getInstance());
-        new ICE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_ICE_GENERATOR", Items.ICE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, iceGenerator).register(MomoTech.getInstance());
-        new STONES_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONES_GENERATOR", Items.STONES_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, stoneChunkGenerator).register(MomoTech.getInstance());
-        new LINE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_LINE_GENERATOR", Items.LINE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, lineGenerator).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_COMMAND_BLOCK_GENERATOR", Items.COMMAND_BLOCK_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, commandBlockGenerator,"ABSTRACT_GENERATOR", RandomizedItemStack.fromMaterial(Material.COMMAND_BLOCK, Material.CHAIN_COMMAND_BLOCK, Material.REPEATING_COMMAND_BLOCK)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_C_GENERATOR", Items.C_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, CGenerator,"ABSTRACT_GENERATOR",new CustomItemStack(SlimefunItems.CARBON, 1)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_BEE_GENERATOR", Items.BEE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, beeGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(Material.BEE_SPAWN_EGG, Material.BEEHIVE,Material.HONEYCOMB,
+                Material.HONEY_BOTTLE, Material.HONEYCOMB_BLOCK, Material.HONEY_BLOCK)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SPIDER_EYE_GENERATOR", Items.SPIDER_EYE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, spiderEyeGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.SPIDER_EYE, 2)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_ICE_GENERATOR", Items.ICE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, iceGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.ICE, 1)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONES_GENERATOR", Items.STONES_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, stoneChunkGenerator,"ABSTRACT_GENERATOR",new CustomItemStack(SlimefunItems.STONE_CHUNK, 8)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_LINE_GENERATOR", Items.LINE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, lineGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.STRING, 3)).register(MomoTech.getInstance());
         new Generator(Items.MOMOTECH_ELECTRICITY, "MOMOTECH_GENERATOR", Items.Generator, RecipeType.ENHANCED_CRAFTING_TABLE, generator).register(MomoTech.getInstance());
-        new DUST_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_DUST_GENERATOR", Items.DUST_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, dustGenerator).register(MomoTech.getInstance());
-        new STONE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONE_GENERATOR", Items.STONE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, stoneGenerator).register(MomoTech.getInstance());
-        new STONE_GENERATOR_I(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONE_GENERATOR_I", Items.STONE_GENERATOR_I, RecipeType.ENHANCED_CRAFTING_TABLE, stoneGeneratorI).register(MomoTech.getInstance());
-        new FISH_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_FISH_GENERATOR", Items.FISH_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, fishGenerator).register(MomoTech.getInstance());
-        new SAND_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SAND_GENERATOR", Items.SAND_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, sandGenerator).register(MomoTech.getInstance());
-        new FROG_LIGHT_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_FROG_LIGHT_GENERATOR", Items.FROG_LIGHT_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, froglightGenerator).register(MomoTech.getInstance());
-        new GLASS_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_GLASS_GENERATOR", Items.GLASS_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, glassGenerator).register(MomoTech.getInstance());
-        new ORE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_ORE_GENERATOR", Items.ORE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, OREGenerator).register(MomoTech.getInstance());
-        new TEMPLATE_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_TEMPLATE_GENERATOR", Items.TEMPLATE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, templateGenerator).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_DUST_GENERATOR", Items.DUST_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, dustGenerator,"ABSTRACT_GENERATOR",new RandomizedItemStack(6,SlimefunItems.ALUMINUM_DUST, SlimefunItems.COPPER_DUST,
+                SlimefunItems.GOLD_DUST, SlimefunItems.LEAD_DUST, SlimefunItems.IRON_DUST, SlimefunItems.SILVER_DUST,
+                SlimefunItems.TIN_DUST, SlimefunItems.ZINC_DUST, SlimefunItems.MAGNESIUM_DUST)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONE_GENERATOR", Items.STONE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, stoneGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(8,Material.STONE, Material.COBBLESTONE, Material.GRANITE, Material.DIORITE, Material.COBBLED_DEEPSLATE, Material.ANDESITE)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_STONE_GENERATOR_I", Items.STONE_GENERATOR_I, RecipeType.ENHANCED_CRAFTING_TABLE, stoneGeneratorI,"ABSTRACT_GENERATOR", new ItemStack(Material.COBBLESTONE, 8)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_FISH_GENERATOR", Items.FISH_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, fishGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(Material.COD, Material.SALMON, Material.PUFFERFISH, Material.TROPICAL_FISH)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SAND_GENERATOR", Items.SAND_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, sandGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(8,Material.SAND, Material.RED_SAND, Material.GRAVEL, Material.SOUL_SAND)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_FROG_LIGHT_GENERATOR", Items.FROG_LIGHT_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, froglightGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(4,Material.OCHRE_FROGLIGHT, Material.PEARLESCENT_FROGLIGHT, Material.VERDANT_FROGLIGHT)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_GLASS_GENERATOR", Items.GLASS_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, glassGenerator,"ABSTRACT_GENERATOR",new ItemStack(Material.GLASS, 8)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_ORE_GENERATOR", Items.ORE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, OREGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(Material.DIAMOND_ORE, Material.GOLD_ORE, Material.IRON_ORE, Material.COAL_ORE, Material.COPPER_ORE,
+                Material.EMERALD_ORE, Material.REDSTONE_ORE, Material.NETHER_QUARTZ_ORE, Material.NETHER_GOLD_ORE,
+                Material.LAPIS_ORE, Material.DEEPSLATE_REDSTONE_ORE, Material.DEEPSLATE_LAPIS_ORE, Material.DEEPSLATE_IRON_ORE,
+                Material.DEEPSLATE_GOLD_ORE, Material.DEEPSLATE_COAL_ORE, Material.DEEPSLATE_COPPER_ORE, Material.DEEPSLATE_DIAMOND_ORE,
+                Material.DEEPSLATE_EMERALD_ORE, Material.COPPER_ORE)).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_TEMPLATE_GENERATOR", Items.TEMPLATE_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, templateGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(
+                Material.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, Material.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE, Material.HOST_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE, Material.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE, Material.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE, Material.WILD_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE, Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE, Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE, Material.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE,
+                Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE)).register(MomoTech.getInstance());
         new CreativeGenerator(Items.MOMOTECH_ELECTRICITY, "MOMOTECH_CREATIVE_GENERATOR", Items.CreativeGenerator, RecipeType.ENHANCED_CRAFTING_TABLE, creativeGenerator).register(MomoTech.getInstance());
         new DigitalConstructor(Items.MOMOTECH_MACHINE, "MOMOTECH_DIGITAL_CONSTRUCTOR", Items.MOMOTECH_DIGITAL_CONSTRUCTOR, RecipeType.ENHANCED_CRAFTING_TABLE, digitalConstructor).register(MomoTech.getInstance());
         new SymbolGenerator(Items.MOMOTECH_MACHINE, "MOMOTECH_SYMBOL_GENERATOR", Items.MOMOTECH_SYMBOL_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, symbolGenerator).register(MomoTech.getInstance());
@@ -625,7 +643,7 @@ public class MachineRegisterTask {
         new UncontrollableEmptyGenerator(Items.MOMOTECH_FINAL, "MOMOTECH_UNCONTROLLABLE_GENERATOR", Items.MOMOTECH_UNCONTROLLABLE_EMPTY_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, uncontrollableEmptyGenerator).register(MomoTech.getInstance());
         new OreCollector(Items.MOMOTECH_MACHINE, "MOMOTECH_ORE_COLLECTOR", Items.MOMOTECH_ORE_COLLECTOR, RecipeType.MAGIC_WORKBENCH, oreCollector).register(MomoTech.getInstance());
         new RandomCopier(Items.MOMOTECH_FINAL, "MOMOTECH_RANDOM_COPIER", Items.MOMOTECH_RANDOM_COPIER, RecipeType.ENHANCED_CRAFTING_TABLE, randomCopier).register(MomoTech.getInstance());
-        new SEA_ITEM_GENERATOR(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SEA_ITEM_GENERATOR", Items.SEA_ITEM_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, seaItemGenerator).register(MomoTech.getInstance());
+        new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SEA_ITEM_GENERATOR", Items.SEA_ITEM_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, seaItemGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(8,Material.SEA_LANTERN, Material.DARK_PRISMARINE, Material.PRISMARINE, Material.PRISMARINE_CRYSTALS, Material.PRISMARINE_SHARD)).register(MomoTech.getInstance());
         logger.info("Machine register successfully");
     }
 }

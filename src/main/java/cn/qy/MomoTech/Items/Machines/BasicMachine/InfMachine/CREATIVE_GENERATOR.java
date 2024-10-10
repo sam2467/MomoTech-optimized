@@ -1,9 +1,8 @@
-package cn.qy.MomoTech.Items.Machines.BasicMachine.EasyGenerator;
+package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
-import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.MomotechItem;
-import cn.qy.MomoTech.utils.Maths;
+import cn.qy.MomoTech.Items.RandomizedItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
@@ -66,7 +65,7 @@ public class CREATIVE_GENERATOR extends AbstractElectricGUI implements RecipeDis
         inv.pushItem(getOut().clone(), getOutputSlots());
         return true;
     }
-    ItemStack output=new AbstractEasyGeneratorGUI.RandomizedItemStack(MomotechItem.creative_item, MomotechItem.creative_item_I);
+    ItemStack output=new RandomizedItemStack(MomotechItem.creative_item, MomotechItem.creative_item_I);
     public ItemStack getOut() {
         return output;
     }

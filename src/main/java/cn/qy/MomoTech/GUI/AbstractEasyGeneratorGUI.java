@@ -17,11 +17,18 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public abstract class AbstractEasyGeneratorGUI extends AbstractGUI implements RecipeDisplayItem {
+public class AbstractEasyGeneratorGUI extends AbstractGUI implements RecipeDisplayItem {
     public AbstractEasyGeneratorGUI(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
     }
+    public AbstractEasyGeneratorGUI(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe,String machineId,ItemStack output) {
+        super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
+        this.output=output;
+        this.machineId=machineId;
 
+    }
+    ItemStack output;
+    String machineId;
     @Override
     public @NotNull List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
@@ -59,40 +66,14 @@ public abstract class AbstractEasyGeneratorGUI extends AbstractGUI implements Re
         return new int[]{0, 1, 2, 3, 4, 5, 6, 7};
     }
 
-    public abstract ItemStack getOut();
-    public static class RandomizedItemStack extends ItemStack{
-        public ItemStack[] itemStacks;
-        Random rand = new Random();
-        int itemAmount=1;
-        public RandomizedItemStack(ItemStack... itemStacks) {
-            super(Material.AIR);
-            Validate.notEmpty(itemStacks);
-            this.itemStacks = itemStacks;
-        }
-        public RandomizedItemStack(int num,ItemStack... itemStacks) {
-            super(Material.AIR);
-            Validate.notEmpty(itemStacks);
-            this.itemStacks = Arrays.stream(itemStacks).map(ItemStack::clone).toArray(ItemStack[]::new);
-            this.itemAmount=num;
-        }
-        public ItemStack clone(){
-            ItemStack stack= itemStacks[rand.nextInt(itemStacks.length)].clone();
-            if(itemAmount!=1){
-                stack.setAmount(itemAmount);
-            }
-            return stack;
-        }
-        public static RandomizedItemStack fromMaterial(Material... materials){
-            Validate.notEmpty(materials);
-            return new RandomizedItemStack(Arrays.stream(materials).map(ItemStack::new).toArray(ItemStack[]::new));
-        }
-        public static RandomizedItemStack fromMaterial(int num,Material... materials){
-            Validate.notEmpty(materials);
-            return new RandomizedItemStack(Arrays.stream(materials).map(m->new ItemStack(m,num)).toArray(ItemStack[]::new));
-        }
+    public ItemStack getOut(){
+        return getOut();
     }
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         inv.pushItem(getOut().clone(), getOutputSlots());
+    }
+    public String getMachineIdentifier(){
+        return this.machineId;
     }
 }

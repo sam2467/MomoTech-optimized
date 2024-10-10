@@ -1,7 +1,7 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
-import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
+import cn.qy.MomoTech.Items.RandomizedItemStack;
 import cn.qy.MomoTech.utils.Maths;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -22,7 +22,7 @@ public class RuleMineralGenerator extends AbstractElectricGUI implements RecipeD
             Material.QUARTZ, Material.GOLD_INGOT, Material.COPPER_INGOT, Material.IRON_INGOT,
             Material.NETHERITE_INGOT, Material.COAL, Material.COBBLESTONE
     };
-    ItemStack output= AbstractEasyGeneratorGUI.RandomizedItemStack.fromMaterial(64,m);
+    ItemStack output= RandomizedItemStack.fromMaterial(64,m);
 
     public RuleMineralGenerator(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
