@@ -1,14 +1,18 @@
 package cn.qy.MomoTech.GUI;
 
+import cn.qy.MomoTech.Items.RandomizedItemStack;
+import cn.qy.MomoTech.MomoTech;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -33,6 +37,15 @@ public class AbstractEasyGeneratorGUI extends AbstractGUI implements RecipeDispl
     public @NotNull List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
         it.add(new CustomItemStack(Material.BOOK, "§f每 1tick 生成 效率 个对应产物"));
+        if(this.output instanceof RandomizedItemStack){
+            ItemStack[] list=((RandomizedItemStack)this.output).getItemStacks();
+            for(int i=0;i<list.length;i++){
+                it.add(list[i]);
+                it.add(null);
+            }
+        }else{
+            it.add(this.output);
+        }
         return it;
     }
 
@@ -67,7 +80,7 @@ public class AbstractEasyGeneratorGUI extends AbstractGUI implements RecipeDispl
     }
 
     public ItemStack getOut(){
-        return getOut();
+        return this.output;
     }
     @Override
     protected void findNextRecipe(BlockMenu inv) {

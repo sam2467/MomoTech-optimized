@@ -14,9 +14,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class RuleDustGenerator extends AbstractElectricGUI implements RecipeDisplayItem {
-    public RuleDustGenerator(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
+public class RuleDustGenerator extends AbstractElectricGUI implements  RecipeDisplayItem {
+    protected RuleDustGenerator(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
+    }
+    public RuleDustGenerator(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe,ItemStack output) {
+        super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
+        this.output=output;
     }
 
     @Override
@@ -75,8 +79,10 @@ public abstract class RuleDustGenerator extends AbstractElectricGUI implements R
         }
         return false;
     }
-
-    protected abstract ItemStack getItems();
+    ItemStack output;
+    protected ItemStack getItems(){
+        return output;
+    }
 
     @NotNull
     @Override

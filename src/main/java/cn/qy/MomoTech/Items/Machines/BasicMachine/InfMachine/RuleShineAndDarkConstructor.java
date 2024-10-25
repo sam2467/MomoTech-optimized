@@ -2,6 +2,7 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;

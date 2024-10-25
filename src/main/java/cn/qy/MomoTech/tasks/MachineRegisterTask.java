@@ -1,10 +1,10 @@
 package cn.qy.MomoTech.tasks;
 
 import cn.qy.MomoTech.GUI.AbstractEasyGeneratorGUI;
+import cn.qy.MomoTech.GUI.MonsterItemGenerator;
+import cn.qy.MomoTech.GUI.RuleDustGenerator;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.*;
-import cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.DustGenerator.*;
-import cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine.MonsterItemGenerator.*;
 import cn.qy.MomoTech.Items.Machines.BasicMachine.Machine.*;
 import cn.qy.MomoTech.Items.Machines.ElectricMachine.*;
 import cn.qy.MomoTech.Items.Machines.Else.CobbleStoneStore;
@@ -541,26 +541,30 @@ public class MachineRegisterTask {
         new FinalGenerator(Items.MOMOTECH_ELECTRICITY, "MOMOTECH_FINAL_GENERATOR", Items.MOMOTECH_FINAL_GENERATOR, RecipeType.ANCIENT_ALTAR, finalGenerator).register(MomoTech.getInstance());
         new SaltGenerator(Items.MOMOTECH_INF, "MOMOTECH_SALT_GENERATOR", Items.MOMOTECH_SALT_GENERATOR, RecipeType.ANCIENT_ALTAR, saltGenerator).register(MomoTech.getInstance());
         new RuleConstructor(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_CONSTRUCTOR", Items.MOMOTECH_RULE_CONSTRUCTOR, RecipeType.ENHANCED_CRAFTING_TABLE, ruleConstructor).register(MomoTech.getInstance());
-        new MonsterItemGenerator0(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR0", Items.MOMOTECH_MONSTER_ITEM, RecipeType.ANCIENT_ALTAR, monsterItemGenerator0).register(MomoTech.getInstance());
-        new MonsterItemGenerator1(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR1", Items.MOMOTECH_MONSTER_ITEM1, RecipeType.ANCIENT_ALTAR, monsterItemGenerator1).register(MomoTech.getInstance());
-        new MonsterItemGenerator2(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR2", Items.MOMOTECH_MONSTER_ITEM2, RecipeType.ANCIENT_ALTAR, monsterItemGenerator2).register(MomoTech.getInstance());
-        new MonsterItemGenerator3(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR3", Items.MOMOTECH_MONSTER_ITEM3, RecipeType.ANCIENT_ALTAR, monsterItemGenerator3).register(MomoTech.getInstance());
-        new MonsterItemGenerator4(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR4", Items.MOMOTECH_MONSTER_ITEM4, RecipeType.ANCIENT_ALTAR, monsterItemGenerator4).register(MomoTech.getInstance());
-        new MonsterItemGenerator5(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR5", Items.MOMOTECH_MONSTER_ITEM5, RecipeType.ANCIENT_ALTAR, monsterItemGenerator5).register(MomoTech.getInstance());
-        new MonsterItemGenerator6(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR6", Items.MOMOTECH_MONSTER_ITEM6, RecipeType.ANCIENT_ALTAR, monsterItemGenerator6).register(MomoTech.getInstance());
-        new MonsterItemGenerator7(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR7", Items.MOMOTECH_MONSTER_ITEM7, RecipeType.ANCIENT_ALTAR, monsterItemGenerator7).register(MomoTech.getInstance());
-        new MonsterItemGenerator8(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR8", Items.MOMOTECH_MONSTER_ITEM8, RecipeType.ANCIENT_ALTAR, monsterItemGenerator8).register(MomoTech.getInstance());
-        new MonsterItemGenerator9(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR9", Items.MOMOTECH_MONSTER_ITEM9, RecipeType.ANCIENT_ALTAR, monsterItemGenerator9).register(MomoTech.getInstance());
-        new RuleDustGenerator0(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR0", Items.MOMOTECH_RULE_DUST_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator).register(MomoTech.getInstance());
-        new RuleDustGenerator1(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR1", Items.MOMOTECH_RULE_DUST_GENERATOR1, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator1).register(MomoTech.getInstance());
-        new RuleDustGenerator2(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR2", Items.MOMOTECH_RULE_DUST_GENERATOR2, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator2).register(MomoTech.getInstance());
-        new RuleDustGenerator3(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR3", Items.MOMOTECH_RULE_DUST_GENERATOR3, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator3).register(MomoTech.getInstance());
-        new RuleDustGenerator4(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR4", Items.MOMOTECH_RULE_DUST_GENERATOR4, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator4).register(MomoTech.getInstance());
-        new RuleDustGenerator5(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR5", Items.MOMOTECH_RULE_DUST_GENERATOR5, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator5).register(MomoTech.getInstance());
-        new RuleDustGenerator6(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR6", Items.MOMOTECH_RULE_DUST_GENERATOR6, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator6).register(MomoTech.getInstance());
-        new RuleDustGenerator7(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR7", Items.MOMOTECH_RULE_DUST_GENERATOR7, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator7).register(MomoTech.getInstance());
-        new RuleDustGenerator8(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR8", Items.MOMOTECH_RULE_DUST_GENERATOR8, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator8).register(MomoTech.getInstance());
-        new RuleDustGenerator9(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR9", Items.MOMOTECH_RULE_DUST_GENERATOR9, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator9).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR0", Items.MOMOTECH_MONSTER_ITEM, RecipeType.ANCIENT_ALTAR, monsterItemGenerator0,new Material[]{Material.BONE, Material.CARROT, Material.POTATO, Material.STRING, Material.IRON_INGOT,
+                Material.GUNPOWDER, Material.ROTTEN_FLESH, Material.SPIDER_EYE, Material.GLOWSTONE_DUST, Material.REDSTONE,
+                Material.STICK, Material.GLASS_BOTTLE}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR1", Items.MOMOTECH_MONSTER_ITEM1, RecipeType.ANCIENT_ALTAR, monsterItemGenerator1,new Material[] {Material.COD, Material.SALMON, Material.PUFFERFISH, Material.TROPICAL_FISH, Material.PRISMARINE_CRYSTALS, Material.PRISMARINE_SHARD, Material.INK_SAC, Material.GLOW_INK_SAC}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR2", Items.MOMOTECH_MONSTER_ITEM2, RecipeType.ANCIENT_ALTAR, monsterItemGenerator2,new Material[] {Material.ROTTEN_FLESH, Material.GOLD_INGOT, Material.GOLD_NUGGET}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR3", Items.MOMOTECH_MONSTER_ITEM3, RecipeType.ANCIENT_ALTAR, monsterItemGenerator3,new Material[] {Material.ENDER_EYE, Material.ENDER_PEARL}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR4", Items.MOMOTECH_MONSTER_ITEM4, RecipeType.ANCIENT_ALTAR, monsterItemGenerator4,new Material[] {Material.GUNPOWDER}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR5", Items.MOMOTECH_MONSTER_ITEM5, RecipeType.ANCIENT_ALTAR, monsterItemGenerator5,new Material[] {Material.ROTTEN_FLESH, Material.COPPER_INGOT, Material.NAUTILUS_SHELL}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR6", Items.MOMOTECH_MONSTER_ITEM6, RecipeType.ANCIENT_ALTAR, monsterItemGenerator6,new Material[] {Material.BEEF, Material.CHICKEN, Material.MUTTON, Material.LEATHER, Material.FEATHER, Material.WHITE_WOOL, Material.PORKCHOP, Material.EGG}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR7", Items.MOMOTECH_MONSTER_ITEM7, RecipeType.ANCIENT_ALTAR, monsterItemGenerator7,new Material[] {Material.SLIME_BALL, Material.SLIME_BLOCK}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR8", Items.MOMOTECH_MONSTER_ITEM8, RecipeType.ANCIENT_ALTAR, monsterItemGenerator8,new Material[] {Material.BLAZE_POWDER, Material.BLAZE_ROD}).register(MomoTech.getInstance());
+        new MonsterItemGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_MONSTER_GENERATOR9", Items.MOMOTECH_MONSTER_ITEM9, RecipeType.ANCIENT_ALTAR, monsterItemGenerator9,new Material[] {Material.MAGMA_CREAM}).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR0", Items.MOMOTECH_RULE_DUST_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator,new RandomizedItemStack(64,SlimefunItems.ALUMINUM_DUST, SlimefunItems.COPPER_DUST,
+                SlimefunItems.GOLD_DUST, SlimefunItems.LEAD_DUST, SlimefunItems.IRON_DUST, SlimefunItems.SILVER_DUST,
+                SlimefunItems.TIN_DUST, SlimefunItems.ZINC_DUST, SlimefunItems.MAGNESIUM_DUST)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR1", Items.MOMOTECH_RULE_DUST_GENERATOR1, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator1,new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR2", Items.MOMOTECH_RULE_DUST_GENERATOR2, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator2,new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR3", Items.MOMOTECH_RULE_DUST_GENERATOR3, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator3,new SlimefunItemStack(SlimefunItems.COPPER_DUST ,64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR4", Items.MOMOTECH_RULE_DUST_GENERATOR4, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator4,new SlimefunItemStack(SlimefunItems .GOLD_DUST,64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR5", Items.MOMOTECH_RULE_DUST_GENERATOR5, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator5,new SlimefunItemStack(SlimefunItems.SILVER_DUST ,64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR6", Items.MOMOTECH_RULE_DUST_GENERATOR6, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator6,new SlimefunItemStack(SlimefunItems.LEAD_DUST ,64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR7", Items.MOMOTECH_RULE_DUST_GENERATOR7, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator7,new SlimefunItemStack(SlimefunItems.TIN_DUST ,64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR8", Items.MOMOTECH_RULE_DUST_GENERATOR8, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator8,new SlimefunItemStack(SlimefunItems.ZINC_DUST ,64)).register(MomoTech.getInstance());
+        new RuleDustGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_DUST_GENERATOR9", Items.MOMOTECH_RULE_DUST_GENERATOR9, RecipeType.ENHANCED_CRAFTING_TABLE, ruleDustGenerator9,new SlimefunItemStack(SlimefunItems.IRON_DUST ,64)).register(MomoTech.getInstance());
         new RuleMineralGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_MINERAL_GENERATOR", Items.MOMOTECH_MINERAL_GENERATOR, RecipeType.ANCIENT_ALTAR, ruleMineralGenerator).register(MomoTech.getInstance());
         new RuleMineralBlockGenerator(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_RULE_MINERAL_BLOCK_GENERATOR", Items.MOMOTECH_MINERAL_BLOCK_GENERATOR, RecipeType.ANCIENT_ALTAR, ruleMineralBlockGenerator).register(MomoTech.getInstance());
         new Wood(Items.MOMOTECH_INF_MACHINE, "MOMOTECH_WOOD", Items.MOMOTECH_WOOD, RecipeType.ENHANCED_CRAFTING_TABLE, wood).register(MomoTech.getInstance());
@@ -644,6 +648,7 @@ public class MachineRegisterTask {
         new OreCollector(Items.MOMOTECH_MACHINE, "MOMOTECH_ORE_COLLECTOR", Items.MOMOTECH_ORE_COLLECTOR, RecipeType.MAGIC_WORKBENCH, oreCollector).register(MomoTech.getInstance());
         new RandomCopier(Items.MOMOTECH_FINAL, "MOMOTECH_RANDOM_COPIER", Items.MOMOTECH_RANDOM_COPIER, RecipeType.ENHANCED_CRAFTING_TABLE, randomCopier).register(MomoTech.getInstance());
         new AbstractEasyGeneratorGUI(Items.MOMOTECH_ORDINARY_MACHINE, "MOMOTECH_SEA_ITEM_GENERATOR", Items.SEA_ITEM_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, seaItemGenerator,"ABSTRACT_GENERATOR",RandomizedItemStack.fromMaterial(8,Material.SEA_LANTERN, Material.DARK_PRISMARINE, Material.PRISMARINE, Material.PRISMARINE_CRYSTALS, Material.PRISMARINE_SHARD)).register(MomoTech.getInstance());
+
         logger.info("Machine register successfully");
     }
 }
