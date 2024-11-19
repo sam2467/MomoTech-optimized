@@ -56,15 +56,15 @@ public class FinalIngotGenerator extends AbstractGUI implements RecipeDisplayIte
         return new int[]{10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25};
     }
     HashMap<ItemStack,ItemStack> recipeMap=new HashMap(){{
-        put(SlimefunItems.ALUMINUM_DUST,SlimefunItems.ALUMINUM_INGOT);
-        put(SlimefunItems.COPPER_DUST,SlimefunItems.COPPER_INGOT);
-        put(SlimefunItems.TIN_DUST,SlimefunItems.TIN_INGOT);
-        put(SlimefunItems.LEAD_DUST,SlimefunItems.LEAD_INGOT);
-        put( SlimefunItems.GOLD_DUST,SlimefunItems.GOLD_4K);
-        put(SlimefunItems.MAGNESIUM_DUST,SlimefunItems.MAGNESIUM_INGOT);
-        put(SlimefunItems.SILVER_DUST,SlimefunItems.SILVER_INGOT);
+        put(SlimefunItems.ALUMINUM_DUST,new ItemStack( SlimefunItems.ALUMINUM_INGOT));
+        put(SlimefunItems.COPPER_DUST,new ItemStack(SlimefunItems.COPPER_INGOT));
+        put(SlimefunItems.TIN_DUST,new ItemStack(SlimefunItems.TIN_INGOT));
+        put(SlimefunItems.LEAD_DUST,new ItemStack(SlimefunItems.LEAD_INGOT));
+        put( SlimefunItems.GOLD_DUST,new ItemStack(SlimefunItems.GOLD_4K));
+        put(SlimefunItems.MAGNESIUM_DUST,new ItemStack(SlimefunItems.MAGNESIUM_INGOT));
+        put(SlimefunItems.SILVER_DUST,new ItemStack(SlimefunItems.SILVER_INGOT));
         put(SlimefunItems.IRON_DUST,new ItemStack(Material.IRON_INGOT));
-        put(SlimefunItems.ZINC_DUST,SlimefunItems.ZINC_INGOT);
+        put(SlimefunItems.ZINC_DUST,new ItemStack(SlimefunItems.ZINC_INGOT));
     }};
     @Override
     protected void findNextRecipe(BlockMenu inv) {

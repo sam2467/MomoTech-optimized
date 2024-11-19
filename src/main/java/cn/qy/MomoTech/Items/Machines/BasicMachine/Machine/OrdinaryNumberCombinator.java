@@ -40,7 +40,7 @@ public class OrdinaryNumberCombinator extends AbstractGUI implements RecipeDispl
         if (SlimefunUtils.isItemSimilar(it, Items.MOMOTECH_SYMBOL_DIVISION, false, false)) return "/";
         if (SlimefunUtils.isItemSimilar(it, Items.MOMOTECH_SYMBOL_MULTIPLICATION, false, false)) return "*";
         if (SlimefunUtils.isItemSimilar(it, Items.MOMOTECH_SYMBOL_SUBTRACTION, false, false)) return "-";
-        return "";
+        return null;
     }
 
     @NotNull
@@ -102,25 +102,30 @@ public class OrdinaryNumberCombinator extends AbstractGUI implements RecipeDispl
     }
 
     protected void findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) == null) return;
-            if (Utils.checkCombinator(inv.getItemInSlot(i))) return;
+        if(inv.getItemInSlot(16)!=null){
+            return;
         }
-        ItemStack it1 = inv.getItemInSlot(getInputSlots()[0]).clone(),
-                it2 = inv.getItemInSlot(getInputSlots()[1]).clone(),
-                it3 = inv.getItemInSlot(getInputSlots()[2]).clone();
+        ItemStack it1 = inv.getItemInSlot(getInputSlots()[0]),
+                it2 = inv.getItemInSlot(getInputSlots()[1]),
+                it3 = inv.getItemInSlot(getInputSlots()[2]);
+        if(it1==null||it2==null||it3==null){
+            return;
+        }
         if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it1).orElseGet(()->"")))
-            if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it3).orElseGet(()->"")))
-                if (check(it2)) {
-                    for (int i : getInputSlots()) inv.consumeItem(i, 1);
+            if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it3).orElseGet(()->""))){
+                String symbol=check1(it2);
+                if (symbol!=null) {
                     ItemMeta meta1 = it1.getItemMeta(), meta2 = it3.getItemMeta();
                     List<String> lore1 = Utils.getLore(meta1);
                     List<String> lore2 = Utils.getLore(meta2);
-                    ItemStack ans = out(lore1.get(0).substring(lore1.get(0).indexOf('f') + 1), lore2.get(0).substring(lore2.get(0).indexOf('f') + 1), check1(it2));
-
-                    inv.pushItem(ans.clone(), 16);
+                    ItemStack ans = out(lore1.get(0).substring(lore1.get(0).indexOf('f') + 1), lore2.get(0).substring(lore2.get(0).indexOf('f') + 1),symbol);
+                    it1.setAmount(it1.getAmount()-1);
+                    it2.setAmount(it2.getAmount()-1);
+                    it3.setAmount(it3.getAmount()-1);
+                    inv.replaceExistingItem(16,ans);
+                    //inv.pushItem(ans.clone(), 16);
                 }
+            }
     }
 
     @NotNull

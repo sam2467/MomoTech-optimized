@@ -4,6 +4,7 @@ import cn.qy.MomoTech.Listeners.Listeners;
 import cn.qy.MomoTech.tasks.ItemRegisterTask;
 import cn.qy.MomoTech.tasks.MachineRegisterTask;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +20,9 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
     public static int playerNumber;
     public static int seed;
     private static MomoTech instance;
-
+    public static Config config;
+    public static boolean autoUpdate = false;
+    public static boolean enableCopierWhitelist=false;
     public static MomoTech getInstance() {
         return instance;
     }
@@ -46,6 +49,9 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
         getLogger().info("----------------------------");
         getLogger().info("载入附属中...");
         instance = this;
+        config=new Config(this);
+        autoUpdate = config.getOrSetDefault("options.auto-update",true);
+        enableCopierWhitelist = config.getOrSetDefault("options.enable-copier-whitelist",false);
         getLogger().info("开始注册监听器");
         getServer().getPluginManager().registerEvents(new Listeners(), this);
         getLogger().info("监听器注册成功");

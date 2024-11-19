@@ -85,7 +85,6 @@ public class NoneGenerator extends AbstractGUI implements RecipeDisplayItem {
                 }
             }
         }
-
         if(pass){
             loop:
             for(int i=0;i<stacks.length;i++){

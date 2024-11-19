@@ -69,7 +69,7 @@ public class ShineAndDarkConstructor extends AbstractElectricGUI implements Reci
     public int threshold=1;
     public ItemStack outDark=new ItemStack(MomotechItem.dark);
     public ItemStack outShine=new ItemStack(MomotechItem.shine);
-    public ItemStack outShell=new ItemStack(MomotechItem.shine);
+    public ItemStack outShell=new ItemStack(MomotechItem.empty_shell);
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         return MachineUtils.consumeAndPushSimple(inv,getInputSlots(),getOutputSlots(),(item)->{

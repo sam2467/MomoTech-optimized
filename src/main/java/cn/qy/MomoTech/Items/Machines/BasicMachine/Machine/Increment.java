@@ -89,21 +89,23 @@ public class Increment extends AbstractGUI implements RecipeDisplayItem {
     }
 
     protected void findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return;
-        if (inv.getItemInSlot(getInputSlots()[0]) == null || inv.getItemInSlot(getInputSlots()[1]) == null) return;
-        for (int i : getInputSlots()) {
-            if (Utils.checkCombinator(inv.getItemInSlot(i))) return;
+        if(inv.getItemInSlot(16)!=null){
+            return;
         }
         ItemStack it1 = inv.getItemInSlot(getInputSlots()[0]),
                 it2 = inv.getItemInSlot(getInputSlots()[1]);
-        if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it1).orElseGet(()->"")))
-            if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it2).orElseGet(()->""))) {
-                for (int i : getInputSlots()) inv.consumeItem(i, 1);
+        if(it1==null||it2==null){
+            return;
+        }
+        if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it1).orElseGet(()->null)))
+            if ("MOMOTECH_DIGITAL".equals(Slimefun.getItemDataService().getItemData(it2).orElseGet(()->null))) {
                 ItemMeta meta1 = it1.getItemMeta(), meta2 = it2.getItemMeta();
                 List<String> lore1 = Utils.getLore(meta1);
                 List<String> lore2 = Utils.getLore(meta2);
                 ItemStack ans = out(lore1.get(0).substring(lore1.get(0).indexOf('f') + 1), lore2.get(0).substring(lore2.get(0).indexOf('f') + 1));
-                inv.pushItem(ans.clone(), getOutputSlots());
+                it1.setAmount(it1.getAmount() - 1);
+                it2.setAmount(it2.getAmount() - 1);
+                inv.replaceExistingItem(16,ans);
             }
     }
 
