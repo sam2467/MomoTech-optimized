@@ -2,12 +2,14 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
@@ -16,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ShineAndDarkConstructor extends AbstractElectricGUI implements RecipeDisplayItem {
     public ShineAndDarkConstructor(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
@@ -62,32 +65,53 @@ public class ShineAndDarkConstructor extends AbstractElectricGUI implements Reci
     public int[] getOutputSlots() {
         return new int[]{19, 20, 21, 22, 23, 24, 25};
     }
-
+    public Random rand=new Random();
+    public int threshold=1;
+    public ItemStack outDark=new ItemStack(MomotechItem.dark);
+    public ItemStack outShine=new ItemStack(MomotechItem.shine);
+    public ItemStack outShell=new ItemStack(MomotechItem.shine);
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return false;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) == null) continue;
-            ItemStack it = inv.getItemInSlot(i);
-            if (it.getType()==Material.NETHERITE_PICKAXE&&!it.hasItemMeta()) {
-                inv.replaceExistingItem(i, null,false);
-                int k = inv.getLocation().getBlockY();
-                if (Maths.GetRandom(100) == 0) {
-                    if (k < 0) {
-                        inv.pushItem(MomotechItem.dark.clone(), getOutputSlots());
-                        return true;
-                    } else if (k > 256) {
-                        inv.pushItem(MomotechItem.shine.clone(), getOutputSlots());
-                        return true;
+        return MachineUtils.consumeAndPushSimple(inv,getInputSlots(),getOutputSlots(),(item)->{
+            if(item!=null&&item.getType()==Material.NETHERITE_PICKAXE){
+                int k=inv.getLocation().getBlockY();
+                ItemStack returned=null;
+                if(rand.nextInt(100)<threshold){
+                    if(k<0){
+                        returned=outDark.clone();
+                    }else if(k>256){
+                        returned=outShine.clone();
                     }
-                } else {
-                    inv.pushItem(MomotechItem.empty_shell.clone(), getOutputSlots());
-                    return true;
+                }else{
+                    returned=outShell.clone();
                 }
-                return false;
+                return new Pair<>(returned,()->item.setAmount(0));
             }
-        }
-        return false;
+            return null;
+        },true);
+//        if (Utils.checkOutput(inv, getOutputSlots())) return false;
+//        for (int i : getInputSlots()) {
+//            if (inv.getItemInSlot(i) == null) continue;
+//            ItemStack it = inv.getItemInSlot(i);
+//            if (it.getType()==Material.NETHERITE_PICKAXE&&!it.hasItemMeta()) {
+//                inv.replaceExistingItem(i, null,false);
+//                int k = inv.getLocation().getBlockY();
+//                if (Maths.GetRandom(100) == 0) {
+//                    if (k < 0) {
+//                        inv.pushItem(MomotechItem.dark.clone(), getOutputSlots());
+//                        return true;
+//                    } else if (k > 256) {
+//                        inv.pushItem(MomotechItem.shine.clone(), getOutputSlots());
+//                        return true;
+//                    }
+//                } else {
+//                    inv.pushItem(MomotechItem.empty_shell.clone(), getOutputSlots());
+//                    return true;
+//                }
+//                return false;
+//            }
+//        }
+//        return false;
     }
 
     @NotNull

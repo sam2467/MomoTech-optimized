@@ -2,6 +2,8 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractGUI;
 import cn.qy.MomoTech.Items.Items;
+import cn.qy.MomoTech.Items.RandomizedItemStack;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -51,17 +53,19 @@ public class IngotGenerator extends AbstractGUI implements RecipeDisplayItem {
     public String getMachineIdentifier() {
         return "MOMOTECH_INGOT_CONSTRUCTOR";
     }
-
+    ItemStack consumed=new ItemStack(new SlimefunItemStack("MOMOTECH_METAL_STAR", Items.MOMOTECH_METAL_STAR));
+    RandomizedItemStack output=new RandomizedItemStack(32,list);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return;
-        for (int i : getInputSlots())
-            if (inv.getItemInSlot(i) != null)
-                if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), new SlimefunItemStack("MOMOTECH_METAL_STAR", Items.MOMOTECH_METAL_STAR).clone(), false, false, false)) {
-                    inv.consumeItem(i, 1);
-                    inv.pushItem(new SlimefunItemStack(list[Maths.GetRandom(list.length - 1)], 32), getOutputSlots());
-                    return ;
-                }
+        MachineUtils.simpleNullonlyProcessor(inv,getInputSlots(),getOutputSlots(),consumed,output);
+//        if (Utils.checkOutput(inv, getOutputSlots())) return;
+//        for (int i : getInputSlots())
+//            if (inv.getItemInSlot(i) != null)
+//                if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), new SlimefunItemStack("MOMOTECH_METAL_STAR", Items.MOMOTECH_METAL_STAR).clone(), false, false, false)) {
+//                    inv.consumeItem(i, 1);
+//                    inv.pushItem(new SlimefunItemStack(list[Maths.GetRandom(list.length - 1)], 32), getOutputSlots());
+//                    return ;
+//                }
     }
 
     @NotNull

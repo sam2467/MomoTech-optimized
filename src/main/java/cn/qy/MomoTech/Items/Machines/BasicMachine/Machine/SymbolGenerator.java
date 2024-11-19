@@ -3,6 +3,7 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.Machine;
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -78,21 +79,22 @@ public class SymbolGenerator extends AbstractElectricGUI implements RecipeDispla
 
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return false;
-        ItemStack it = out();
-        for (int i : this.getInputSlots())
-            if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), Items.MOMOTECH_EMPTY_SHELL, false, false)) {
-                for (int j : getOutputSlots()) {
-                    if (inv.getItemInSlot(j) == null) {
-                        inv.consumeItem(i, 1);
-                        if (it != null) {
-                            inv.replaceExistingItem(j, it);
-                        }
-                        return true;
-                    }
-                }
-            }
-        return false;
+        return MachineUtils.simpleNullonlyProcessor(inv,getInputSlots(),getOutputSlots(),Items.MOMOTECH_EMPTY_SHELL,out());
+//        if (Utils.checkOutput(inv, getOutputSlots())) return false;
+//        ItemStack it = out();
+//        for (int i : this.getInputSlots())
+//            if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), Items.MOMOTECH_EMPTY_SHELL, false, false)) {
+//                for (int j : getOutputSlots()) {
+//                    if (inv.getItemInSlot(j) == null) {
+//                        inv.consumeItem(i, 1);
+//                        if (it != null) {
+//                            inv.replaceExistingItem(j, it);
+//                        }
+//                        return true;
+//                    }
+//                }
+//            }
+//        return false;
     }
 
     @NotNull

@@ -1,11 +1,13 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractGUI;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
@@ -54,16 +56,19 @@ public class PumpkinCarver extends AbstractGUI implements RecipeDisplayItem {
 
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) != null) {
-                ItemStack it = inv.getItemInSlot(i).clone();
-                it.setAmount(1);
-                if (it.equals(new ItemStack(Material.PUMPKIN))) {
-                    if (Utils.checkOutput(inv, getOutputSlots())) return;
-                    inv.pushItem(new ItemStack(Material.PUMPKIN_SEEDS, inv.getItemInSlot(i).getAmount()), getOutputSlots());
-                    inv.pushItem(new ItemStack(Material.CARVED_PUMPKIN, inv.getItemInSlot(i).getAmount()), getOutputSlots());
-                    inv.consumeItem(i, inv.getItemInSlot(i).getAmount());
+        int[] inputSlot=getInputSlots();
+        for(int i=0;i<inputSlot.length;i++){
+            ItemStack itemToBeConsumed=inv.getItemInSlot(inputSlot[i]);
+            if(itemToBeConsumed!=null){
+                if(itemToBeConsumed.getType()==Material.PUMPKIN&&!itemToBeConsumed.hasItemMeta()){
+                    int amount=itemToBeConsumed.getAmount();
+                    ItemStack pushed=new ItemStack(Material.PUMPKIN_SEEDS,amount);
+                    if((pushed=inv.pushItem(pushed,getOutputSlots()))!=null&&pushed.getAmount()==amount){
+                        return;
+                    }else {
+                        inv.pushItem(new ItemStack(Material.CARVED_PUMPKIN,amount),getOutputSlots());
+                        itemToBeConsumed.setAmount(0);
+                    }
                 }
             }
         }

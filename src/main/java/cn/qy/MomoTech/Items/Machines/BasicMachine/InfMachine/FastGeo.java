@@ -1,6 +1,7 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource;
@@ -88,7 +89,7 @@ public class FastGeo extends AbstractElectricGUI implements RecipeDisplayItem {
                     for (int j : getOutputSlots()) {
                         if (inv.getItemInSlot(j) == null) {
                             inv.pushItem(output.clone(), getOutputSlots());
-                            inv.consumeItem(i, 1);
+                            it.setAmount(0);
                             return true;
                         }
                     }

@@ -1,5 +1,6 @@
 package cn.qy.MomoTech.GUI;
 
+import cn.qy.MomoTech.utils.SimpleOperation;
 import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -31,9 +32,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 //TODO fix this piece of shit
-public abstract class AbstractProcessMachine extends SlimefunItem implements InventoryBlock, MachineProcessHolder<CraftingOperation> {
+public abstract class AbstractProcessMachine extends SlimefunItem implements InventoryBlock, MachineProcessHolder<SimpleOperation> {
 
-    private final MachineProcessor<CraftingOperation> processor = new MachineProcessor<>(this);
+    private final MachineProcessor<SimpleOperation> processor = new MachineProcessor<>(this);
     protected List<MachineRecipe> recipes = new ArrayList<>();
 
     @ParametersAreNonnullByDefault
@@ -67,13 +68,13 @@ public abstract class AbstractProcessMachine extends SlimefunItem implements Inv
                     inv.dropItems(b.getLocation(), cn.qy.MomoTech.GUI.AbstractProcessMachine.this.getOutputSlots());
                 }
 
-                cn.qy.MomoTech.GUI.AbstractProcessMachine.this.processor.endOperation(b);
+                AbstractProcessMachine.this.processor.endOperation(b);
             }
         };
     }
 
     @Nonnull
-    public MachineProcessor<CraftingOperation> getMachineProcessor() {
+    public MachineProcessor<SimpleOperation> getMachineProcessor() {
         return this.processor;
     }
 
@@ -139,53 +140,8 @@ public abstract class AbstractProcessMachine extends SlimefunItem implements Inv
 
     public abstract int getDefaultMaxProcess();
 
-    public boolean checkProcessStart(BlockMenu blockMenu) {
-        ItemStack it = blockMenu.getItemInSlot(getProcessBarSlots());
-        if (it == null) {
-            initProcess(blockMenu);
-            return false;
-        }
-        if (it.getType() != Material.GREEN_STAINED_GLASS_PANE) {
-            initProcess(blockMenu);
-            return false;
-        }
-        return true;
-    }
 
-    public void addProcess(BlockMenu blockMenu) {
-        addProcess(blockMenu, 1);
-    }
 
-    public void addProcess(BlockMenu blockMenu, int k) {
-
-        ItemStack it = blockMenu.getItemInSlot(getProcessBarSlots());
-        String str = Objects.requireNonNull(it.getLore()).get(0);
-        int now = Integer.parseInt(str.substring(str.indexOf('f') + 1, str.indexOf('/'))) + k;
-        blockMenu.replaceExistingItem(getProcessBarSlots(), new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f" + now + "/" + getMaxProcess(blockMenu)));
-    }
-
-    public boolean checkProcessEnd(BlockMenu blockMenu) {
-        ItemStack it = blockMenu.getItemInSlot(getProcessBarSlots());
-        String str = Objects.requireNonNull(it.getLore()).get(0);
-        int now = Integer.parseInt(str.substring(str.indexOf('f') + 1, str.indexOf('/')));
-        return now >= getMaxProcess(blockMenu);
-    }
-
-    public int getMaxProcess(BlockMenu blockMenu) {
-        ItemStack it = blockMenu.getItemInSlot(getProcessBarSlots());
-        String str = Objects.requireNonNull(it.getLore()).get(0);
-        return Integer.parseInt(str.substring(str.indexOf('/') + 1));
-    }
-
-    public void initProcess(BlockMenu blockMenu) {
-        ItemStack it = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f0/" + getDefaultMaxProcess());
-        blockMenu.toInventory().setItem(getProcessBarSlots(), it);
-    }
-
-    public void setMaxProcess(int max, BlockMenu blockMenu) {
-        ItemStack it = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f0/" + max);
-        blockMenu.toInventory().setItem(getProcessBarSlots(), it);
-    }
 
     public abstract int[] getOutputSlots();
 

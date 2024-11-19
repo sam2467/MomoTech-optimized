@@ -90,7 +90,7 @@ public class RuleGeo extends AbstractElectricGUI implements RecipeDisplayItem {
                             ItemStack out=output.clone();
                             out.setAmount(16);
                             inv.pushItem(out, getOutputSlots());
-                            inv.consumeItem(i, 1);
+                            it.setAmount(0);
                             return true;
                         }
                     }

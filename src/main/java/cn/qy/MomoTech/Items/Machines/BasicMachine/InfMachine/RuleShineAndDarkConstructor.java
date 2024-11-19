@@ -18,9 +18,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RuleShineAndDarkConstructor extends AbstractElectricGUI implements RecipeDisplayItem {
+public class RuleShineAndDarkConstructor extends ShineAndDarkConstructor implements RecipeDisplayItem {
     public RuleShineAndDarkConstructor(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
-        super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
+        super(itemGroup, id,it, recipeType, recipe);
+        this.threshold=51;
     }
 
     @Override
@@ -65,33 +66,33 @@ public class RuleShineAndDarkConstructor extends AbstractElectricGUI implements 
         return new int[]{3, 4, 5, 6, 7, 8};
     }
 
-    @Override
-    protected boolean findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return false;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) == null) continue;
-            ItemStack it = inv.getItemInSlot(i);
-            if (it.getType()==Material.NETHERITE_PICKAXE&&!it.hasItemMeta()) {
-                inv.replaceExistingItem(i, null,false);
-                int k = inv.getLocation().getBlockY();
-                if (Maths.GetRandom(1) == 0) {
-                    if (k < 0) {
-                        inv.pushItem(MomotechItem.dark.clone(), getOutputSlots());
-                        return true;
-                    } else if (k > 256) {
-                        inv.pushItem(MomotechItem.shine.clone(), getOutputSlots());
-                        return true;
-                    }
-                } else {
-                    inv.pushItem(MomotechItem.empty_shell.clone(), getOutputSlots());
-                    return true;
-                }
-                return false;
-            }
-        }
-
-        return false;
-    }
+    //@Override
+//    protected boolean findNextRecipe(BlockMenu inv) {
+//        if (Utils.checkOutput(inv, getOutputSlots())) return false;
+//        for (int i : getInputSlots()) {
+//            if (inv.getItemInSlot(i) == null) continue;
+//            ItemStack it = inv.getItemInSlot(i);
+//            if (it.getType()==Material.NETHERITE_PICKAXE&&!it.hasItemMeta()) {
+//                inv.replaceExistingItem(i, null,false);
+//                int k = inv.getLocation().getBlockY();
+//                if (Maths.GetRandom(1) == 0) {
+//                    if (k < 0) {
+//                        inv.pushItem(MomotechItem.dark.clone(), getOutputSlots());
+//                        return true;
+//                    } else if (k > 256) {
+//                        inv.pushItem(MomotechItem.shine.clone(), getOutputSlots());
+//                        return true;
+//                    }
+//                } else {
+//                    inv.pushItem(MomotechItem.empty_shell.clone(), getOutputSlots());
+//                    return true;
+//                }
+//                return false;
+//            }
+//        }
+//
+//        return false;
+//    }
 
     @NotNull
     @Override

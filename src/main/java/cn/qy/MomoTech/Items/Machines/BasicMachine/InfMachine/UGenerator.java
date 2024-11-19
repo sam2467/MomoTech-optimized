@@ -1,12 +1,14 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -61,22 +63,24 @@ public class UGenerator extends AbstractElectricGUI implements RecipeDisplayItem
     public int getEnergyConsumption() {
         return 5000;
     }
-
+    ItemStack consumed=new ItemStack(Material.COBBLESTONE);
+    ItemStack output=new CustomItemStack(SlimefunItems.URANIUM,64);
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return false;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) != null) {
-                ItemStack it = inv.getItemInSlot(i);
-
-                if (it.getType()==Material.COBBLESTONE&&!it.hasItemMeta()) {
-                    inv.consumeItem(i, 1);
-                    inv.pushItem(new SlimefunItemStack(SlimefunItems.URANIUM, 64), getOutputSlots());
-                    return true;
-                }
-            }
-        }
-        return false;
+        return MachineUtils.simpleProcessor(inv,getInputSlots(),getOutputSlots(),consumed,output);
+//        if (Utils.checkOutput(inv, getOutputSlots())) return false;
+//        for (int i : getInputSlots()) {
+//            if (inv.getItemInSlot(i) != null) {
+//                ItemStack it = inv.getItemInSlot(i);
+//
+//                if (it.getType()==Material.COBBLESTONE&&!it.hasItemMeta()) {
+//                    inv.consumeItem(i, 1);
+//                    inv.pushItem(new SlimefunItemStack(SlimefunItems.URANIUM, 64), getOutputSlots());
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
     }
 
     @NotNull

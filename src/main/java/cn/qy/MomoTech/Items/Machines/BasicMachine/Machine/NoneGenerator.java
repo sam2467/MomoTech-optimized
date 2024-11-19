@@ -11,10 +11,10 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class NoneGenerator extends AbstractGUI implements RecipeDisplayItem {
     public NoneGenerator(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
@@ -56,29 +56,61 @@ public class NoneGenerator extends AbstractGUI implements RecipeDisplayItem {
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (Utils.checkOutput(inv, getOutputSlots())) return;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) == null)
-                return;
-        }
         int[] inputSlots=getInputSlots();
+        ItemStack[] stacks= Arrays.stream(inputSlots).mapToObj(inv::getItemInSlot).toArray(ItemStack[]::new);
+        Material[] materials = new Material[stacks.length];
+        ItemMeta[] metas=new ItemMeta[stacks.length];
+        int[] amounts=new int[stacks.length];
+        boolean pass=true;
+        boolean hasNull=false;
+        for(int i=0;i<stacks.length;i++){
+            ItemStack stack=stacks[i];
+            if(stack==null){
+                hasNull=true;
+                pass=false;
+                break;
+            }
+            materials[i]=stack.getType();
+            amounts[i]=stack.getAmount();
 
-        for (int i_=0;i_<inputSlots.length;i_++) {
-            for (int j_ =i_+1;j_<inputSlots.length;j_++) {
-                int i=inputSlots[i_];
-                int j=inputSlots[j_];
-                ItemStack it = inv.getItemInSlot(i), it1 = inv.getItemInSlot(j);
+        }
+        if(hasNull)return;
+        Arrays.stream(inputSlots).forEach(i->inv.replaceExistingItem(i,null));
+        for(int i=0;i<stacks.length;i++){
 
-                if (it.isSimilar(it1) || it.getAmount() ==it1.getAmount()) {
-                    for (int k : getInputSlots()) {
-                        inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
-                    }
-                    return;
+            for(int j=0;j<i;j++){
+                if(amounts[j]==amounts[i]){
+                    pass=false;
+                    break;
                 }
             }
         }
-        for (int k : getInputSlots())
-            inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
-        inv.pushItem(MomotechItem.none_.clone(), getOutputSlots());
+
+        if(pass){
+            loop:
+            for(int i=0;i<stacks.length;i++){
+                for(int j=0;j<i;j++){
+                    if(materials[j]==materials[i]){
+
+                        if(metas[j]==null){
+                            metas[j]=stacks[j].getItemMeta();
+                        }
+                        if (metas[i]==null){
+                            metas[i]=stacks[i].getItemMeta();
+                        }
+                        if(Objects.equals(metas[i],metas[j])){
+                            pass=false;
+                            break loop;
+                        }
+
+                    }
+                }
+            }
+
+            if(pass){
+                inv.replaceExistingItem(getOutputSlots()[0],MomotechItem.none_);
+            }
+        }
     }
 
     @NotNull

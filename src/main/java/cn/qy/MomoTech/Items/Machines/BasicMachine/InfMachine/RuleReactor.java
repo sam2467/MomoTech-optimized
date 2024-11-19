@@ -1,18 +1,21 @@
 package cn.qy.MomoTech.Items.Machines.BasicMachine.InfMachine;
 
 import cn.qy.MomoTech.GUI.AbstractElectricGUI;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RuleReactor extends AbstractElectricGUI implements RecipeDisplayItem {
@@ -50,27 +53,31 @@ public class RuleReactor extends AbstractElectricGUI implements RecipeDisplayIte
     public int[] getOutputSlots() {
         return new int[]{4, 5, 6, 7};
     }
-
+    HashMap<ItemStack,ItemStack> recipeMap=new HashMap(){{
+        put(new ItemStack(SlimefunItems.URANIUM),new CustomItemStack(SlimefunItems.NEPTUNIUM,8));
+        put(new ItemStack(SlimefunItems.NEPTUNIUM),new CustomItemStack(SlimefunItems.PLUTONIUM,8));
+    }};
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return false;
-        for (int i : getInputSlots()) {
-            if (inv.getItemInSlot(i) == null) continue;
-            ItemStack it = inv.getItemInSlot(i).clone();
-            it.setAmount(1);
-            if (SlimefunUtils.isItemSimilar(it, SlimefunItems.URANIUM, false, false)) {
-                inv.consumeItem(i, 1);
-                inv.pushItem(new SlimefunItemStack(SlimefunItems.NEPTUNIUM, 8), getOutputSlots());
-                this.setCharge(inv.getLocation(), this.getCharge(inv.getLocation()) - this.getEnergyConsumption());
-                return false;
-            }
-            if (SlimefunUtils.isItemSimilar(it, SlimefunItems.NEPTUNIUM, false, false)) {
-                inv.consumeItem(i, 1);
-                inv.pushItem(new SlimefunItemStack(SlimefunItems.PLUTONIUM, 8), getOutputSlots());
-                return true;
-            }
-        }
-        return false;
+        return MachineUtils.simpleProcessor(inv,getInputSlots(),getOutputSlots(),recipeMap);
+//        if (Utils.checkOutput(inv, getOutputSlots())) return false;
+//        for (int i : getInputSlots()) {
+//            if (inv.getItemInSlot(i) == null) continue;
+//            ItemStack it = inv.getItemInSlot(i).clone();
+//            it.setAmount(1);
+//            if (SlimefunUtils.isItemSimilar(it, SlimefunItems.URANIUM, false, false)) {
+//                inv.consumeItem(i, 1);
+//                inv.pushItem(new SlimefunItemStack(SlimefunItems.NEPTUNIUM, 8), getOutputSlots());
+//                this.setCharge(inv.getLocation(), this.getCharge(inv.getLocation()) - this.getEnergyConsumption());
+//                return false;
+//            }
+//            if (SlimefunUtils.isItemSimilar(it, SlimefunItems.NEPTUNIUM, false, false)) {
+//                inv.consumeItem(i, 1);
+//                inv.pushItem(new SlimefunItemStack(SlimefunItems.PLUTONIUM, 8), getOutputSlots());
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     @NotNull

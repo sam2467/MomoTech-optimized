@@ -3,6 +3,8 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.Machine;
 import cn.qy.MomoTech.GUI.AbstractProcessMachine;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.utils.MachineUtils;
+import cn.qy.MomoTech.utils.SimpleOperation;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -65,14 +67,21 @@ public class EternalMiningMachine extends AbstractProcessMachine implements Reci
     public SlimefunItemStack item_forever=new SlimefunItemStack("MOMOTECH_FOREVER", Items.MOMOTECH_FOREVER);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(10), MomotechItem.empty_shell, false, false)) {
-            inv.consumeItem(10, 1);
-            if (checkProcessStart(inv)) {
-                addProcess(inv);
+        if(MachineUtils.simpleProcessor(inv,getInputSlots(),getOutputSlots(),MomotechItem.empty_shell,null)){
+            SimpleOperation operation=this.getMachineProcessor().getOperation(inv.getLocation());
+            if(operation==null){
+                operation=new SimpleOperation(this.getDefaultMaxProcess());
+                this.getMachineProcessor().startOperation(inv.getLocation(),operation);
             }
-            if (checkProcessEnd(inv)) {
-                setMaxProcess(getMaxProcess(inv) + (int) (getMaxProcess(inv) / 10.00), inv);
-                inv.pushItem( item_forever.clone(), getOutputSlots());
+            operation.addRealProgress(1);
+            if(inv.hasViewer()){
+                inv.replaceExistingItem(this.getProcessBarSlots(),new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f"+operation.getProgress()+"/" + operation.getTotalTicks()));
+            }
+            if(operation.isFinished()){
+                this.getMachineProcessor().endOperation(inv.getLocation());
+                operation=new SimpleOperation((int)((float)(operation.getTotalTicks())*1.1f));
+                this.getMachineProcessor().startOperation(inv.getLocation(),operation);
+                inv.pushItem(item_forever.clone(),getOutputSlots());
             }
         }
     }

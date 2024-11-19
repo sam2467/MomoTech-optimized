@@ -5,6 +5,7 @@ import cn.qy.MomoTech.GUI.AbstractElectricGUI;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
 import cn.qy.MomoTech.Items.RandomizedItemStack;
+import cn.qy.MomoTech.utils.MachineUtils;
 import cn.qy.MomoTech.utils.Maths;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -65,7 +66,7 @@ public class DigitalConstructor extends AbstractElectricGUI implements RecipeDis
     public int[] getOutputSlots() {
         return new int[]{36, 37, 38, 39, 40, 41, 42, 43, 44};
     }
-    ItemStack digitals=new RandomizedItemStack(new ArrayList<ItemStack>(){{
+    RandomizedItemStack digitals=new RandomizedItemStack(new ArrayList<ItemStack>(){{
         for(int i=0;i<=10;++i){
             add(MomotechItem.digital(i));
         }
@@ -73,18 +74,19 @@ public class DigitalConstructor extends AbstractElectricGUI implements RecipeDis
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         //ItemStack it = MomotechItem.digital(Maths.GetRandom(10));
-        if (Utils.checkOutput(inv, getOutputSlots())) return false;
-        for (int i : this.getInputSlots())
-            if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), Items.MOMOTECH_EMPTY_SHELL, true, false)) {
-                for (int j : getOutputSlots()) {
-                    if (inv.getItemInSlot(j) == null) {
-                        inv.consumeItem(i, 1);
-                        inv.replaceExistingItem(j, digitals.clone());
-                        return true;
-                    }
-                }
-            }
-        return false;
+        return MachineUtils.simpleNullonlyProcessor(inv,getInputSlots(),getOutputSlots(),Items.MOMOTECH_EMPTY_SHELL,digitals.getInstance());
+//        if (Utils.checkOutput(inv, getOutputSlots())) return false;
+//        for (int i : this.getInputSlots())
+//            if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(i), Items.MOMOTECH_EMPTY_SHELL, true, false)) {
+//                for (int j : getOutputSlots()) {
+//                    if (inv.getItemInSlot(j) == null) {
+//                        inv.consumeItem(i, 1);
+//                        inv.replaceExistingItem(j, digitals.clone());
+//                        return true;
+//                    }
+//                }
+//            }
+//        return false;
     }
 
     @NotNull

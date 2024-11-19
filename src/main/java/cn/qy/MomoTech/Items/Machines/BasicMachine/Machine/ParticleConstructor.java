@@ -3,6 +3,7 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.Machine;
 import cn.qy.MomoTech.GUI.AbstractProcessMachine;
 import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.utils.Maths;
+import cn.qy.MomoTech.utils.SimpleOperation;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -91,13 +92,22 @@ public class ParticleConstructor extends AbstractProcessMachine implements Energ
         if(inv.hasViewer()){
             inv.replaceExistingItem(3, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + charge + " J"));
         }
-        if (checkProcessStart(inv)) {
-            addProcess(inv);
+        SimpleOperation operation=this.getMachineProcessor().getOperation(inv.getLocation());
+        if(operation==null){
+            operation=new SimpleOperation(this.getDefaultMaxProcess());
+            this.getMachineProcessor().startOperation(inv.getLocation(),operation);
         }
-        if (checkProcessEnd(inv)) {
-            setMaxProcess(Maths.GetRandom(49) + 1, inv);
-            if (this.getCharge(inv.getLocation()) < 2) return;
-            if (this.isPrime(this.getCharge(inv.getLocation())))
+        operation.addRealProgress(1);
+        if(inv.hasViewer()){
+            inv.replaceExistingItem(this.getProcessBarSlots(),new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "§a进度", "&f"+operation.getProgress()+"/" + operation.getTotalTicks()));
+        }
+
+        if(operation.isFinished()){
+            this.getMachineProcessor().endOperation(inv.getLocation());
+            operation=new SimpleOperation(Maths.GetRandom(49) + 1);
+            this.getMachineProcessor().startOperation(inv.getLocation(),operation);
+
+            if (this.isPrime(charge))
                 inv.pushItem(item_proton.clone(), getOutputSlots());
             else inv.pushItem(item_zygote.clone(), getOutputSlots());
             if (charge > 1)

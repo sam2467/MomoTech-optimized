@@ -54,7 +54,7 @@ public class EmptyShellGenerator_I extends AbstractGUI implements RecipeDisplayI
     ItemStack output= new SlimefunItemStack(MomotechItem.empty_shell, 64);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        if (Utils.checkOutput(inv, getOutputSlots())) return;
+        //if (Utils.checkOutput(inv, getOutputSlots())) return;
         for (int i : getOutputSlots()) {
             if (inv.getItemInSlot(i) == null) {
                 inv.replaceExistingItem(i,output);
