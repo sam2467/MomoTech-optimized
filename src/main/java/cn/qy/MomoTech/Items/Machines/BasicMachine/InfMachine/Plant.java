@@ -87,7 +87,7 @@ public class Plant extends AbstractElectricGUI implements RecipeDisplayItem {
         return new int[]{2, 3, 4, 5, 6, 7, 8};
     }
 
-    public void pushIt(Material[] it, BlockMenu b) {
+    public void pushIt(BlockMenu b,Material... it) {
         for (Material i : it) {
             b.pushItem(new ItemStack(i, 32), getOutputSlots());
         }
@@ -98,103 +98,103 @@ public class Plant extends AbstractElectricGUI implements RecipeDisplayItem {
         if (inv.getItemInSlot(0) == null) return false;
         ItemStack it = inv.getItemInSlot(0);
         if (it.getType()==Material.POTATO) {
-            pushIt(new Material[]{Material.POTATO, Material.POISONOUS_POTATO}, inv);
+            pushIt(inv,Material.POTATO, Material.POISONOUS_POTATO);
             return true;
         }
         else if (((it.getType()==Material.CARROT))) {
-            pushIt(new Material[]{Material.CARROT}, inv);
+            pushIt(inv,Material.CARROT);
             return true;
         }
         else if (((it.getType()==Material.PUMPKIN_SEEDS))) {
-            pushIt(new Material[]{Material.PUMPKIN, Material.PUMPKIN_SEEDS}, inv);
+            pushIt(inv,Material.PUMPKIN, Material.PUMPKIN_SEEDS);
             return true;
         }
         else if (((it.getType()==Material.MELON_SEEDS))) {
-            pushIt(new Material[]{Material.MELON, Material.MELON_SEEDS, Material.MELON_SLICE}, inv);
+            pushIt(inv,Material.MELON, Material.MELON_SEEDS, Material.MELON_SLICE);
             return true;
         }
         else if (((it.getType()==Material.BEETROOT_SEEDS))) {
-            pushIt(new Material[]{Material.BEETROOT, Material.BEETROOT_SEEDS}, inv);
+            pushIt(inv,Material.BEETROOT, Material.BEETROOT_SEEDS);
             return true;
         }
         else if (((it.getType()==Material.WHEAT_SEEDS))) {
-            pushIt(new Material[]{Material.WHEAT, Material.WHEAT_SEEDS}, inv);
+            pushIt(inv,Material.WHEAT, Material.WHEAT_SEEDS);
             return true;
         }
         else if (((it.getType()==Material.BROWN_MUSHROOM))) {
-            pushIt(new Material[]{Material.BROWN_MUSHROOM, Material.BROWN_MUSHROOM_BLOCK, Material.MUSHROOM_STEM}, inv);
+            pushIt(inv,Material.BROWN_MUSHROOM, Material.BROWN_MUSHROOM_BLOCK, Material.MUSHROOM_STEM);
             return true;
         }
         else if (((it.getType()==Material.RED_MUSHROOM))) {
-            pushIt(new Material[]{Material.RED_MUSHROOM_BLOCK, Material.RED_MUSHROOM, Material.MUSHROOM_STEM}, inv);
+            pushIt(inv,Material.RED_MUSHROOM_BLOCK, Material.RED_MUSHROOM, Material.MUSHROOM_STEM);
             return true;
         }
         else if (((it.getType()==Material.BAMBOO))) {
-            pushIt(new Material[]{Material.BAMBOO}, inv);
+            pushIt(inv,Material.BAMBOO);
             return true;
         }
         else if (((it.getType()==Material.DEAD_BUSH))) {
-            pushIt(new Material[]{Material.DEAD_BUSH, Material.STICK}, inv);
+            pushIt(inv,Material.DEAD_BUSH, Material.STICK);
             return true;
         }
         else if (((it.getType()==Material.COCOA_BEANS))) {
-            pushIt(new Material[]{Material.COCOA_BEANS}, inv);
+            pushIt(inv,Material.COCOA_BEANS);
             return true;
         }
         else if (((it.getType()==Material.SUGAR_CANE))) {
-            pushIt(new Material[]{Material.SUGAR_CANE}, inv);
+            pushIt(inv,Material.SUGAR_CANE);
             return true;
         }
         else if (((it.getType()==Material.CACTUS))) {
-            pushIt(new Material[]{Material.CACTUS}, inv);
+            pushIt(inv,Material.CACTUS);
             return true;
         }
         else if (((it.getType()==Material.NETHER_WART))) {
-            pushIt(new Material[]{Material.NETHER_WART}, inv);
+            pushIt(inv,Material.NETHER_WART);
             return true;
         }
         else if (((it.getType()==Material.WITHER_ROSE))) {
-            pushIt(new Material[]{Material.WITHER_ROSE}, inv);
+            pushIt(inv,Material.WITHER_ROSE);
             return true;
         }
         else if (((it.getType()==Material.TORCHFLOWER_SEEDS))) {
-            pushIt(new Material[]{Material.TORCHFLOWER, Material.TORCHFLOWER_SEEDS}, inv);
+            pushIt(inv,Material.TORCHFLOWER, Material.TORCHFLOWER_SEEDS);
             return true;
         }
         else if (((it.getType()==Material.LILY_PAD))) {
-            pushIt(new Material[]{Material.LILY_PAD}, inv);
+            pushIt(inv,Material.LILY_PAD);
             return true;
         }
         else if (((it.getType()==Material.VINE))) {
-            pushIt(new Material[]{Material.VINE}, inv);
+            pushIt(inv,Material.VINE);
             return true;
         }
         else if (((it.getType()==Material.GLOW_LICHEN))) {
-            pushIt(new Material[]{Material.GLOW_LICHEN}, inv);
+            pushIt(inv,Material.GLOW_LICHEN);
             return true;
         }
         else if (((it.getType()==Material.GRASS))) {
-            pushIt(new Material[]{Material.GRASS}, inv);
+            pushIt(inv,Material.GRASS);
             return true;
         }
         else if (((it.getType()==Material.SWEET_BERRIES))) {
-            pushIt(new Material[]{Material.SWEET_BERRIES}, inv);
+            pushIt(inv,Material.SWEET_BERRIES);
             return true;
         }
         else if (((it.getType()==Material.GLOW_BERRIES))) {
-            pushIt(new Material[]{Material.GLOW_BERRIES}, inv);
+            pushIt(inv,Material.GLOW_BERRIES);
             return true;
         }
         else if (((it.getType()==Material.SEAGRASS))) {
-            pushIt(new Material[]{Material.SEAGRASS}, inv);
+            pushIt(inv,Material.SEAGRASS);
             return true;
         }
         else if (((it.getType()==Material.KELP))) {
-            pushIt(new Material[]{Material.KELP}, inv);
+            pushIt(inv,Material.KELP);
             return true;
         }
         else if (((it.getType()==Material.SEA_PICKLE))) {
-            pushIt(new Material[]{Material.SEA_PICKLE}, inv);
+            pushIt(inv,Material.SEA_PICKLE);
             return true;
         }
         return false;

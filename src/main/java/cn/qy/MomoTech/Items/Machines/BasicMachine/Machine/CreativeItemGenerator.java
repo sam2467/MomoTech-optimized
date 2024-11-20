@@ -11,6 +11,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -54,36 +55,35 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
     public int[] getOutputSlots() {
         return new int[]{31};
     }
-
+    public ItemStack outCreative1=new ItemStack(MomotechItem.creative_item);
+    public ItemStack outCreative2=new ItemStack(MomotechItem.creative_item_I);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        for (int i : getInputSlots()) if (inv.getItemInSlot(i) == null) return;
-        if (Utils.checkOutput(inv, getOutputSlots())) return;
+        int[] inputSlots=getInputSlots();
+        int[] amount=new int[inputSlots.length];
+        for(int i=0;i<amount.length;i++){
+            ItemStack stack=inv.getItemInSlot(inputSlots[i]);
+            if(stack==null)return;
+            else amount[i]=stack.getAmount();
+        }
+        for(int i=0;i<amount.length;i++){
+            inv.getItemInSlot(inputSlots[i]).setAmount(0);
+        }
         ItemStack check;
-        boolean is0=false;
-        if (inv.getItemInSlot(0).getAmount() > inv.getItemInSlot(1).getAmount())
-            is0= false;
-        else if (inv.getItemInSlot(0).getAmount() < inv.getItemInSlot(1).getAmount())
-            is0 = true;
-        else {
-            for (int k : getInputSlots())
-                inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
+        if(amount[0]==amount[1]){
             return;
         }
+        boolean is0= amount[0]<amount[1];
         for (int i = 0; i <= 26; i += 9) {
-            for (int j = i + 1; j <= i + 8; j++) {
-                if (( !is0&&inv.getItemInSlot(j).getAmount() > inv.getItemInSlot(j - 1).getAmount() )
-                        || (is0&&inv.getItemInSlot(j).getAmount() < inv.getItemInSlot(j - 1).getAmount())
-                        || inv.getItemInSlot(j).getAmount() == inv.getItemInSlot(j - 1).getAmount()) {
-                    for (int k : getInputSlots())
-                        inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
+            for (int j = i ; j < i + 8; j++) {
+                if (( (!is0)&&amount[j+1] > amount[j] )
+                        || (is0&&amount[j+1] < amount[j])
+                        || amount[j+1] == amount[j]) {
                     return;
                 }
             }
         }
-        for (int k : getInputSlots())
-            inv.consumeItem(k, inv.getItemInSlot(k).getAmount());
-        inv.pushItem(is0?MomotechItem.creative_item.clone():MomotechItem.creative_item_I.clone(), getOutputSlots());
+        inv.pushItem(is0?outCreative1.clone():outCreative2.clone(), getOutputSlots());
     }
 
     @NotNull

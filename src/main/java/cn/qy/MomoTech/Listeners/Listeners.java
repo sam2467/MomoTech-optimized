@@ -4,14 +4,12 @@ import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
 import cn.qy.MomoTech.utils.Maths;
 import com.xzavier0722.mc.plugin.slimefun4.storage.controller.ASlimefunDataContainer;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.core.attributes.DamageableItem;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +30,7 @@ public final class Listeners implements Listener {
         if (p.getGameMode() == GameMode.CREATIVE||p.isOp()) return ;
         if (p.getInventory().getItemInMainHand().getType() != Material.WOODEN_PICKAXE) return ;
         int i = Maths.GetRandom(100);
-        if (i <= 3) {
+        if (i <= 8) {
             World w = e.getBlock().getWorld();
             Location l = e.getBlock().getLocation();
             w.dropItem(l, MomotechItem.empty_shell.clone());
@@ -45,10 +43,15 @@ public final class Listeners implements Listener {
             ItemStack helmet=((Player) e.getEntity()).getInventory().getHelmet();
             if(helmet!=null&&!helmet.getType().isAir()){
                 if(helmet.getType()==Material.TURTLE_HELMET){
-                    Optional<String> sfid= Slimefun.getItemDataService().getItemData(helmet);
-                    if (sfid.isPresent()&&"MOMOTECH_PROTECT_ITEM".equals(sfid.get())) {
-                        e.setDamage(0);
-                        e.setCancelled(true);
+                    SlimefunItem item=SlimefunItem.getByItem(helmet);
+
+                    if (item!=null&&"MOMOTECH_PROTECT_ITEM".equals(item.getId())) {
+                        if(item.isDisabled()){
+                            ((Player)e.getEntity()).sendMessage("§f§l该物品已经被禁用!");
+                        }else {
+                            e.setDamage(0);
+                            e.setCancelled(true);
+                        }
                     }
                 }
             }
@@ -56,17 +59,28 @@ public final class Listeners implements Listener {
         if (e.getDamager() instanceof Player){
             ItemStack hand=((Player) e.getDamager()).getInventory().getItemInMainHand();
             if(!hand.getType().isAir()){
-                Optional<String> sfid= Slimefun.getItemDataService().getItemData(hand);
-                if (sfid.isPresent()&& "MOMOTECH_DAMAGE_ITEM".equals(sfid.get())) {
-                    if (e.getEntity() instanceof Damageable) {
-                        ((Damageable)e.getEntity()).setHealth(0.0);
-                        return;
+                SlimefunItem item=SlimefunItem.getByItem(hand);
+                if(item!=null){
+                    if ( "MOMOTECH_DAMAGE_ITEM".equals(item.getId())) {
+                        if (e.getEntity() instanceof Damageable) {
+                            if(item.isDisabled()){
+                                ((Player)e.getDamager()).sendMessage("§f§l该物品已经被禁用!");
+                            }else{
+                                ((Damageable)e.getEntity()).setHealth(0.0);
+                                return;
+                            }
+                        }
+                    }else if("MOMOTECH_STONE_SWORD".equals(item.getId())) {
+                        if(item.isDisabled()){
+                            ((Player)e.getDamager()).sendMessage("§f§l该物品已经被禁用!");
+                        }
+                        else{
+                            e.setDamage(999999999999.99);
+                            e.getEntity().setGlowing(true);
+                            e.getEntity().setFreezeTicks(1000);
+                            e.getEntity().setFireTicks(1000);
+                        }
                     }
-                }else if(sfid.isPresent()&&"MOMOTECH_STONE_SWORD".equals(sfid.get())) {
-                    e.setDamage(999999999999.99);
-                    e.getEntity().setGlowing(true);
-                    e.getEntity().setFreezeTicks(1000);
-                    e.getEntity().setFireTicks(1000);
                 }
             }
         }

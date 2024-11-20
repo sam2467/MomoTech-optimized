@@ -59,7 +59,7 @@ public class SaltGenerator extends AbstractGUI  implements RecipeDisplayItem {
 
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        inv.pushItem(new SlimefunItemStack(SlimefunItems.SALT, Maths.GetRandom(64)), getOutputSlots());
+        inv.pushItem(new CustomItemStack(SlimefunItems.SALT, Maths.GetRandom(64)), getOutputSlots());
     }
 
     @NotNull

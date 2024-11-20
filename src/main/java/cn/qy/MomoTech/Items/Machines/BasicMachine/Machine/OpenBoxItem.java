@@ -2,10 +2,12 @@ package cn.qy.MomoTech.Items.Machines.BasicMachine.Machine;
 
 import cn.qy.MomoTech.GUI.AbstractGUI;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.utils.MachineUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.inventory.ItemStack;
@@ -49,15 +51,16 @@ public class OpenBoxItem extends AbstractGUI implements RecipeDisplayItem {
     public int[] getOutputSlots() {
         return new int[]{7};
     }
-
+    ItemStack output=new CustomItemStack(MomotechItem.quantum1_, 4);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        if (inv.getItemInSlot(1) == null) return;
-        if (inv.getItemInSlot(7) != null) return;
-        if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(1), MomotechItem.box_of_quantum, true, false)) {
-            inv.consumeItem(1, 1);
-            inv.pushItem(new SlimefunItemStack(MomotechItem.quantum1_, 4), getOutputSlots());
-        }
+        MachineUtils.simpleNullonlyProcessor(inv,getInputSlots(),getOutputSlots(),MomotechItem.box_of_quantum,output);
+//        if (inv.getItemInSlot(1) == null) return;
+//        if (inv.getItemInSlot(7) != null) return;
+//        if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(1), MomotechItem.box_of_quantum, true, false)) {
+//            inv.consumeItem(1, 1);
+//            inv.pushItem(new SlimefunItemStack(MomotechItem.quantum1_, 4), getOutputSlots());
+//        }
     }
 
     @NotNull
