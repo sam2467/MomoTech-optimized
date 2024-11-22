@@ -83,7 +83,7 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
                 }
             }
         }
-        inv.pushItem(is0?outCreative1.clone():outCreative2.clone(), getOutputSlots());
+        inv.pushItem(is0?outCreative2.clone():outCreative1.clone(), getOutputSlots());
     }
 
     @NotNull
@@ -91,9 +91,9 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(8);
         it.add(new CustomItemStack(Material.BOOK, "&f制作原始物质α", "&7要求:输入槽位每一行上的物品堆叠数量单调递减"));
-        it.add(MomotechItem.creative_item.clone());
+        it.add(outCreative1.clone());
         it.add(new CustomItemStack(Material.BOOK, "&f制作原始物质β", "&7要求:输入槽位每一行上的物品堆叠数量单调递增"));
-        it.add(MomotechItem.creative_item_I.clone());
+        it.add(outCreative2.clone());
         return it;
     }
 }
