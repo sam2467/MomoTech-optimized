@@ -43,22 +43,26 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
     public int[] EMPTY() {
         return new int[]{27, 28, 29, 33, 34, 35};
     }
-
+    private final int[] INPUT_SLOT={0, 1, 2, 3, 4, 5, 6, 7, 8
+            , 9, 10, 11, 12, 13, 14, 15, 16, 17
+            , 18, 19, 20, 21, 22, 23, 24, 25, 26};
     @Override
     public int[] getInputSlots() {
-        return new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8
-                , 9, 10, 11, 12, 13, 14, 15, 16, 17
-                , 18, 19, 20, 21, 22, 23, 24, 25, 26};
+        return INPUT_SLOT;
     }
-
+    private final int[] OUT_SLOT={31};
     @Override
     public int[] getOutputSlots() {
-        return new int[]{31};
+        return OUT_SLOT;
     }
     public ItemStack outCreative1=new ItemStack(MomotechItem.creative_item);
     public ItemStack outCreative2=new ItemStack(MomotechItem.creative_item_I);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
+        ItemStack now=inv.getItemInSlot(getOutputSlots()[0]);
+        if(now!=null&&now.getType()!=Material.END_CRYSTAL) {
+            return;
+        }
         int[] inputSlots=getInputSlots();
         int[] amount=new int[inputSlots.length];
         for(int i=0;i<amount.length;i++){

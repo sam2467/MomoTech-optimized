@@ -24,7 +24,7 @@ import java.util.Optional;
 
 public final class Listeners implements Listener {
 
-    @EventHandler(priority = EventPriority.HIGHEST,ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR,ignoreCancelled = true)
     public void blockBreakEvent(BlockBreakEvent e) {
         Player p = e.getPlayer();
         if (p.getGameMode() == GameMode.CREATIVE||p.isOp()) return ;

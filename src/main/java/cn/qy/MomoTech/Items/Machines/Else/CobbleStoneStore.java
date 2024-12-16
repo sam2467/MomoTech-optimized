@@ -31,10 +31,7 @@ public class CobbleStoneStore extends AbstractGUI implements RecipeDisplayItem {
             public void onBlockBreak(@NotNull Block b) {
                 BlockMenu inv = BlockStorage.getInventory(b);
                 if (inv != null) {
-                    for (int i = 0; i <= 53; ++i) {
-                        if (i == 8 || i == 17 || i == 26 || i == 35 || i == 44 || i == 53) {
-                            continue;
-                        }
+                    for (int i = 0; i < 54; ++i) {
                         if (inv.getItemInSlot(i) != null) {
                             inv.dropItems(inv.getLocation(), i);
                         }
