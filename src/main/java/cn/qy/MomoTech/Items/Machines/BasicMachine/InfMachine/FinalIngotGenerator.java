@@ -56,15 +56,15 @@ public class FinalIngotGenerator extends AbstractGUI implements RecipeDisplayIte
         return new int[]{10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25};
     }
     HashMap<ItemStack,ItemStack> recipeMap=new HashMap(){{
-        put(SlimefunItems.ALUMINUM_DUST,new ItemStack( SlimefunItems.ALUMINUM_INGOT));
-        put(SlimefunItems.COPPER_DUST,new ItemStack(SlimefunItems.COPPER_INGOT));
-        put(SlimefunItems.TIN_DUST,new ItemStack(SlimefunItems.TIN_INGOT));
-        put(SlimefunItems.LEAD_DUST,new ItemStack(SlimefunItems.LEAD_INGOT));
-        put( SlimefunItems.GOLD_DUST,new ItemStack(SlimefunItems.GOLD_4K));
-        put(SlimefunItems.MAGNESIUM_DUST,new ItemStack(SlimefunItems.MAGNESIUM_INGOT));
-        put(SlimefunItems.SILVER_DUST,new ItemStack(SlimefunItems.SILVER_INGOT));
-        put(SlimefunItems.IRON_DUST,new ItemStack(Material.IRON_INGOT));
-        put(SlimefunItems.ZINC_DUST,new ItemStack(SlimefunItems.ZINC_INGOT));
+        put(SlimefunItems.ALUMINUM_DUST,new CustomItemStack( SlimefunItems.ALUMINUM_INGOT));
+        put(SlimefunItems.COPPER_DUST,new CustomItemStack(SlimefunItems.COPPER_INGOT));
+        put(SlimefunItems.TIN_DUST,new CustomItemStack(SlimefunItems.TIN_INGOT));
+        put(SlimefunItems.LEAD_DUST,new CustomItemStack(SlimefunItems.LEAD_INGOT));
+        put( SlimefunItems.GOLD_DUST,new CustomItemStack(SlimefunItems.GOLD_4K));
+        put(SlimefunItems.MAGNESIUM_DUST,new CustomItemStack(SlimefunItems.MAGNESIUM_INGOT));
+        put(SlimefunItems.SILVER_DUST,new CustomItemStack(SlimefunItems.SILVER_INGOT));
+        put(SlimefunItems.IRON_DUST,new CustomItemStack(Material.IRON_INGOT));
+        put(SlimefunItems.ZINC_DUST,new CustomItemStack(SlimefunItems.ZINC_INGOT));
     }};
     @Override
     protected void findNextRecipe(BlockMenu inv) {
@@ -104,7 +104,7 @@ public class FinalIngotGenerator extends AbstractGUI implements RecipeDisplayIte
 //                    inv.consumeItem(i, inv.getItemInSlot(i).getAmount());
 //                }
 //                if (SlimefunUtils.isItemSimilar(it, SlimefunItems.IRON_DUST, false, false)) {
-//                    inv.pushItem(new ItemStack(Material.IRON_INGOT, inv.getItemInSlot(i).getAmount()), getOutputSlots());
+//                    inv.pushItem(new CustomItemStack(Material.IRON_INGOT, inv.getItemInSlot(i).getAmount()), getOutputSlots());
 //                    inv.consumeItem(i, inv.getItemInSlot(i).getAmount());
 //                }
 //                if (SlimefunUtils.isItemSimilar(it, SlimefunItems.ZINC_DUST, false, false)) {

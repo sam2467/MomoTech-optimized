@@ -68,7 +68,7 @@ public class DigitalConstructor extends AbstractElectricGUI implements RecipeDis
     }
     RandomizedItemStack digitals=new RandomizedItemStack(new ArrayList<ItemStack>(){{
         for(int i=0;i<=10;++i){
-            add(new ItemStack(MomotechItem.digital(i)));
+            add(new CustomItemStack(MomotechItem.digital(i)));
         }
     }}.stream().toArray(ItemStack[]::new));
     @Override

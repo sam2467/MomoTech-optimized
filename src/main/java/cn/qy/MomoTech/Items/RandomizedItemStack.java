@@ -1,6 +1,7 @@
 package cn.qy.MomoTech.Items;
 
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -14,7 +15,7 @@ public class RandomizedItemStack extends ItemStack {
     public RandomizedItemStack(ItemStack... itemStacks) {
         super(Material.AIR);
         Validate.notEmpty(itemStacks);
-        this.items = Arrays.stream(itemStacks).map(ItemStack::new).toArray(ItemStack[]::new);
+        this.items = Arrays.stream(itemStacks).map(CustomItemStack::new).toArray(ItemStack[]::new);
     }
     public ItemStack[] getItemStacks() {
         ItemStack[] it=new ItemStack[items.length];
@@ -26,7 +27,7 @@ public class RandomizedItemStack extends ItemStack {
     public RandomizedItemStack(int num,ItemStack... itemStacks) {
         super(Material.AIR);
         Validate.notEmpty(itemStacks);
-        this.items = Arrays.stream(itemStacks).map(ItemStack::new).peek(i->i.setAmount(num)).toArray(ItemStack[]::new);
+        this.items = Arrays.stream(itemStacks).map(CustomItemStack::new).peek(i->i.setAmount(num)).toArray(ItemStack[]::new);
 
     }
     public ItemStack clone(){

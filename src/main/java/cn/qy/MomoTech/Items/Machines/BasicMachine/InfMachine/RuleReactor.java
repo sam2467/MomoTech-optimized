@@ -54,8 +54,8 @@ public class RuleReactor extends AbstractElectricGUI implements RecipeDisplayIte
         return new int[]{4, 5, 6, 7};
     }
     HashMap<ItemStack,ItemStack> recipeMap=new HashMap(){{
-        put(new ItemStack(SlimefunItems.URANIUM),new CustomItemStack(SlimefunItems.NEPTUNIUM,8));
-        put(new ItemStack(SlimefunItems.NEPTUNIUM),new CustomItemStack(SlimefunItems.PLUTONIUM,8));
+        put(new CustomItemStack(SlimefunItems.URANIUM),new CustomItemStack(SlimefunItems.NEPTUNIUM,8));
+        put(new CustomItemStack(SlimefunItems.NEPTUNIUM),new CustomItemStack(SlimefunItems.PLUTONIUM,8));
     }};
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {

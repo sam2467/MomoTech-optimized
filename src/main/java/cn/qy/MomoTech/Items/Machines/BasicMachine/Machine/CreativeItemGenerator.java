@@ -55,8 +55,8 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
     public int[] getOutputSlots() {
         return OUT_SLOT;
     }
-    public ItemStack outCreative1=new ItemStack(MomotechItem.creative_item);
-    public ItemStack outCreative2=new ItemStack(MomotechItem.creative_item_I);
+    public ItemStack outCreative1=new CustomItemStack(MomotechItem.creative_item);
+    public ItemStack outCreative2=new CustomItemStack(MomotechItem.creative_item_I);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         ItemStack now=inv.getItemInSlot(getOutputSlots()[0]);

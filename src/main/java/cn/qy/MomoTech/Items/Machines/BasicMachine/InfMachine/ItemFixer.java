@@ -5,6 +5,7 @@ import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -55,7 +56,7 @@ public class ItemFixer extends AbstractGUI {
             try {
                 SlimefunItem it1 = SlimefunItem.getByItem(inv.getItemInSlot(i));
                 if (it1 != null) {
-                    ItemStack it = new ItemStack(Objects.requireNonNull(SlimefunItem.getByItem(inv.getItemInSlot(i))).getItem());
+                    ItemStack it = new CustomItemStack(Objects.requireNonNull(SlimefunItem.getByItem(inv.getItemInSlot(i))).getItem());
                     it.setAmount(inv.getItemInSlot(i).getAmount());
                     inv.pushItem(it, getOutputSlots());
                     inv.consumeItem(i, inv.getItemInSlot(i).getAmount());

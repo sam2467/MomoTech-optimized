@@ -5,11 +5,14 @@ import cn.qy.MomoTech.tasks.ItemRegisterTask;
 import cn.qy.MomoTech.tasks.MachineRegisterTask;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
+import lombok.Getter;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
+import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MomoTech extends JavaPlugin implements SlimefunAddon {
@@ -21,8 +24,13 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
     public static int seed;
     private static MomoTech instance;
     public static Config config;
-    public static boolean autoUpdate = false;
-    public static boolean enableCopierWhitelist=false;
+    @Getter
+    private static boolean autoUpdate = false;
+    @Getter
+    private static boolean disableCopierDupeStorage=false;
+    @Getter
+    private static Set<String> copierBlacklist = new HashSet<>();
+    private static boolean hasGuizhanLib = false;
     public static MomoTech getInstance() {
         return instance;
     }
@@ -44,14 +52,19 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
         getLogger().info("> QQ反馈群:827684043");
         getLogger().info("> E-mail:3392295184@qq.com");
         getLogger().info("> 使用的API版本: 1.20.1-R0.1-SNAPSHOT");
-        getLogger().info("> 使用的SlimeFun4版本: RC-35");
+        getLogger().info("> 支持SlimeFun4版本: 汉化版");
         getLogger().info("> 使用的License:MIT");
         getLogger().info("----------------------------");
         getLogger().info("载入附属中...");
         instance = this;
         config=new Config(this);
         autoUpdate = config.getOrSetDefault("options.auto-update",true);
-        enableCopierWhitelist = config.getOrSetDefault("options.enable-copier-whitelist",false);
+        disableCopierDupeStorage = config.getOrSetDefault("options.disable-copier-dupe-storage",false);
+        List<String> blacklist = config.getOrSetDefault("options.copier-blacklist",new ArrayList<String>());
+        if (blacklist!=null){
+            copierBlacklist.addAll(blacklist);
+        }
+
         getLogger().info("开始注册监听器");
         getServer().getPluginManager().registerEvents(new Listeners(), this);
         getLogger().info("监听器注册成功");
@@ -65,6 +78,28 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
         getLogger().info("开始注册机器");
         MachineRegisterTask.run(getLogger());
         getLogger().info("机器注册成功");
+
+        if (getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
+            getLogger().info( "检测到 鬼斩前置库插件(GuizhanLibPlugin)!");
+            if(autoUpdate){
+
+                try{
+                    if ( getDescription().getVersion().startsWith("Build")) {
+                        GuizhanUpdater.start(this, getFile(), "m1919810", "MomoTechOptimized", "master");
+                        getLogger().info("自动更新功能已开启!");
+                    }else{
+                        getLogger().info( "并非正式版本,不进行自动更新!");
+                    }
+                }catch (Throwable e){
+                    getLogger().log(Level.SEVERE, "自动更新功能出现异常!");
+                    e.printStackTrace();
+                    getLogger().log(Level.SEVERE, "该报错可以忽略");
+                }
+            }else{
+                getLogger().info( "自动更新功能已关闭!");
+            }
+            return;
+        }
     }
 
     @Override

@@ -264,7 +264,7 @@ public class Items {
     public static final ItemStack MOMOTECH_SAND_CHANGER = new CustomItemStack(Material.RED_SANDSTONE, c("§#8a79ba光§#62539b速§#8a8bba打§#b3c4da磨§#dbfcf9器"), "&7效率:INFINITY");
     public static final ItemStack MOMOTECH_FINAL_ENERGY_GENERATOR = new CustomItemStack(Material.REDSTONE_LAMP, c("§#55ff55宇§#55ff6e宙§#55ff87超§#55ffa1级§#55ffba无§#55ffd3敌§#55ffec神§#5bfcf6秘§#74efd0史§#8ee3aa诗§#a7d684永§#c0c95e恒§#d9bd39无§#f2b013限§#ffa90c充§#ffa824能§#ffa73c循§#ffa654环§#ffa56c过§#ffa384载§#ffa29c能§#f7ac9f量§#ecb99b生§#e0c797成§#d5d494单§#cae190元§#bfef8cζ§#b4fc88型"), c("§#ffaa00§o无§#fca634§o穷§#f8a169§o无§#f59d9d§o尽§#f7bdac§o的§#fadcbb§o宇§#fcfcca§o宙§#d9ec92§o能§#b6db5b§o量§#93cb23§o…"), "§8⇨ §e⚡ &7999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999^0 J/t");
     public static final ItemStack MOMOTECH_SPECIAL_THINGS_CONSTRUCTOR = new CustomItemStack(Material.GLASS, "&f特制压缩机", "§8⇨ §e⚡ &7200 J/t");
-    public static final ItemStack MOMOTECH_MATL114=new CustomItemStack(SlimefunUtils.getCustomHead("58d9d8a7927fb859a313fb0068f1d368c9dee7d0adacbbd35ffa4d998ff88deb"),c("§#eb33ebM§#dd2bdda§#cf22cft§#c11ac1l§#b311b31§#a509a51§#9700974"),"&7该版本的MomoTech为优化和修改后的版本","&7修改内容并不会影响玩家正常游玩","&7若出现机器问题请找Matl114 Q:2169419217");
+    public static final ItemStack MOMOTECH_MATL114=new CustomItemStack(SlimefunUtils.getCustomHead("58d9d8a7927fb859a313fb0068f1d368c9dee7d0adacbbd35ffa4d998ff88deb"),c("§#eb33ebM§#dd2bdda§#cf22cft§#c11ac1l§#b311b31§#a509a51§#9700974"),"&7该版本的MomoTech为优化和修改后的版本","&7修改内容并不会影响玩家正常游玩","&7若出现机器问题请找Matl114");
     public static final ItemGroup MOMOTECH_ITEM;
     public static final ItemGroup MOMOTECH_FINAL;
     public static final ItemGroup MOMOTECH;

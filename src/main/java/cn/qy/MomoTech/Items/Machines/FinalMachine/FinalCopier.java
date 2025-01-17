@@ -1,7 +1,10 @@
 package cn.qy.MomoTech.Items.Machines.FinalMachine;
 
 import cn.qy.MomoTech.GUI.AbstractGUI;
+import cn.qy.MomoTech.Items.Items;
 import cn.qy.MomoTech.Items.MomotechItem;
+import cn.qy.MomoTech.MomoTech;
+import cn.qy.MomoTech.utils.CopierUtils;
 import cn.qy.MomoTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -12,6 +15,7 @@ import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -59,8 +63,17 @@ public class FinalCopier extends AbstractGUI implements RecipeDisplayItem {
         if (inv.getItemInSlot(4) == null) return;
         if (inv.getItemInSlot(1) == null) return;
         if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(1), MomotechItem.quantum1_, true)) {
+            ItemStack copied = inv.getItemInSlot(4);
+            if(!CopierUtils.isValidItem(copied)){
+                new BukkitRunnable() {
+                    public void run() {
+                        inv.dropItems(inv.getLocation().clone().add(0,0.5,0),4);
+                    }
+                }.runTask(MomoTech.getInstance());
+                return;
+            }
             inv.consumeItem(1, 1);
-            ItemStack it = inv.getItemInSlot(4).clone();
+            ItemStack it = copied.clone();
             it.setAmount(1);
             inv.pushItem(it.clone(), getOutputSlots());
         }
