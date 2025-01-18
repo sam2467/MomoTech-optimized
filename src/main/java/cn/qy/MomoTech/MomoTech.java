@@ -64,6 +64,7 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
         if (blacklist!=null){
             copierBlacklist.addAll(blacklist);
         }
+        config.save();
 
         getLogger().info("开始注册监听器");
         getServer().getPluginManager().registerEvents(new Listeners(), this);
@@ -85,7 +86,7 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
 
                 try{
                     if ( getDescription().getVersion().startsWith("Build")) {
-                        GuizhanUpdater.start(this, getFile(), "m1919810", "MomoTechOptimized", "master");
+                        GuizhanUpdater.start(this, getFile(), "m1919810", "MomoTech-optimized", "main");
                         getLogger().info("自动更新功能已开启!");
                     }else{
                         getLogger().info( "并非正式版本,不进行自动更新!");
