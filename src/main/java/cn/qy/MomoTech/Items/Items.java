@@ -126,7 +126,7 @@ public class Items {
     public static final ItemStack FINAL_C_ = new CustomItemStack(Material.COBBLESTONE, c("§#e5de345§#c7df3d0§#a8df47重§#8ae050压§#6be15a缩§#4de163原§#2fe26c石§#10e376生§#10db7b成§#1ecf7d器"), "&7&l正确的, 你没听错", "&f谁知道呢 或许有点用处呢", "&7效率:8x");
     public static final ItemStack PROTECT_ITEM = new CustomItemStack(new ItemStack(Material.TURTLE_HELMET), c("§#2dc380原§#3bb883谅§#49ac85帽"), "&a戴在头上免疫实体攻击!", "&8不包括燃烧摔落等", "&7别问为啥是绿的");
     public static final ItemStack STAR_OF_ALL = new CustomItemStack(Material.HEART_OF_THE_SEA, c("§#58a088一§#66948a体§#6e8989机§#678080核§#607777心"), "&6&l用于合成本附属绝大部分的一体机");
-    public static final ItemStack MOMOTECH_COBBLE_STONE_STORE = new CustomItemStack(Material.GLASS, c("§#5a6e6e石§#536566质§#4c5c5d储§#465354存"), "&7提供48格的存储空间", "&7圆石也能做箱子了 好耶");
+    public static final ItemStack MOMOTECH_COBBLE_STONE_STORE = new CustomItemStack(Material.GLASS, c("§#5a6e6e石§#536566质§#4c5c5d储§#465354存"), "&7提供54格的存储空间", "&7圆石也能做箱子了 好耶");
     public static final ItemStack MOMOTECH_COBBLESTONE_GENERATOR_FINAL = new CustomItemStack(Material.SLIME_BLOCK, c("§#3f4a4b逆§#485351熵§#525c58刷§#5b655e石§#656f64机"), "&71tick生产48组, 就是这么高产!");
     public static final ItemStack MOMOTECH_QUANTUM = new CustomItemStack(Material.SNOWBALL, "&e量&6子", "&f右键貌似会发生一些不好的事情");
     public static final ItemStack MOMOTECH_QUANTUM1 = new CustomItemStack(Material.MAGMA_CREAM, "&a纠&b缠&e量&6子", "&f随量子而纠缠的粒子, 右键貌似也会发生一些不好的事情", "&f用于高精密的高速通讯机器");
