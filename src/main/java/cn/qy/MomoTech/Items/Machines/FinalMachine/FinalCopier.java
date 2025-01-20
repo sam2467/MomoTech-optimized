@@ -58,6 +58,11 @@ public class FinalCopier extends AbstractGUI implements RecipeDisplayItem {
     }
 
     @Override
+    public int[] MOREDROP(){
+        return new int[]{4};
+    }
+
+    @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (Utils.checkOutput(inv, getOutputSlots())) return;
         if (inv.getItemInSlot(4) == null) return;

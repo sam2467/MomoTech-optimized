@@ -18,27 +18,11 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CobbleStoneStore extends AbstractGUI implements RecipeDisplayItem {
     public CobbleStoneStore(ItemGroup itemGroup, String id, ItemStack it, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, new SlimefunItemStack(id, it), recipeType, recipe);
-    }
-
-    @Nonnull
-    @Override
-    protected BlockBreakHandler onBlockBreak() {
-        return new SimpleBlockBreakHandler() {
-            public void onBlockBreak(@NotNull Block b) {
-                BlockMenu inv = BlockStorage.getInventory(b);
-                if (inv != null) {
-                    for (int i = 0; i < 54; ++i) {
-                        if (inv.getItemInSlot(i) != null) {
-                            inv.dropItems(inv.getLocation(), i);
-                        }
-                    }
-                }
-            }
-        };
     }
 
     @Override
@@ -54,6 +38,12 @@ public class CobbleStoneStore extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public int[] EMPTY() {
         return new int[]{};
+    }
+
+    int[] drops = IntStream.range(0,54).toArray();
+    @Override
+    public int[] MOREDROP() {
+        return drops;
     }
 
     public int getMenuSize(){

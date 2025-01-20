@@ -63,6 +63,10 @@ public abstract class AbstractGUI extends SlimefunItem implements InventoryBlock
 
     public abstract int[] EMPTY();
 
+    public int[] MOREDROP(){
+        return new int[]{};
+    }
+
     public int getMenuSize(){
         return -1;
     }
@@ -100,6 +104,7 @@ public abstract class AbstractGUI extends SlimefunItem implements InventoryBlock
                 if (inv != null) {
                     inv.dropItems(b.getLocation(), AbstractGUI.this.getInputSlots());
                     inv.dropItems(b.getLocation(), AbstractGUI.this.getOutputSlots());
+                    inv.dropItems(b.getLocation(),AbstractGUI.this.MOREDROP());
                 }
                 AbstractGUI.this.onBreak(var1);
                 //AbstractGUI.this.processor.endOperation(b);
