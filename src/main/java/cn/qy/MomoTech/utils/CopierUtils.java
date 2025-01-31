@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
+import org.bukkit.inventory.meta.BundleMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 
@@ -24,6 +25,9 @@ public class CopierUtils {
                 if(blockState.hasBlockState()){
                     return false;
                 }
+            }
+            if(meta instanceof BundleMeta){
+                return false;
             }
             PersistentDataContainer container = meta.getPersistentDataContainer();
             Set<NamespacedKey> keys=container.getKeys();

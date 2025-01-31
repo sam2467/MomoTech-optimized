@@ -58,7 +58,7 @@ public class IngotGenerator extends AbstractGUI implements RecipeDisplayItem {
     RandomizedItemStack output=new RandomizedItemStack(32,list);
     @Override
     protected void findNextRecipe(BlockMenu inv) {
-        MachineUtils.simpleNullonlyProcessor(inv,getInputSlots(),getOutputSlots(),consumed,output);
+        MachineUtils.simpleNullonlyProcessor(inv,getInputSlots(),getOutputSlots(),consumed,output.getInstance());
 //        if (Utils.checkOutput(inv, getOutputSlots())) return;
 //        for (int i : getInputSlots())
 //            if (inv.getItemInSlot(i) != null)
