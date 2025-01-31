@@ -75,7 +75,9 @@ public class IngotGenerator extends AbstractGUI implements RecipeDisplayItem {
         List<ItemStack> it = new ArrayList<>(list.length * 2 + 5);
         for (SlimefunItemStack it1 : list) {
             it.add(new SlimefunItemStack("MOMOTECH_METAL_STAR", Items.MOMOTECH_METAL_STAR).clone());
-            it.add(it1.clone());
+            ItemStack item = it1.clone();
+            item.setAmount(32);
+            it.add(item);
         }
         return it;
     }
