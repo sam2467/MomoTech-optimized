@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
@@ -82,7 +83,10 @@ public class Transporter extends AbstractGUI implements RecipeDisplayItem {
     @Override
     protected void findNextRecipe(BlockMenu inv) {
         if (inv.getItemInSlot(4) == null) return;
-        if (SlimefunUtils.isItemSimilar(inv.getItemInSlot(4), new SlimefunItemStack("MOMOTECH_DIGITAL", Items.MOMOTECH_DIGITAL), false, false)) {
+        //SlimefunUtils.isItemSimilar(inv.getItemInSlot(4), new SlimefunItemStack("MOMOTECH_DIGITAL", Items.MOMOTECH_DIGITAL), false, false)
+        if (
+                "MOMOTECH_DIGITAL".equals(  Slimefun.getItemDataService().getItemData(inv.getItemInSlot(4)).orElse(null) )
+        ) {
             String str = Utils.getLore(inv.getItemInSlot(4).getItemMeta()).get(0);
             int i = ((int) (Double.parseDouble(str.substring(str.indexOf('f') + 1)))) % 320;
             if (i != 0) {
@@ -90,7 +94,7 @@ public class Transporter extends AbstractGUI implements RecipeDisplayItem {
                     Location location = inv.getLocation();
                     if (p != null) {
                         p.closeInventory();
-                        BlockData blockData = inv.getBlock().getState().getBlockData();
+                        BlockData blockData = inv.getBlock().getBlockData();
                         if (blockData instanceof Directional) {
                             BlockFace blockFace = ((Directional) blockData).getFacing();
                             switch (blockFace) {

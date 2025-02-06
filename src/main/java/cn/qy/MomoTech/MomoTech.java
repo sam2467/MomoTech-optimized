@@ -6,6 +6,7 @@ import cn.qy.MomoTech.tasks.MachineRegisterTask;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import lombok.Getter;
+import me.matl114.matlib.core.UtilInitialization;
 import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -43,6 +44,7 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        new UtilInitialization(this,"MomoTech").displayName("乱码科技").onEnable();
         getLogger().info("MomoTech has been on enable.");
         getLogger().info("---------< MomoTech >-------");
         getLogger().info("|      Authors:QYhB05      |");
