@@ -16,11 +16,10 @@ public class NumberCombinator {
             throws Exceptions.NumberBugIException,
             Exceptions.NumberBugIIException, Exceptions.NumberBugIIIException,
             Exceptions.NumberBugIVException, Exceptions.NumberBugVException {
-        MomoTech.init(MomoTech.logger, MomoTech.server);
         int date = Integer.parseInt(new SimpleDateFormat("yyyyMMdd").format(new Date()));
         int n;
 
-        if (Maths.GetRandom((int) tps * 16777216 * 16 * 2) <= playerNumber * Double.parseDouble((new DecimalFormat("#.0000").format(i))))
+        if (Maths.GetRandom((Math.min (20,(int) tps) * 16777216 * 6)) <= playerNumber * Double.parseDouble((new DecimalFormat("#.0000").format(i))))
             throw new Exceptions.NumberBugVException();
         if (i >= 16777216) throw new Exceptions.NumberBugIIIException();
         if (i <= -16777216) throw new Exceptions.NumberBugIVException();
@@ -28,7 +27,7 @@ public class NumberCombinator {
         int j = 0;
         while (true) {
             j++;
-            if (i * Math.pow(10, j) % 1 == 0) {
+            if (i * Math.pow(10, j) % 1 == 0 || j > 6) {
                 n = j;
                 break;
             }

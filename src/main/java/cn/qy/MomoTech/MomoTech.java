@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import lombok.Getter;
 import me.matl114.matlib.core.UtilInitialization;
 import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
+import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -67,11 +68,14 @@ public class MomoTech extends JavaPlugin implements SlimefunAddon {
             copierBlacklist.addAll(blacklist);
         }
         config.save();
-
         getLogger().info("开始注册监听器");
         getServer().getPluginManager().registerEvents(new Listeners(), this);
         getLogger().info("监听器注册成功");
         getLogger().info("初始化参数");
+        Bukkit.getScheduler().runTaskTimer(this,()->{
+            playerNumber = Bukkit.getOnlinePlayers().size();
+            tps = Bukkit.getTPS()[0];
+        },0,40);
         init(getLogger(), getServer());
         logger = getLogger();
         server = getServer();

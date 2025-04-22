@@ -10,8 +10,8 @@
 
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -108,7 +108,7 @@
         <dependency>
             <groupId>com.github.m1919810</groupId>
             <artifactId>matlib</artifactId>
-            <version>4a5f59b</version>
+            <version>1d350a2</version>
             <scope>compile</scope>
         </dependency>
 <!--            <groupId>com.github.Slimefun</groupId>-->

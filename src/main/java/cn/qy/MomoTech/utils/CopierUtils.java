@@ -9,8 +9,6 @@ import org.bukkit.inventory.meta.BundleMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 
-import javax.xml.stream.events.Namespace;
-import java.util.HashSet;
 import java.util.Set;
 
 public class CopierUtils {
