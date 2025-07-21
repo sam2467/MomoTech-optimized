@@ -64,14 +64,14 @@ public class DigitalGenerator extends AbstractElectricGUI implements EnergyNetCo
 
     @Override
     public void add(BlockMenuPreset b) {
-        b.addItem(4, new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&f已储存 NULL J"), ChestMenuUtils.getEmptyClickHandler());
+        b.addItem(4, new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&fSaved NULL J"), ChestMenuUtils.getEmptyClickHandler());
     }
 
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         int charge=this.getCharge(inv.getLocation());
         if(inv.hasViewer()){
-            inv.replaceExistingItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + charge + " J"));
+            inv.replaceExistingItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&fStored " + charge + " J"));
         }
         for (int i : getInputSlots()) {
             if (inv.getItemInSlot(i) != null) {
@@ -112,7 +112,7 @@ public class DigitalGenerator extends AbstractElectricGUI implements EnergyNetCo
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> list = new ArrayList<>(10);
-        list.add(new CustomItemStack(Material.BOOK, "&f插入数字为电容增加 数字 J 电量, 电容可储存 16,777,216 J"));
+        list.add(new CustomItemStack(Material.BOOK, "&fInserting numbers increases capacitor charge by the given number of joules (J); capacitor capacity is 16,777,216 J."));
         list.add(MomotechItem.digital(1.0).clone());
         return list;
     }

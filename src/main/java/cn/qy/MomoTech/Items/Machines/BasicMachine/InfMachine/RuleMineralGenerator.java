@@ -85,7 +85,7 @@ public class RuleMineralGenerator extends AbstractElectricGUI implements RecipeD
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(30);
         for (Material i : this.m) {
-            it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&f可能的产物"));
+            it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&fPossible output"));
             it.add(new ItemStack(i, 64));
         }
         return it;

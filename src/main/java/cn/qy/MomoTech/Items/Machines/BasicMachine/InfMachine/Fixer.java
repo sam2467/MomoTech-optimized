@@ -69,7 +69,7 @@ public class Fixer extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.IRON_PICKAXE, "&f修复物品", "&7输入任意有耐久度的物品, 每 1tick 修复1点耐久度"));
+        it.add(new CustomItemStack(Material.IRON_PICKAXE, "&fRepair items", "&7Insert any damaged item, restores 1 durability tick"));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         return it;
     }

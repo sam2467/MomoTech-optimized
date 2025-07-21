@@ -63,7 +63,7 @@ public class CobblestoneGeneratorFinal extends AbstractGUI implements RecipeDisp
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "&f每 1tick 生成一次", "&7每次48组圆石"));
+        it.add(new CustomItemStack(Material.BOOK, "&fGenerates once every tick", "&7Each time produces 48 stacks of cobblestone"));
         it.add(new ItemStack(Material.COBBLESTONE));
         return it;
     }

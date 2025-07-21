@@ -116,7 +116,7 @@ public class NoneGenerator extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(8);
-        it.add(new CustomItemStack(Material.BOOK, "&f制作NONE", "&7要求:输入槽位上所有物品种类和堆叠数量都不同"));
+        it.add(new CustomItemStack(Material.BOOK, "&fCraft NONE", "&7Requirement: All items in the input slots must have different types and stack sizes"));
         it.add(MomotechItem.none_.clone());
         return it;
     }

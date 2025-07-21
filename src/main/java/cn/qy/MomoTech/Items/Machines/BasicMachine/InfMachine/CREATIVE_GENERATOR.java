@@ -23,7 +23,7 @@ public class CREATIVE_GENERATOR extends AbstractElectricGUI implements RecipeDis
     @Override
     public @NotNull List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "&f每 1tick 生成 1 产物"));
+        it.add(new CustomItemStack(Material.BOOK, "&fGenerates 1 item every tick."));
         it.add(MomotechItem.creative_item.clone());
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         it.add(MomotechItem.creative_item_I.clone());

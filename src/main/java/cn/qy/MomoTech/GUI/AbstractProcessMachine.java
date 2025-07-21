@@ -104,7 +104,7 @@ public abstract class AbstractProcessMachine extends SlimefunItem implements Inv
             i = var2[var4];
             preset.addItem(i, ChestMenuUtils.getOutputSlotTexture(), ChestMenuUtils.getEmptyClickHandler());
         }
-        preset.addItem(getProcessBarSlots(), new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&a进度", "&fNULL"), ChestMenuUtils.getEmptyClickHandler());
+        preset.addItem(getProcessBarSlots(), new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&aProgress", "&fNULL"), ChestMenuUtils.getEmptyClickHandler());
         add(preset);
     }
 

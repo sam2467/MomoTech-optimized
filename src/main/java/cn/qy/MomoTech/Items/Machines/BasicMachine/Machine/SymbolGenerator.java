@@ -101,7 +101,7 @@ public class SymbolGenerator extends AbstractElectricGUI implements RecipeDispla
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(12);
-        it.add(new CustomItemStack(Material.BOOK, "&f制作运算符", "&7输入空后随机输出一种运算符, 不同运算符概率不等"));
+        it.add(new CustomItemStack(Material.BOOK, "&fCraft operators", "&7After inputting Void, randomly outputs one operator with varying probabilities for different operators."));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         it.add(MomotechItem.empty_shell.clone());
         it.add(MomotechItem.symbol_addition.clone());

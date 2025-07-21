@@ -36,7 +36,7 @@ public class AbstractEasyGeneratorGUI extends AbstractGUI implements RecipeDispl
     @Override
     public @NotNull List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "§f每 1tick 生成 效率 个对应产物"));
+        it.add(new CustomItemStack(Material.BOOK, "§f Generates efficiency amount of item every tick"));
         if(this.output instanceof RandomizedItemStack){
             ItemStack[] list=((RandomizedItemStack)this.output).getItemStacks();
             for(int i=0;i<list.length;i++){

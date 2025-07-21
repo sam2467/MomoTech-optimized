@@ -104,7 +104,7 @@ public class RuleGeo extends AbstractElectricGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.NETHERITE_PICKAXE, "&f需要输入下届合金镐", "&7每 1tick 挖掘一次自然资源, 无视群系, 无视权重"));
+        it.add(new CustomItemStack(Material.NETHERITE_PICKAXE, "&fRequires Netherite Pickaxe", "&7Mines natural resources once every tick, ignoring biomes and weight"));
         it.add(new CustomItemStack(Material.BOOK, "&f任意注册过的地理资源"));
         return it;
     }

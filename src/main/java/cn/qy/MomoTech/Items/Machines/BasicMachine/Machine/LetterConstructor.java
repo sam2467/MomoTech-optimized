@@ -74,7 +74,7 @@ public class LetterConstructor extends AbstractGUI implements RecipeDisplayItem 
             return;
         String list = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM123456789_";//62个
         char ans = list.charAt(Maths.GetRandom(61));
-        ItemStack it = new CustomItemStack(Material.SUGAR, "&6符号", "&f" + ans, "&7凭空制造物质的基础");
+        ItemStack it = new CustomItemStack(Material.SUGAR, "&6Symbol", "&f" + ans, "&7The foundation for creating matter out of nothing");
         ItemStack sfit = new SlimefunItemStack("MOMOTECH_LETTER", it);
         for (int j : getOutputSlots()) {
             if (inv.getItemInSlot(j) == null) {
@@ -91,7 +91,7 @@ public class LetterConstructor extends AbstractGUI implements RecipeDisplayItem 
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(12);
-        it.add(new CustomItemStack(Material.BOOK, "&f制作符号", "&7需要输入原始物质α和β并且在中间放入空"));
+        it.add(new CustomItemStack(Material.BOOK, "&fCraft Symbol", "&7Requires inserting Primitive Matter α and β with Void placed in the middle"));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         it.add(MomotechItem.creative_item.clone());
         it.add(MomotechItem.letter.clone());

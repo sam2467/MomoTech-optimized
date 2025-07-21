@@ -130,7 +130,7 @@ public class Transporter extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "&f在机器中插入数字组件配置距离", "&7distance = digit mod 320"));
+        it.add(new CustomItemStack(Material.BOOK, "&fInsert a digital component into the machine to configure the distance", "&7distance = digit mod 320"));
         it.add(MomotechItem.digital(1.0));
         return it;
     }

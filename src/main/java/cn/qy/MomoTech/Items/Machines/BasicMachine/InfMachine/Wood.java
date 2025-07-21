@@ -121,7 +121,7 @@ public class Wood extends AbstractElectricGUI implements RecipeDisplayItem {
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(this.it.length * 2 + 1);
         for (Material t : this.it) {
-            it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&f支持的树苗"));
+            it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&fSupported saplings"));
             it.add(new ItemStack(t));
         }
         return it;

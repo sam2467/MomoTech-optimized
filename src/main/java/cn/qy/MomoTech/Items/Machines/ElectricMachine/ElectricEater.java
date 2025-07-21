@@ -64,6 +64,6 @@ public class ElectricEater extends AbstractElectricGUI {
 
     @Override
     public void add(BlockMenuPreset b) {
-        b.addItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&b正在吃电...", "&72,000,000,000 J/t"), ChestMenuUtils.getEmptyClickHandler());
+        b.addItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&bConsuming power...", "&72,000,000,000 J/t"), ChestMenuUtils.getEmptyClickHandler());
     }
 }

@@ -119,7 +119,7 @@ public class FinalIngotGenerator extends AbstractGUI implements RecipeDisplayIte
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(12);
-        it.add(new CustomItemStack(Material.BOOK, "&f自动化铸锭", "&7每 1tick 冶炼输入槽内所有的矿粉"));
+        it.add(new CustomItemStack(Material.BOOK, "&fAutomated ingot casting", "&7Smelts all ores in the input slot every tick"));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         return it;
     }

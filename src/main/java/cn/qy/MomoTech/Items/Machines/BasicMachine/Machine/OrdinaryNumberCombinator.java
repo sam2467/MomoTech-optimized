@@ -132,19 +132,19 @@ public class OrdinaryNumberCombinator extends AbstractGUI implements RecipeDispl
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(16);
-        it.add(new CustomItemStack(Material.BOOK, "&f输入运算式进行简单地四则运算"));
+        it.add(new CustomItemStack(Material.BOOK, "&fInput an expression to perform basic calculating operations"));
         it.add(MomotechItem.digital(0.0));
-        it.add(new CustomItemStack(Material.BOOK, "&f当输入的算式不合法的时候输出BUG - 运算式"));
+        it.add(new CustomItemStack(Material.BOOK, "&fOutputs BUG - Expression when the input expression is invalid"));
         it.add(MomotechItem.bug.clone());
-        it.add(new CustomItemStack(Material.BOOK, "&f当计算结果小数位数超过4位的时候输出BUG - 小数"));
+        it.add(new CustomItemStack(Material.BOOK, "&fOutputs BUG - Decimal when the result has more than 4 decimal places"));
         it.add(MomotechItem.bug1.clone());
-        it.add(new CustomItemStack(Material.BOOK, "&f当计算结果等于今日日期组成的数字的百分之一(比如202407.29)时输出BUG - 日期"));
+        it.add(new CustomItemStack(Material.BOOK, "&fOutputs BUG - Date when the result equals 1% of today's date represented as a number (e.g., 202407.29)"));
         it.add(MomotechItem.bug2.clone());
-        it.add(new CustomItemStack(Material.BOOK, "&f当计算结果超过16777216时输出BUG - 正过载"));
+        it.add(new CustomItemStack(Material.BOOK, "&fOutputs BUG - Positive Overflow when the result exceeds 16,777,216"));
         it.add(MomotechItem.bug3.clone());
-        it.add(new CustomItemStack(Material.BOOK, "&f当计算结果小于-16777216时输出BUG - 负过载"));
+        it.add(new CustomItemStack(Material.BOOK, "&fOutputs BUG - Negative Overflow when the result is less than -16,777,216"));
         it.add(MomotechItem.bug4.clone());
-        it.add(new CustomItemStack(Material.BOOK, "&f随机出现BUG - 系统, 其概率和计算结果, 在线人数以及TPS息息相关"));
+        it.add(new CustomItemStack(Material.BOOK, "&fBUG - System may appear randomly, with its probability closely tied to the calculation result, number of online players, and TPS."));
         it.add(MomotechItem.bug5.clone());
         return it;
     }

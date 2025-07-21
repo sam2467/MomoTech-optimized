@@ -76,7 +76,7 @@ public class IDPutter extends AbstractGUI implements RecipeDisplayItem {
             lore="null";
             e.printStackTrace();
         }
-        SlimefunItemStack it = new SlimefunItemStack("MOMOTECH_ID_CARD", new CustomItemStack(Material.PAPER, "&eID卡", lore, "&7在&cID集成器&7添加符号集成Slimefun ID", "&7合法ID可以在 &f制造台 &7中直接制作对应ID的粘液物品"));
+        SlimefunItemStack it = new SlimefunItemStack("MOMOTECH_ID_CARD", new CustomItemStack(Material.PAPER, "&eIDCard", lore, "&7Add symbol-integrated Slimefun ID in &cID Integrator", "&7Valid IDs can be used to directly craft the corresponding Slime item in the &fCrafting Station"));
         inv.consumeItem(7, 1);
         inv.toInventory().setItem(1, it.clone());
     }
@@ -85,7 +85,7 @@ public class IDPutter extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(8);
-        it.add(new CustomItemStack(Material.BOOK, "&f给ID卡添加符号", "&7请确保ID卡堆叠数量为1", "&7在左边插入ID卡, 右边插入符号"));
+        it.add(new CustomItemStack(Material.BOOK, "&fAdd symbol to ID Card", "&7Make sure the ID Card stack size is 1", "&7Insert the ID Card on the left and the symbol on the right"));
         it.add(new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
         it.add(MomotechItem.letter.clone());
         it.add(new SlimefunItemStack("MOMOTECH_ID_CARD", Items.MOMOTECH_ID_CARD));

@@ -109,7 +109,7 @@ public class MomotechItem {
     }
 
     public static SlimefunItemStack digital(double i) {
-        return new SlimefunItemStack("MOMOTECH_DIGITAL", Items.MOMOTECH_DIGITAL, "§f数字组件", "§f" + i);
+        return new SlimefunItemStack("MOMOTECH_DIGITAL", Items.MOMOTECH_DIGITAL, "§fDigital Component", "§f" + i);
     }
 
 }

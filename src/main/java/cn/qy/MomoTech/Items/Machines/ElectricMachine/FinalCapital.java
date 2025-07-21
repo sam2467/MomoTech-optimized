@@ -54,13 +54,13 @@ public class FinalCapital extends AbstractElectricGUI implements EnergyNetCompon
 
     @Override
     public void add(BlockMenuPreset b) {
-        b.addItem(4, new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&f已储存 NULL J"), ChestMenuUtils.getEmptyClickHandler());
+        b.addItem(4, new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&fStored NULL J"), ChestMenuUtils.getEmptyClickHandler());
     }
 
     @Override
     protected boolean findNextRecipe(BlockMenu inv) {
         if(inv.hasViewer()) {
-            inv.toInventory().setItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f已储存 " + this.getCharge(inv.getLocation()) + " J"));
+            inv.toInventory().setItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&fStored " + this.getCharge(inv.getLocation()) + " J"));
         }
         return false;
     }

@@ -78,7 +78,7 @@ public class PumpkinCarver extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(12);
-        it.add(new CustomItemStack(Material.BOOK, "&f自动化雕刻南瓜", "&7每 1tick 雕刻输入槽内所有的南瓜"));
+        it.add(new CustomItemStack(Material.BOOK, "&fAutomated pumpkin carving", "&7Carves all pumpkins in the input slot every tick"));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         it.add(new ItemStack(Material.PUMPKIN));
         it.add(new ItemStack(Material.CARVED_PUMPKIN));

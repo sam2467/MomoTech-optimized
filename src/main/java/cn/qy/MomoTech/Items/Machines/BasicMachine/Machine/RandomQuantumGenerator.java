@@ -138,7 +138,7 @@ public class RandomQuantumGenerator extends AbstractGUI implements RecipeDisplay
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> list = new ArrayList<>(10);
-        list.add(new CustomItemStack(Material.BOOK, "&f获取随机量子", "&7每tick在机器交互槽内随机出现, 并且清理交互槽内所有其他物品"));
+        list.add(new CustomItemStack(Material.BOOK, "&fObtain Random Quantum", "&7Appears randomly in the machine interaction slot every tick, and clears all other items in the interaction slot."));
         list.add(output.clone());
         return list;
     }

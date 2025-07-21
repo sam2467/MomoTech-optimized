@@ -16,7 +16,7 @@ public class SimpleOperation implements MachineOperation {
 
     @Override
     public void addProgress(int i) throws NotImplementedException {
-        throw new NotImplementedException("不要瞎即把加速!");
+        throw new NotImplementedException("Dont randomly accelerate.!");
     }
 
     @Override

@@ -80,7 +80,7 @@ public class MonsterItemGenerator extends AbstractElectricGUI implements  Recipe
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> item = new ArrayList<>();
         for (Material i : this.it) {
-            item.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&f可能的产物"));
+            item.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&f Possible items"));
             item.add(new ItemStack(i, 32));
         }
         return item;

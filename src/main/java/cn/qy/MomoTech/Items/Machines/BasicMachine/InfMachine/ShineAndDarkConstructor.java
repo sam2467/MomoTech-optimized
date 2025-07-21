@@ -118,9 +118,9 @@ public class ShineAndDarkConstructor extends AbstractElectricGUI implements Reci
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(18);
-        it.add(new CustomItemStack(Material.NETHERITE_PICKAXE, "&f需要输入下届合金镐", "&7机器高度<0时有1%概率出现"));
+        it.add(new CustomItemStack(Material.NETHERITE_PICKAXE, "&fRequires Netherite Pickaxe", "&71% chance to appear when machine y level is below 0"));
         it.add(MomotechItem.dark.clone());
-        it.add(new CustomItemStack(Material.NETHERITE_PICKAXE, "&f需要输入下届合金镐", "&7机器高度>256时有1%出现"));
+        it.add(new CustomItemStack(Material.NETHERITE_PICKAXE, "&fRequires Netherite Pickaxe", "&71% chance to appear when machine y level is above 256"));
         it.add(MomotechItem.shine.clone());
         return it;
     }

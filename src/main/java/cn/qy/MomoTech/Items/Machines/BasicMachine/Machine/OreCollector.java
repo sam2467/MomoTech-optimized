@@ -67,7 +67,7 @@ public class OreCollector extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(12);
-        it.add(new CustomItemStack(Material.BOOK, "&f自动生产叁重压缩矿物", "&7每 1tick 生成一次"));
+        it.add(new CustomItemStack(Material.BOOK, "&fAutomatically produces Triple Compressed Ore", "&7Generates once every 1 tick"));
         it.add(new SlimefunItemStack(MomotechItem.mineral[0][2], 4));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         it.add(new SlimefunItemStack(MomotechItem.mineral[1][2], 4));

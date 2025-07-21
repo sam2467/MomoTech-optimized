@@ -66,7 +66,7 @@ public class SaltGenerator extends AbstractGUI  implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(11);
-        it.add(new CustomItemStack(Material.BOOK, "&f每 tick 随机产出 1~64 数量的盐"));
+        it.add(new CustomItemStack(Material.BOOK, "&fProduces a random amount of salt (1~64) every tick"));
         it.add(SlimefunItems.SALT.clone());
         return it;
     }

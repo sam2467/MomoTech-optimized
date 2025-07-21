@@ -94,9 +94,9 @@ public class CreativeItemGenerator extends AbstractGUI implements RecipeDisplayI
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(8);
-        it.add(new CustomItemStack(Material.BOOK, "&f制作原始物质α", "&7要求:输入槽位每一行上的物品堆叠数量单调递减"));
+        it.add(new CustomItemStack(Material.BOOK, "&fCraft Primitive Matter α", "&7Requirement: Item stack counts in each row of the input slots must decrease singularly"));
         it.add(outCreative1.clone());
-        it.add(new CustomItemStack(Material.BOOK, "&f制作原始物质β", "&7要求:输入槽位每一行上的物品堆叠数量单调递增"));
+        it.add(new CustomItemStack(Material.BOOK, "&fCraft Primitive Matter β", "&7Requirement: Item stack counts in each row of the input slots must increase singularly"));
         it.add(outCreative2.clone());
         return it;
     }

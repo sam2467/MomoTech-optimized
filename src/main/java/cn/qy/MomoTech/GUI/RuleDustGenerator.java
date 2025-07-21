@@ -88,7 +88,7 @@ public class RuleDustGenerator extends AbstractElectricGUI implements  RecipeDis
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(18);
-        it.add(new CustomItemStack(Material.COBBLESTONE, "§f需要输入圆石", "§7每 1tick 消耗一组圆石生成一组产物"));
+        it.add(new CustomItemStack(Material.COBBLESTONE, "§fRequires input of cobblestones","§7 Consume an ammount of cobblestones every tick to generate an ammount itmes."));
         it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
         return it;
     }

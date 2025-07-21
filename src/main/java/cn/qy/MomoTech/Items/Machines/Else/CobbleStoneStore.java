@@ -74,7 +74,7 @@ public class CobbleStoneStore extends AbstractGUI implements RecipeDisplayItem {
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "&f类似于箱子的存在, 提供54格的存储空间"));
+        it.add(new CustomItemStack(Material.BOOK, "&fFunctions like a chest, providing 54 storage slots"));
         return it;
     }
 }

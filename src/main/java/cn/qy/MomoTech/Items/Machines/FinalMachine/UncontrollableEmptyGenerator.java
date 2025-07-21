@@ -73,7 +73,7 @@ public class UncontrollableEmptyGenerator extends AbstractGUI implements RecipeD
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(8);
-        it.add(new CustomItemStack(Material.BOOK, "&f每 1tick 生成一次", "&7一次生成48个不可控空"));
+        it.add(new CustomItemStack(Material.BOOK, "&fGenerates once every 1 tick", "&7Generates 48 Uncontrollable Void at a time"));
         it.add(OUTPUT);
         return it;
     }

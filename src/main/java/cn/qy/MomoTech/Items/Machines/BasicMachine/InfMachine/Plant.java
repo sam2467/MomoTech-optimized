@@ -205,7 +205,7 @@ public class Plant extends AbstractElectricGUI implements RecipeDisplayItem {
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(this.material.length * 2 + 1);
         for (Material t : this.material) {
-            it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&f支持的植物"));
+            it.add(new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&fSupported plants"));
             it.add(new ItemStack(t));
         }
         return it;

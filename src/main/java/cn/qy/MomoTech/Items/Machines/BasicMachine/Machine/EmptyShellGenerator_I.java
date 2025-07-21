@@ -67,7 +67,7 @@ public class EmptyShellGenerator_I extends AbstractGUI implements RecipeDisplayI
     @Override
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
-        it.add(new CustomItemStack(Material.BOOK, "&f每 1tick 生成一次", "&7每次64个空"));
+        it.add(new CustomItemStack(Material.BOOK, "&fGenerates once every tick", "&7Each time produces 64 Void"));
         it.add(new SlimefunItemStack(MomotechItem.empty_shell, 64));
         return it;
     }

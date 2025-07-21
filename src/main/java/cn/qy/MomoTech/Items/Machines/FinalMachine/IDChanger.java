@@ -71,7 +71,7 @@ public class IDChanger extends AbstractGUI implements RecipeDisplayItem {
             e.printStackTrace();
         }
         if (lore.equals("")) {
-            inv.pushItem(new CustomItemStack(Material.PAPER, "&7不好意思你的输入不合法"), 1);
+            inv.pushItem(new CustomItemStack(Material.PAPER, "&7Sorry, your input is invalid."), 1);
             return;
         }
         try {
@@ -80,12 +80,12 @@ public class IDChanger extends AbstractGUI implements RecipeDisplayItem {
                 if (!it.isDisabled()) {
                     inv.pushItem(it.getItem().clone(), getOutputSlots());
                 } else {
-                    inv.pushItem(new CustomItemStack(Material.PAPER, "&7这个物品已经被禁用了!"));
+                    inv.pushItem(new CustomItemStack(Material.PAPER, "&7This item has been disabled!"));
                 }
                 inv.consumeItem(1, 1);
             }
         } catch (NullPointerException e) {
-            inv.pushItem(new CustomItemStack(Material.PAPER, "&7不好意思你的输入不合法"), 1);
+            inv.pushItem(new CustomItemStack(Material.PAPER, "&7Sorry, your input is invalid."), 1);
         }
     }
 
@@ -94,7 +94,7 @@ public class IDChanger extends AbstractGUI implements RecipeDisplayItem {
     public List<ItemStack> getDisplayRecipes() {
         List<ItemStack> it = new ArrayList<>(4);
         it.add(new SlimefunItemStack("MOMOTECH_ID_CARD", Items.MOMOTECH_ID_CARD));
-        it.add(new CustomItemStack(Material.BOOK, "&f输入任意合法的ID卡以直接通过sfid制作物品"));
+        it.add(new CustomItemStack(Material.BOOK, "&fInsert any valid ID Card to directly craft items via SFID"));
         return it;
     }
 }

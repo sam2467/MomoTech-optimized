@@ -46,7 +46,7 @@ public final class Listeners implements Listener {
 
                     if (item!=null&&"MOMOTECH_PROTECT_ITEM".equals(item.getId())) {
                         if(item.isDisabled()){
-                            ((Player)e.getEntity()).sendMessage("§f§l该物品已经被禁用!");
+                            ((Player)e.getEntity()).sendMessage("§f§lThis item has been disabled!");
                         }else {
                             e.setDamage(0);
                             e.setCancelled(true);
@@ -63,7 +63,7 @@ public final class Listeners implements Listener {
                     if ( "MOMOTECH_DAMAGE_ITEM".equals(item.getId())) {
                         if (e.getEntity() instanceof Damageable) {
                             if(item.isDisabled()){
-                                ((Player)e.getDamager()).sendMessage("§f§l该物品已经被禁用!");
+                                ((Player)e.getDamager()).sendMessage("§f§lThis item has been disabled!");
                             }else{
                                 ((Damageable)e.getEntity()).setHealth(0.0);
                                 return;
@@ -71,7 +71,7 @@ public final class Listeners implements Listener {
                         }
                     }else if("MOMOTECH_STONE_SWORD".equals(item.getId())) {
                         if(item.isDisabled()){
-                            ((Player)e.getDamager()).sendMessage("§f§l该物品已经被禁用!");
+                            ((Player)e.getDamager()).sendMessage("§f§lThis item has been disabled!");
                         }
                         else{
                             e.setDamage(999999999999.99);

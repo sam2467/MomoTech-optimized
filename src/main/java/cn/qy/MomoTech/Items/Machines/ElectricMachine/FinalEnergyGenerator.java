@@ -65,7 +65,7 @@ public class FinalEnergyGenerator extends AbstractGUI implements EnergyNetProvid
     }
     @Override
     public void add(BlockMenuPreset blockMenuPreset) {
-        blockMenuPreset.addItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&f正在发电", "§8⇨ §e⚡ &7999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999^0 J/t"), ChestMenuUtils.getEmptyClickHandler());
+        blockMenuPreset.addItem(4, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, "&fGenerating power", "§8⇨ §e⚡ &7999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999^0 J/t"), ChestMenuUtils.getEmptyClickHandler());
     }
 
     @Override
