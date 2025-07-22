@@ -40,39 +40,39 @@ public class ItemRegisterTask {
         ItemStack[] energyQuantum = {quantum_, null, null, null, null, null, null, null, null};
         ItemStack[] digital__ = {
                 digital_constructor, increment, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§l数字组件", "§f可以在 §b数字构造器 §f中获取", "§f可以在 §b基础数字运算机 §f中获取", "§f可以在 §b递增器 §f中获取"), null, null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lDigital Component", "§fCan be obtained in §bDigital Constructor", "§fCan be obtained in §bBasic Digital Calculator", "§fCan be obtained in §bIncrementer"), null, null, null, null
         };
         ItemStack[] symbol = {
                 null, symbol_generator, null, null,
-                new CustomItemStack(Material.BOOK, "§e§l符号", "§f可以在 §b符号生成器 §f中获取"), null, null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lSymbol", "§fCan be obtained in §bSymbol Generator"), null, null, null, null
         };
         ItemStack[] emptyShell = {
                 null, null, null, null,
-                new CustomItemStack(Material.BOOK, "§e§l空", "§f在手持木镐挖方块时候随机掉落"), null, null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lEmpty Shell", "§fRandomly drops when mining blocks with a wooden pickaxe"), null, null, null, null
         };
         ItemStack[] bug = {
                 increment, null, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§lBUG - 运算式", "§7在 §f所有计算机器 §7中利用不合法运算式获取"), null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lBUG - Expression", "§7Obtained by using invalid expressions in all calculation machines"), null, null, null
         };
         ItemStack[] bug1 = {
                 increment, null, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§lBUG - 小数", "§7在 §f所有计算机器 §7中当小数位数超过 §f4 §7时产生"), null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lBUG - Decimal", "§7Occurs in all calculation machines when the decimal places exceed §f4"), null, null, null
         };
         ItemStack[] bug3 = {
                 increment, null, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§lBUG - 正过载", "§7在 §f所有计算机器 §7中计算数值大于等于 §f16777216 §7时产生"), null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lBUG - Positive Overload", "§7Occurs in all calculation machines when the value is greater than or equal to §f16777216"), null, null, null
         };
         ItemStack[] bug4 = {
                 increment, null, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§lBUG - 负过载", "§7在 §f所有计算机器 §7中计算数值小于等于 §f-16777216 §7时产生"), null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lBUG - Negative Overload", "§7Occurs in all calculation machines when the value is less than or equal to §f-16777216"), null, null, null
         };
         ItemStack[] bug2 = {
                 increment, null, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§lBUG - 日期", "§7在 §f所有计算机器 §7中计算结果等于 §f当前日期的百分之一(如202307.29) §时产生"), null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lBUG - Date", "§7Occurs in all calculation machines when the result equals §f1% of the current date (e.g., 202307.29)"), null, null, null
         };
         ItemStack[] bug5 = {
                 increment, null, ordinary_number_combinator, null,
-                new CustomItemStack(Material.BOOK, "§e§lBUG - 系统", "§7在 §f所有计算机器 §7中随机出现", "§7§l其概率与当前在线人数和tps息息相关"), null, null, null
+                new CustomItemStack(Material.BOOK, "§e§lBUG - System", "§7Randomly appears in all calculation machines", "§7§lThe probability is related to the current online players and TPS"), null, null, null
         };
         ItemStack[] none = {
                 empty_shell, empty_shell, empty_shell,
@@ -97,15 +97,15 @@ public class ItemRegisterTask {
         };
         ItemStack[] creative = {
                 null, creative_item_generator, null, null,
-                new CustomItemStack(Material.BOOK, "&e&l原始物质α/β", "&7在 &b原始物质制造器 &7中制作"), null, null, null, null
+                new CustomItemStack(Material.BOOK, "&e&lPrimal Matter α/β", "&7Crafted in &bPrimal Matter Generator"), null, null, null, null
         };
         ItemStack[] creative1 = {
                 null, quantity_constructor, null, null,
-                new CustomItemStack(Material.BOOK, "&e&l原始物质γ", "&7在 &b量化构造器 &7中输入槽填满45x64个不可控空后有50%概率生成"), null, null, uncontrollable_empty, null
+                new CustomItemStack(Material.BOOK, "&e&lPrimal Matter γ", "&7In &bQuantization Constructor&7, 50% chance when input slot is filled with 45x64 Uncontrollable Empty"), null, null, uncontrollable_empty, null
         };
         ItemStack[] bugCrystal = {
                 MomotechItem.bug, quantity_constructor, MomotechItem.bug1,
-                MomotechItem.bug2, new CustomItemStack(Material.BOOK, "&e&lBUG结晶", "&7在 &b量化构造器 &7中输入槽中同时存在且仅存在6种bug物质, 并且物品总数达到45x64后生成"), MomotechItem.bug3,
+                MomotechItem.bug2, new CustomItemStack(Material.BOOK, "&e&lBUG Crystal", "&7In &bQuantization Constructor&7, generated when exactly 6 types of bug matter are present and total items reach 45x64"), MomotechItem.bug3,
                 MomotechItem.bug4, null, MomotechItem.bug5
         };
         ItemStack[] full = {
@@ -125,12 +125,12 @@ public class ItemRegisterTask {
         };
         ItemStack[] quantityItem = {
                 null, quantity_constructor, null, null,
-                new CustomItemStack(Material.BOOK, "&e&l量化插件", "&7在 &b量化构造器 &7中输入槽存在45x64个任意物品后有0.05%概率生成"), null, null, null, null
+                new CustomItemStack(Material.BOOK, "&e&lQuantization Plugin", "&7In &bQuantization Constructor&7, 0.05% chance when input slot has 45x64 of any item"), null, null, null, null
 
         };
         ItemStack[] creative___ = {
                 null, quantity_constructor, null, null,
-                new CustomItemStack(Material.BOOK, "&e&l纯净的始源", "&7在 &b量化构造器 &7中输入槽中同时存在且仅存在原始物质α和β, 并且物品总数达到45x64后生成"), null, creative_item, null, creative_item_I
+                new CustomItemStack(Material.BOOK, "&e&lPure Origin", "&7In &bQuantization Constructor&7, generated when only Primal Matter α and β are present and total items reach 45x64"), null, creative_item, null, creative_item_I
         };
         ItemStack[] stoneSword = {
                 null, cobblestone_[49], null,
@@ -139,7 +139,7 @@ public class ItemRegisterTask {
         };
         ItemStack[] letter = {
                 null, letter_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l符号", "&7在 &b符号集成器 &7中随机出现"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lSymbol", "&7Randomly appears in &bSymbol Integrator"), null,
                 null, null, null
         };
         ItemStack[] IDCard = {
@@ -154,7 +154,7 @@ public class ItemRegisterTask {
         };
         ItemStack[] finalItem = {
                 null, quantity_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l乱码核心", "&7在 &b量化构造器 &7中输入槽存在45x64个终极之心后生成"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lGarbled Core", "&7In &bQuantization Constructor&7, generated when input slot has 45x64 Final Hearts"), null,
                 null, final_star, null};
         ItemStack[] exp = {
                 null, null, null,
@@ -198,17 +198,17 @@ public class ItemRegisterTask {
         };
         ItemStack[] quantum1 = {
                 null, quantum_, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l纠缠量子", "&7当你在y ≥ 520的坐标时使用 &b量子 &7会在对应坐标附近(半径16格)的y = -64的位置生成一个掉落物形式的 &b纠缠量子"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lEntangled Quantum", "&7When used at y ≥ 520, spawns a dropped &bEntangled Quantum&7 at y = -64 within 16 blocks of your coordinates"), null,
                 null, null, null
         };
         ItemStack[] shine = {
                 null, shine_and_dark_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l光", "&7在 &b光暗收集器 &7中制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lLight", "&7Crafted in &bLight and Dark Collector"), null,
                 null, null, null
         };
         ItemStack[] dark = {
                 null, shine_and_dark_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l暗", "&7在 &b光暗收集器 &7中制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lDark", "&7Crafted in &bLight and Dark Collector"), null,
                 null, null, null
         };
         ItemStack[] shine1 = {
@@ -433,7 +433,7 @@ public class ItemRegisterTask {
         };
         ItemStack[] randomQuantum = {
                 null, new SlimefunItemStack("MOMOTECH_RANDOM_QUANTUM_GENERATOR", Items.MOMOTECH_RANDOM_QUANTUM_GENERATOR), null,
-                null, new CustomItemStack(Material.BOOK, "&e&l随机量子", "&f在 &b随机量子发生器 &f中制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lRandom Quantum", "&fCrafted in &bRandom Quantum Generator"), null,
                 null, null, null
         };
         ItemStack[] effectDeleter = {
@@ -443,17 +443,17 @@ public class ItemRegisterTask {
         };
         ItemStack[] repeatingCommand = {
                 null, quantity_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l创世命令方块 - REPEATING", "&f在 &b量化构造器 &f中使用45x64个循环命令方块制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lGenesis Command Block - REPEATING", "&fCrafted in &bQuantization Constructor&f using 45x64 Repeating Command Blocks"), null,
                 null, new ItemStack(Material.REPEATING_COMMAND_BLOCK), null
         };
         ItemStack[] chainCommand = {
                 null, quantity_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l创世命令方块 - CHAIN", "&f在 &b量化构造器 &f中使用45x64个脉冲命令方块制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lGenesis Command Block - CHAIN", "&fCrafted in &bQuantization Constructor&f using 45x64 Chain Command Blocks"), null,
                 null, new ItemStack(Material.CHAIN_COMMAND_BLOCK), null
         };
         ItemStack[] commonCommand = {
                 null, quantity_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l创世命令方块 - COMMON", "&f在 &b量化构造器 &f中使用45x64个命令方块制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lGenesis Command Block - COMMON", "&fCrafted in &bQuantization Constructor&f using 45x64 Command Blocks"), null,
                 null, new ItemStack(Material.COMMAND_BLOCK), null
         };
         ItemStack[] ruleItem = {
@@ -474,7 +474,7 @@ public class ItemRegisterTask {
         };
         ItemStack[] finalRule = {
                 null, quantity_constructor, null,
-                null, new CustomItemStack(Material.BOOK, "&e&l概念物", "&f在 &b量化构造器 &f中使用45x64个Resource制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lConcept Item", "&fCrafted in &bQuantization Constructor&f using 45x64 Resource"), null,
                 null, new SlimefunItemStack("MOMOTECH_RESOURCE", Items.MOMOTECH_RESOURCE), null
         };
         ItemStack[] throw_ = {
@@ -499,7 +499,7 @@ public class ItemRegisterTask {
         };
         ItemStack[] forever = {
                 null, new SlimefunItemStack("MOMOTECH_ETERNAL_MINING_MACHINE", Items.MOMOTECH_ETERNAL_MINING_MACHINE), null,
-                null, new CustomItemStack(Material.BOOK, "&e&l永恒粒子", "&f在 &b永恒矿机 &f中制作"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lEternal Particle", "&fCrafted in &bEternal Mining Machine"), null,
                 null, null, null
         };
         ItemStack[] forever_ = {
@@ -508,12 +508,12 @@ public class ItemRegisterTask {
         };
         ItemStack[] ZYGOTE = {
                 null, new SlimefunItemStack("MOMOTECH_PARTICLE_CONSTRUCTOR", Items.MOMOTECH_PARTICLE_CONSTRUCTOR), null,
-                null, new CustomItemStack(Material.BOOK, "&e&l合子", "&f在 &b质合子电容 &f中当电力为合数的时候生成"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lZygote", "&fGenerated in &bZygote Capacitor&f when power is a non-prime number"), null,
                 null, null, null
         };
         ItemStack[] PROTON = {
                 null, new SlimefunItemStack("MOMOTECH_PARTICLE_CONSTRUCTOR", Items.MOMOTECH_PARTICLE_CONSTRUCTOR), null,
-                null, new CustomItemStack(Material.BOOK, "&e&l质子", "&f在 &b质合子电容 &f中当电力为合数的时候生成"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lProton", "&fGenerated in &bZygote Capacitor&f when power is a non-prime number"), null,
                 null, null, null
         };
         ItemStack[] PROTON_INGOT = {
@@ -609,7 +609,7 @@ public class ItemRegisterTask {
                 Random r = new Random();
                 p.setLevel(0);
                 w.dropItem(new Location(w, l.getX() + (r.nextInt() % 16), -64, l.getZ() + (r.nextInt() % 16)), quantum1_);
-                p.sendRawMessage("你触发了某些东西, 总之是些不太好的东西...");
+                p.sendRawMessage("You triggered something... and it's probably not good...");
             }
             p.setHealth(0.0);
             p.setHealthScale(0.001);
@@ -621,7 +621,7 @@ public class ItemRegisterTask {
         });
         SfUtils.RegisterItem("MOMOTECH_ENERGY_QUANTUM", Items.MOMOTECH_ENERGY_QUANTUM, Items.MOMOTECH_ITEM, rc2, energyQuantum);
         SfUtils.RegisterItem("MOMOTECH_RANDOM_QUANTUM", Items.MOMOTECH_RANDOM_QUANTUM, Items.MOMOTECH_ITEM, RecipeType.NULL, randomQuantum, (ItemUseHandler) playerRightClickEvent -> {
-            playerRightClickEvent.getPlayer().sendRawMessage("寄");
+            playerRightClickEvent.getPlayer().sendRawMessage("Dead.");
             playerRightClickEvent.getPlayer().setHealth(0.0);
         });
         SfUtils.RegisterItem("MOMOTECH_CLEAR", Items.MOMOTECH_CLEAR, Items.MOMOTECH_TOOL, RecipeType.ENHANCED_CRAFTING_TABLE, clear, (ItemUseHandler) playerRightClickEvent -> {
@@ -647,7 +647,7 @@ public class ItemRegisterTask {
         });
         SfUtils.RegisterItem("MOMOTECH_EFFECT_DELETER", Items.MOMOTECH_EFFECT_DELETER, Items.MOMOTECH_TOOL, RecipeType.ANCIENT_ALTAR, effectDeleter, (ItemUseHandler) playerRightClickEvent -> {
             playerRightClickEvent.getPlayer().clearActivePotionEffects();
-            playerRightClickEvent.getPlayer().sendRawMessage("耶!");
+            playerRightClickEvent.getPlayer().sendRawMessage("Yay!");
         });
         SfUtils.RegisterItem("MOMOTECH_QUANTUM1", Items.MOMOTECH_QUANTUM1, Items.MOMOTECH_ITEM, RecipeType.NULL, quantum1, (ItemUseHandler) playerRightClickEvent -> {
             Player p = playerRightClickEvent.getPlayer();
@@ -659,7 +659,7 @@ public class ItemRegisterTask {
             p.setWalkSpeed(1.0F);
             w.spawnParticle(Particle.FALLING_HONEY, l, 30, 3, 3, 3);
             p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 60, 1, true, false));
-            p.sendRawMessage("你触发了某些东西...");
+            p.sendRawMessage("You triggered something...");
         });
         SfUtils.RegisterItem("MOMOTECH_FINAL_RULE", Items.MOMOTECH_FINAL_RULE, Items.MOMOTECH_ITEM, RecipeType.NULL, finalRule);
         SfUtils.RegisterItem("MOMOTECH_ENERGY_INGOT", Items.MOMOTECH_ENERGY_INGOT, Items.MOMOTECH_ITEM, RecipeType.ENHANCED_CRAFTING_TABLE, energyIngot);
