@@ -198,7 +198,7 @@ public class ItemRegisterTask {
         };
         ItemStack[] quantum1 = {
                 null, quantum_, null,
-                null, new CustomItemStack(Material.BOOK, "&e&lEntangled Quantum", "&7When used at y ≥ 520, spawns a dropped &bEntangled Quantum&7 at y = -64 within 16 blocks of your coordinates"), null,
+                null, new CustomItemStack(Material.BOOK, "&e&lEntangled Quantum", "&7When used at y >= 520, spawns a dropped &bEntangled Quantum&7 at y = -64 within 16 blocks of your coordinates"), null,
                 null, null, null
         };
         ItemStack[] shine = {

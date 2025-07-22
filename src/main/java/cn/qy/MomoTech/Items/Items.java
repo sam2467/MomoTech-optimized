@@ -250,7 +250,7 @@ public class Items {
     public static final ItemStack MOMOTECH_LOOTER = new CustomItemStack(Material.GLASS_PANE, "&7&lSealed - Evoker", "&8Right-click to open");
     public static final ItemStack MOMOTECH_FOREVER = new CustomItemStack(Material.BLUE_DYE, c("§#b9f24eEter§#b0f265nal §#a7f27cPar§#9ef293ticle"), "&7Forever...");
     public static final ItemStack MOMOTECH_FOREVER_ = new CustomItemStack(Material.DIAMOND_BLOCK, c("§#95f2aaEter§#8cf2c1nal §#83f2d8Sin§#81e9e2gularity"), "&7Forever...");
-    public static final ItemStack MOMOTECH_ETERNAL_MINING_MACHINE = new CustomItemStack(Material.GRAY_CONCRETE_POWDER, c("§#83dbe4Eter§#86cce6nal §#88bee8Min§#8aafea er"), "&7Mining slowly...");
+    public static final ItemStack MOMOTECH_ETERNAL_MINING_MACHINE = new CustomItemStack(Material.GRAY_CONCRETE_POWDER, c("§#83dbe4Eter§#86cce6nal §#88bee8Min§#8aafeaer"), "&7Mining slowly...");
     public static final ItemStack MOMOTECH_DIGIT_GENERATOR = new CustomItemStack(Material.BLACK_STAINED_GLASS, c("§#8ca1ecDig§#8e92eeital §#808decPow§#7288e9er §#6483e6Cap§#577ee4aci§#4979e1tor"), "&7Can store §8⇨ §e⚡ &716,777,216 J");
     public static final ItemStack MOMOTECH_ID_DISPLAY = new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&7&lItem ID Display");
     public static final ItemStack MOMOTECH_PROTON = new CustomItemStack(Material.TURTLE_EGG, c("§#3b74dfPro§#376fddton"));
